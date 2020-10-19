@@ -31,9 +31,16 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
+<<<<<<< HEAD
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/database.js"></script>
     <script src="/assets/js/connexion.js" ></script>
+=======
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/connexion.js" ></script>
+>>>>>>> e5e0b3cdaea7c4f06144631b6309f9c2a5210d6e
 </body>
 </html>
