@@ -2,11 +2,31 @@
 
 namespace App\Controller;
 
+use App\Entity\Employee;
+use App\Entity\Project;
+use App\Repository\ContactRepository;
+use App\Repository\CustomerRepository;
+use App\Repository\EmployeeRepository;
+use App\Repository\ProjectRepository;
+
 class Controller
 {
     public function homeController()
     {
         ob_start();
+        $employeeRepository = new EmployeeRepository();
+        $projectRepository = new ProjectRepository();
+        $customerRepository = new CustomerRepository();
+        $contactRepository = new ContactRepository();
+
+        $projet = $projectRepository->find(1);
+        $employee = $employeeRepository->find(214);
+        $projects = $projectRepository->findByEmployee($employee);
+        //$projects = $projectRepository->findByEmployee($employee);
+        //$contacts = $contactRepository->findAllContact($customer);
+        //$customers = $customerRepository->findByContact($contact);
+        //$customers = $customerRepository->findByProject($projet);
+        dd($employee);
         include '../templates/index.php';
         ob_end_flush();
     }

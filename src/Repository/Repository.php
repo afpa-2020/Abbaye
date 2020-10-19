@@ -21,7 +21,7 @@ abstract class Repository {
     {
         $query = $this->pdo->prepare("SELECT * FROM $this->table WHERE id = ?");
         $query->execute([$id]);
-        $query->setFetchMode(PDO::FETCH_CLASS, $this->classname);
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
         return $query->fetch();
     }
 
