@@ -2,6 +2,8 @@
 
 namespace App\Repository;
 
+use App\Entity\Customer;
+
 class CustomerRepository extends Repository 
 {
     public function __construct()
@@ -9,11 +11,11 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-    public function findAllContact(Contact $contact):
+    public function findAllContact(Customer $customer)
     {
-        $idContact = $contact->getId();
-        $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE contact.id = ?");
+        $idContact = $customer->getId();
+        $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
         $query->execute([$idContact]);
-        return $query->fetchAll();
+        return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Contact');
     }
 }
