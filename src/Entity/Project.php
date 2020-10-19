@@ -52,7 +52,7 @@ class Project
         return $this;
     }
 
-    public function getstarted()
+    public function getStarted()
     {
         return $this->started;
     }
