@@ -16,16 +16,10 @@ require_once '../templates/skeleton/header.php' ?>
         <input type="password" class="form-control" id="password">
     </div>
     <div class="form-group">
-        <label for="password">Confirmer le mot de passe
-
-        </label>
+        <label for="password">Confirmer le mot de passe</label>
         <input type="password" class="form-control" id="password">
     </div>
-
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
-
-
-
 <?php
 require_once '../templates/skeleton/footer.php' ?>
