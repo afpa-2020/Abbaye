@@ -1,8 +1,8 @@
 <?php
 
 require_once '../vendor/autoload.php';
-use App\Entity\Document;
+use App\Controller\Controller;
 
-$test = new Document;
+$control = new Controller;
 
-dump($test);
+$control->homeController();
