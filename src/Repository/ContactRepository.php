@@ -7,6 +7,4 @@ class ContactRepository extends Repository
     {
         parent::__construct("Contact");
     }
-
-    
 }
