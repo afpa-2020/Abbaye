@@ -8,4 +8,11 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
+    public function findAllContact(int $id)
+    {
+        $idContact = 1;
+        $query = $this->pdo->prepare(" ");
+        $query->execute([1]);
+        return $query->fetchAll();
+    }
 }
