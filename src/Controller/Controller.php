@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Entity\Project;
+use App\Repository\ContactRepository;
+use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
 
@@ -14,6 +16,8 @@ class Controller
         ob_start();
         $employeeRepository = new EmployeeRepository();
         $projectRepository = new ProjectRepository();
+        $customerRepository = new CustomerRepository();
+        $contactRepository = new ContactRepository();
 
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(214);
