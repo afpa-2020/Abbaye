@@ -1,5 +1,17 @@
 {
-    "require-dev": {
+    "name": "maxime/abbaye",
+    "authors": [
+        {
+            "name": "MaksRus",
+            "email": "animdessin@hotmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "App\\" : "src/"
+        }
+    },
+    "require": {
         "symfony/var-dumper": "^5.1"
     }
 }

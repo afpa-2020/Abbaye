@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Entity;
+
 class Contact
 {
     private int $id;

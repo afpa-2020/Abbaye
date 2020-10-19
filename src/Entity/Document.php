@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Entity;
+
 class Document
 {
     private int $id;
