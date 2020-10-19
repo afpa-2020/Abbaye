@@ -1,3 +1,55 @@
+<<<<<<< HEAD
+<?php
+
+echo 'content';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+echo 'content<br />';
+
+=======
 <?php require_once 'skeleton/header.php' ?>
 
 <div class="col-md-3">
@@ -19,3 +71,4 @@
 
 
 <?php require_once 'skeleton/footer.php' ?>
+>>>>>>> e5e0b3cdaea7c4f06144631b6309f9c2a5210d6e
