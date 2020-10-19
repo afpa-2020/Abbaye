@@ -21,9 +21,7 @@ class Controller
 
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(214);
-
         $projects = $projectRepository->findByEmployee($employee);
-
         dd($employee);
         include '../templates/index.php';
         ob_end_flush();
