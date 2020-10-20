@@ -11,7 +11,6 @@ class UserRepository extends Repository
         parent::__construct("User");
     }
 
-<<<<<<< HEAD
     public function findByEmployee(Employee $employee)
     {
         $idEmployee = $employee->getId();
@@ -19,18 +18,5 @@ class UserRepository extends Repository
         $query->execute([$idEmployee]);
         return $query->fetch();
     }
-
-    public function findAllUser()
-    {
-        $query = $this->pdo->prepare("SELECT employee.* FROM employee");
-        $query->execute();
-        return $query->fetchAll();
-    }
     
-=======
-    /*public function findByEmployee(Employee $employee)
-    {
-
-    }*/
->>>>>>> 94c14782a589f3bf9499944423aae7c0ed953357
 }

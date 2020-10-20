@@ -41,6 +41,26 @@ abstract class Controller
         ob_end_flush();
     }
 
+    public static function registrationController()
+    {
+        session_start();
+        if (!empty($_POST)){
+            $signup = new RegisterForm($_POST);
+            $signup->register();
+        }
+        header('Location:/');
+    }
+
+    public static function verificationController()
+    {
+        session_start();
+        if (!empty($_POST)){
+            $signin = new LoginForm($_POST);
+            $signin->authentification();
+        }
+        header('Location:/');
+    }
+
     public static function error404Controller()
     {
         ob_start();
@@ -54,12 +74,4 @@ abstract class Controller
         ob_end_flush();
     }
 
-    public static function registrationController()
-    {
-        session_start();
-
-        $newRegistration = new RegisterForm($_POST);
-
-        header("Location:/");
-    }
 }
