@@ -12,7 +12,9 @@ class ContactRepository extends Repository
     {
         parent::__construct("Contact");
     }
-
+/**
+ * retourne tous les contacts d'un customer
+ */
     public function findAllContact(Customer $customer)
     {
         $idCustomer = $customer->getId();
@@ -20,7 +22,9 @@ class ContactRepository extends Repository
         $query->execute([$idCustomer]);
         return $query->fetchAll(PDO::FETCH_CLASS, 'App\Entity\Contact');
     }
-
+/**
+ * retourne un customer rattaché à un contact
+ */
     public function findCustomer(Contact $contact)
     {
         $idContact = $contact->getId();
