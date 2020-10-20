@@ -1,6 +1,6 @@
 <?php require_once 'skeleton/header.php' ?>
 
-<div class="container mt-4">
+<div class="container text-white mt-4">
     <div class="row">
       <div class="col-md-4">
         <div class="row mt-5 bg-info justify-content-md-center">
@@ -180,9 +180,9 @@
         <div class="row">
           <div class="col-lg-6">
             <form action="#">
-              <table class="table table-sm">
+              <table class="table text-white table-sm">
                 <tbody>
-                  <tr>
+                  <tr class="text-white">
                     <th scope="row">Adresse</th>
                     <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
                         name="adresse" id="clientAdresse" disabled> </td>
@@ -249,16 +249,16 @@
                 type="button">Enregistrer</button>
             </form>
           </div>
-          <div class="col-md-6">
-            <div class="row">
-              <table class="table col-md-6">
+          <div class="col-md-6 ">
+            <div class="row ">
+              <table class="table text-white col-md-6">
                 <tbody>
                   <tr>
                     <th scope="row">ID Client</th>
                     <td id="clientId"></td>
                   </tr>
               </table>
-              <table class="table col-md-6">
+              <table class="table text-white col-md-6">
                 <tbody>
                   <tr>
                     <th scope="row">Type</th>
@@ -270,7 +270,7 @@
             <h4>Nos Contacts avec ce Client</h4>
             <table class="table table-sm table-striped">
               <caption class="text-info"><a href="abi_contacts.html">Voir tous les contacts</a></caption>
-              <thead>
+              <thead class="text-white">
                 <tr>
                   <th scope="col">Nom</th>
                   <th scope="col">Prénom</th>
