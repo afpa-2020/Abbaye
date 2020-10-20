@@ -9,19 +9,21 @@ use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
+use App\Forms\LoginForm;
 use App\Repository\ContactRepository;
+use App\Repository\UserRepository;
 
 abstract class Controller
 {
     public static function homeController()
     {
         ob_start();
-        $customerRepository = new CustomerRepository();
-        $documentRepository = new DocumentRepository();
-        $doc = $documentRepository->find(1);
+        $employeeRepository = new EmployeeRepository();
+        $userRepository = new UserRepository();
+        $user = $userRepository->find(9);
 
-        $customer = $customerRepository->findByDocument($doc);
-        dd($customer);
+        $employee = $employeeRepository->findByUser($user);
+        dd($employee);
 
         include '../templates/index.php';
         ob_end_flush();

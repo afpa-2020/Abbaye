@@ -9,7 +9,7 @@ class Customer
     private string $address;
     private string $zip;
     private string $city;
-    private string $turnover;
+    private int $turnover;
     private string $phone;
     private string $type;
     private string $nature;
