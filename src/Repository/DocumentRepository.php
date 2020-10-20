@@ -9,4 +9,13 @@ class DocumentRepository extends Repository {
         parent::__construct("Document");
     }
 
+    /*findByContact (Contact $contact){
+
+    }
+
+    findByCustomer (Customer $customer){
+        ATTENTION plsuieurs contacts --> plusieurs documents
+        ->findByContact($customer);
+    }
+*/
 }
