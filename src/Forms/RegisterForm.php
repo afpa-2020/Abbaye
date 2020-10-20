@@ -15,10 +15,10 @@ class RegisterForm
   //constr ($post)
   public function __construct($post)
   {
-    $this->identifiant = $post['identifiant'];
-    $this->email = $post['email'];
-    $this->password = $post['password'];
-    $this->confirmPassword = $post['confirmPassword'];
+      $this->identifiant = $post['identifiant'];
+      $this->email = $post['email'];
+      $this->password = $post['password'];
+      $this->confirmPassword = $post['confirmPassword']; 
   }
 
   public function register()
