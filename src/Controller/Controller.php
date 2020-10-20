@@ -8,20 +8,21 @@ use App\Repository\ContactRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
+use App\Forms\RegisterForm;
 
 abstract class Controller
 {
     public static function homeController()
     {
         ob_start();
-        $employeeRepository = new EmployeeRepository();
+        /*$employeeRepository = new EmployeeRepository();
         $projectRepository = new ProjectRepository();
         $customerRepository = new CustomerRepository();
         $contactRepository = new ContactRepository();
 
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(214);
-        $projects = $projectRepository->findByEmployee($employee);
+        $projects = $projectRepository->findByEmployee($employee);*/
         
         include '../templates/index.php';
         ob_end_flush();
@@ -52,5 +53,14 @@ abstract class Controller
         ob_start();
         include '../templates/customers.php';
         ob_end_flush();
+    }
+
+    public static function registrationController()
+    {
+        session_start();
+
+        $newRegistration = new RegisterForm($_POST);
+
+        header("Location:/");
     }
 }
