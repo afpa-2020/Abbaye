@@ -28,7 +28,7 @@ abstract class Repository {
     public function findAll()
     {
         $query = $this->pdo->query("SELECT * FROM $this->table");
-        return $query->fetchAll(PDO::FETCH_CLASS, $this->classname);
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 
     public function findOneBy(array $criteria, array $orderBy = null)
@@ -38,7 +38,7 @@ abstract class Repository {
         if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
         $query = $this->pdo->prepare("SELECT * FROM $this->table $criteria $orderBy");
         $query->execute($params);
-        $query->setFetchMode(PDO::FETCH_CLASS, $this->classname);
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
         return $query->fetch();
     }
 
@@ -55,6 +55,6 @@ abstract class Repository {
         if ($offset) $offset = " OFFSET $offset";
         $query = $this->pdo->prepare("SELECT * FROM $this->table $criteria $orderBy $limit $offset");
         $query->execute($params);
-        return $query->fetchAll(PDO::FETCH_CLASS, $this->classname);
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 }

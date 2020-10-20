@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Customer;
 use App\Entity\Project;
 use App\Entity\Contact;
+use App\Entity\Document;
 use \PDO;
 
 
@@ -16,6 +17,14 @@ class CustomerRepository extends Repository
     }
 
 
+    public function findAllContact(Customer $customer)
+    {
+        $idContact = $customer->getId();
+        $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
+        $query->execute([$idContact]);
+        return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Contact');
+    }
+    
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
@@ -32,5 +41,13 @@ class CustomerRepository extends Repository
         $query->execute([$idContact]);
         $query->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Customer');
         return $query->fetch();
+    }
+
+    public function findByDocument(Document $document)
+    {
+        $contactRepository = new ContactRepository();
+        $contact = $contactRepository->findByDocument($document);
+
+        return $this->findByContact($contact);
     }
 }

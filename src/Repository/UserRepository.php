@@ -11,6 +11,7 @@ class UserRepository extends Repository
         parent::__construct("User");
     }
 
+<<<<<<< HEAD
     public function findByEmployee(Employee $employee)
     {
         $idEmployee = $employee->getId();
@@ -26,4 +27,10 @@ class UserRepository extends Repository
         return $query->fetchAll();
     }
     
+=======
+    /*public function findByEmployee(Employee $employee)
+    {
+
+    }*/
+>>>>>>> 94c14782a589f3bf9499944423aae7c0ed953357
 }

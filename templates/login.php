@@ -1,7 +1,7 @@
 <?php require_once 'skeleton/header.php' ?>
 
 <div class="col-md-3">
-    <form method="GET" class="login">
+    <form method="POST" action="register" class="login">
         <div class="form-group-sm mt-3">
             <label for="inputEmail" class="sr-only"></label>
             <input type="email" class="form-control" id="inputEmail" placeholder="Adresse email" value="" required autofocus>

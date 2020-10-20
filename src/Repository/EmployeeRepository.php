@@ -20,4 +20,10 @@ class EmployeeRepository extends Repository {
         return $query->fetchAll(\PDO::FETCH_CLASS, 'App\Entity\Employee');
     }
 
+    /*public function findByUser(User $user)
+    {
+
+    }
+    */
+
 }

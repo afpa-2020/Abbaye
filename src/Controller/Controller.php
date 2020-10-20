@@ -9,9 +9,9 @@ use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
 
-class Controller
+abstract class Controller
 {
-    public function homeController()
+    public static function homeController()
     {
         ob_start();
         $employeeRepository = new EmployeeRepository();
@@ -22,33 +22,35 @@ class Controller
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(214);
         $projects = $projectRepository->findByEmployee($employee);
-        //$projects = $projectRepository->findByEmployee($employee);
-        //$contacts = $contactRepository->findAllContact($customer);
-        //$customers = $customerRepository->findByContact($contact);
-        //$customers = $customerRepository->findByProject($projet);
-        dd($employee);
+        
         include '../templates/index.php';
         ob_end_flush();
     }
 
-    public function loginController()
+    public static function loginController()
     {
         ob_start();
         include '../templates/login.php';
         ob_end_flush();
     }
 
-    public function signupController()
+    public static function signupController()
     {
         ob_start();
         include '../templates/signup.php';
         ob_end_flush();
     }
 
-    public function error404Controller()
+    public static function error404Controller()
     {
         ob_start();
         include '../templates/404.php';
+        ob_end_flush();
+    }
+    public static function customersController()
+    {
+        ob_start();
+        include '../templates/customers.php';
         ob_end_flush();
     }
 }
