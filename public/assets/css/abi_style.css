@@ -1,7 +1,10 @@
 body{
-    background-color : #EEEEEE;
+    background-color : #474749;
 }
 
+footer{
+    background-color: #0c0c0d;
+}
 .login input{
     width : 80%!important ;
     margin-left : auto;
