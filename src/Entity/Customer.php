@@ -43,7 +43,7 @@ class Customer
         return $this->address;
     }
 
-    public function setAdress($address)
+    public function setAddress($address)
     {
         $this->adress = $address;
         return $this;

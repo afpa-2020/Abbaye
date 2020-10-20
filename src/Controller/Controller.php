@@ -22,10 +22,13 @@ abstract class Controller
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(217);
         $projects = $projectRepository->findByEmployee($employee);
+<<<<<<< HEAD
 
         dump($projet);
         dump($employee);
         dump($projects);
+=======
+>>>>>>> 84f78aa14c5d8d3d2e7ba5823f8410a61a4395b3
         
         include '../templates/index.php';
         ob_end_flush();
