@@ -6,6 +6,7 @@ use App\Entity\Customer;
 use App\Entity\Project;
 use App\Entity\Contact;
 use App\Entity\Document;
+use App\Repository\ContactRepository;
 use \PDO;
 
 
@@ -16,7 +17,6 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-
     public function findAllContact(Customer $customer)
     {
         $idContact = $customer->getId();
@@ -24,7 +24,7 @@ class CustomerRepository extends Repository
         $query->execute([$idContact]);
         return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Contact');
     }
-    
+
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();

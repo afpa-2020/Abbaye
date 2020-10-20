@@ -4,14 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Entity\Project;
-use App\Forms\RegisterForm;
-use App\Forms\LoginForm;
-use App\Repository\ContactRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
-
-
+use App\Repository\DocumentRepository;
+use App\Forms\RegisterForm;
+use App\Forms\LoginForm;
+use App\Repository\ContactRepository;
+use App\Repository\UserRepository;
 
 abstract class Controller
 {
@@ -19,14 +19,12 @@ abstract class Controller
     {
         ob_start();
         $employeeRepository = new EmployeeRepository();
-        $projectRepository = new ProjectRepository();
-        $customerRepository = new CustomerRepository();
-        $contactRepository = new ContactRepository();
+        $userRepository = new UserRepository();
+        $user = $userRepository->find(9);
 
-        $projet = $projectRepository->find(1);
-        $employee = $employeeRepository->find(217);
-        $projects = $projectRepository->findByEmployee($employee);
-        
+        $employee = $employeeRepository->findByUser($user);
+        dd($employee);
+
         include '../templates/index.php';
         ob_end_flush();
     }
