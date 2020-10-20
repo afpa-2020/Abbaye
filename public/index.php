@@ -11,7 +11,7 @@ if($uri ==="Controller"){
 
     Controller::homeController();
 
-} else if (method_exists('Controller', $uri)) {
+} else if (method_exists('App\Controller\Controller', $uri)) {
 
     Controller::$uri();
 
