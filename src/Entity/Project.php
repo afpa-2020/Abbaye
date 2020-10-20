@@ -10,6 +10,12 @@ class Project
     private string $type;
     private $started;
 
+
+    public function __construct()
+    {
+        $this->started = new \DateTime($this->started);
+    }
+    
     public function getId()
     {
         return $this->id;
