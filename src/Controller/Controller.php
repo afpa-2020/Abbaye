@@ -4,17 +4,28 @@ namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Entity\Project;
+use App\Forms\RegisterForm;
+use App\Forms\LoginForm;
 use App\Repository\ContactRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
-use App\Forms\RegisterForm;
+
+
 
 abstract class Controller
 {
     public static function homeController()
     {
         ob_start();
+        $employeeRepository = new EmployeeRepository();
+        $projectRepository = new ProjectRepository();
+        $customerRepository = new CustomerRepository();
+        $contactRepository = new ContactRepository();
+
+        $projet = $projectRepository->find(1);
+        $employee = $employeeRepository->find(217);
+        $projects = $projectRepository->findByEmployee($employee);
         
         include '../templates/index.php';
         ob_end_flush();
@@ -34,6 +45,26 @@ abstract class Controller
         ob_end_flush();
     }
 
+    public static function registrationController()
+    {
+        session_start();
+        if (!empty($_POST)){
+            $signup = new RegisterForm($_POST);
+            $signup->register();
+        }
+        header('Location:/');
+    }
+
+    public static function verificationController()
+    {
+        session_start();
+        if (!empty($_POST)){
+            $signin = new LoginForm($_POST);
+            $signin->authentification();
+        }
+        header('Location:/');
+    }
+
     public static function error404Controller()
     {
         ob_start();
@@ -47,12 +78,4 @@ abstract class Controller
         ob_end_flush();
     }
 
-    public static function registrationController()
-    {
-        session_start();
-
-        $newRegistration = new RegisterForm($_POST);
-
-        header("Location:/");
-    }
 }
