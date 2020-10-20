@@ -1,3 +1,4 @@
+<?php require_once 'skeleton/header.php' ?>
 
 <div class="container text-white">
         <div class="row">
@@ -33,3 +34,5 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio temporibus mollitia distinctio quam ea ut aspernatur doloribus a aliquam officia ullam repellendus dolore molestias enim, odit aperiam tenetur. Soluta, officiis!
         </p>
     </div>
+
+    <?php require_once 'skeleton/footer.php'  ?>

@@ -2,7 +2,6 @@
 $_SESSION = "TRUC";
 //dump($_SESSION);
 ?>
-
 <?php if(!$_SESSION) : ?>
 
     <!DOCTYPE html>
