@@ -22,15 +22,7 @@ abstract class Controller
         $projet = $projectRepository->find(1);
         $employee = $employeeRepository->find(214);
         $projects = $projectRepository->findByEmployee($employee);
-<<<<<<< HEAD
         
-=======
-        //$projects = $projectRepository->findByEmployee($employee);
-        //$contacts = $contactRepository->findAllContact($customer);
-        //$customers = $customerRepository->findByContact($contact);
-        //$customers = $customerRepository->findByProject($projet);
-        dd($employee);
->>>>>>> 38099a9904e2f71d283ac552c86cfa4e35752423
         include '../templates/index.php';
         ob_end_flush();
     }
