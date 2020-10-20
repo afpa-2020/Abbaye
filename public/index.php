@@ -1,4 +1,8 @@
 <?php
+/**
+ * Viewer by Controller
+ * @author Maxime
+ */
 
 include_once '../vendor/autoload.php';
 use App\Controller\Controller;
@@ -20,5 +24,3 @@ if($uri ==="Controller"){
     Controller::error404Controller();
 
 }
-
-dump($uri);

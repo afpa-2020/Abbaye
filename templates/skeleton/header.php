@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php  session_start();
+$_SESSION = "TRUC";
+//dump($_SESSION);
+?>
+
+<?php if(!$_SESSION) : ?>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,20 +15,61 @@
     <link rel="stylesheet" href="assets/css/abi_style.css">
     <link rel="shortcut icon" href="assets/image/favicon.ico">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
-    <script src="assets/js/bootstrap.bundle.min.js" defer></script>
-    <script src="assets/js/bootstrap.min.js"defer ></script>
-    <script src="assets/js/database.js" defer></script>
-    <script src="assets/js/connexion.js" defer></script>
-
     <title>Active Bretagne Informatique</title>
 </head>
 <body>
-    <div class="container">
-        <header class="row mt-1 bg-info">
+    <nav class="vipNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
+        <a href="abi_accueilvip.html">
+            <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link" href="abi_clients.html">Nos Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="abi_projets.html">Nos Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="abi_collaborateurs.html">Nos Collaborateurs</a>
+                </li>
+            </ul>
+        </div>
+        <div class="lead text-white mr-2">
+            Bienvenue USER_NAME <br>
+            USER_ROLE
+        </div>
+        <a href="abi_accueil.html">
+            <button class="btn btn-info">Déconnexion</button>
+        </a>
+    </nav>
+
+<?php else : ?>
+
+
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/abi_style.css">
+    <link rel="shortcut icon" href="assets/image/favicon.ico">
+
+    <title>Active Bretagne Informatique</title>
+</head>
+
+<body>
+    <div class="">
+        <header class="row mx-1 bg-info">
             <div class="col-md-3 my-4">
-                <a href="abi_accueil.html">
+                <a href="/">
                     <img src="assets/image/logo_abi.png" alt="Logo ABI">
                 </a>
             </div>
@@ -46,7 +94,8 @@
             </div>
         </header>
     </div>
-    <nav class="mainNav container navbar navbar-expand-lg navbar-dark bg-primary h4">
+
+    <nav class="mainNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,3 +116,7 @@
             </ul>
         </div>
     </nav>
+<?php endif; ?>
+
+
+    

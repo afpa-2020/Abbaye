@@ -6,6 +6,7 @@ use App\Entity\Customer;
 use App\Entity\Project;
 use App\Entity\Contact;
 use App\Entity\Document;
+use App\Repository\ContactRepository;
 use \PDO;
 
 
@@ -29,7 +30,7 @@ class CustomerRepository extends Repository
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT customer.* FROM customer JOIN project ON customer.id = project.customer_id   WHERE project.id = ? ");
         $query->execute([$idProject]);
-        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Customer');
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
         return $query->fetch();
     }
     
@@ -38,7 +39,7 @@ class CustomerRepository extends Repository
         $idContact = $contact->getId();
         $query = $this->pdo->prepare('SELECT customer.* FROM customer JOIN contact ON customer.id = contact.customer_id WHERE contact.id = ?');
         $query->execute([$idContact]);
-        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Customer');
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
         return $query->fetch();
     }
 

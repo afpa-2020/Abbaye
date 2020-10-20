@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+
 use App\Entity\Employee;
 use App\Entity\Customer;
 
@@ -16,7 +17,12 @@ class ProjectRepository extends Repository {
         $idEmployee = $employee->getId();
         $query = $this->pdo->prepare("SELECT project .* FROM project JOIN project_employee AS pe ON  pe.project_id = project.id WHERE pe.employee_id = ?");
         $query->execute([$idEmployee]);
+<<<<<<< HEAD
         return $query->fetchAll(\PDO::FETCH_CLASS , 'App\Entity\Project');
+=======
+        return $query->fetchAll(\PDO::FETCH_CLASS , "App\Entity\Project");
+
+>>>>>>> fcafe27da895b57734bd5885045fabcb925fbad4
     }
 
     public function findAllByCustomer(Customer $customer)
