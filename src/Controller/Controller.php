@@ -4,18 +4,25 @@ namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Entity\Project;
-use App\Repository\ContactRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
+use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
+use App\Repository\ContactRepository;
 
 abstract class Controller
 {
     public static function homeController()
     {
         ob_start();
-        
+        $customerRepository = new CustomerRepository();
+        $documentRepository = new DocumentRepository();
+        $doc = $documentRepository->find(1);
+
+        $customer = $customerRepository->findByDocument($doc);
+        dd($customer);
+
         include '../templates/index.php';
         ob_end_flush();
     }

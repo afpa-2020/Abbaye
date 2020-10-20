@@ -6,6 +6,7 @@ use App\Entity\Customer;
 use App\Entity\Project;
 use App\Entity\Contact;
 use App\Entity\Document;
+use App\Repository\ContactRepository;
 use \PDO;
 
 
