@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Project;
+use App\Entity\User;
 
 
 class EmployeeRepository extends Repository {
@@ -20,10 +21,15 @@ class EmployeeRepository extends Repository {
         return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Employee");
     }
 
-    /*public function findByUser(User $user)
+    public function findByUser(User $user)
     {
+        $idUser = $user->getId();
+        $query = $this->pdo->prepare("SELECT employee .* FROM employee JOIN user ON user.id = employee.user_id WHERE user.id = ?");
+        $query->execute([$idUser]);
+        return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Employee");
+
 
     }
-    */
+    
 
 }
