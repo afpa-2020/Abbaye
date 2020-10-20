@@ -1,59 +1,7 @@
-<<<<<<< HEAD
-<?php
-
-echo 'content';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-echo 'content<br />';
-
-=======
 <?php require_once 'skeleton/header.php' ?>
 
 <div class="col-md-3">
-    <form method="GET" class="login">
+    <form method="POST" action="register" class="login">
         <div class="form-group-sm mt-3">
             <label for="inputEmail" class="sr-only"></label>
             <input type="email" class="form-control" id="inputEmail" placeholder="Adresse email" value="" required autofocus>
@@ -71,4 +19,3 @@ echo 'content<br />';
 
 
 <?php require_once 'skeleton/footer.php' ?>
->>>>>>> e5e0b3cdaea7c4f06144631b6309f9c2a5210d6e

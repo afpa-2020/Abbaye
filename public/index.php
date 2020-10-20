@@ -1,31 +1,24 @@
 <?php
 
-<<<<<<< HEAD
 include_once '../vendor/autoload.php';
-=======
-require_once '../vendor/autoload.php';
->>>>>>> e5e0b3cdaea7c4f06144631b6309f9c2a5210d6e
 use App\Controller\Controller;
 
-$control = new Controller;
+$uri = $_SERVER["REQUEST_URI"];
 
-<<<<<<< HEAD
-$uri = $_SERVER['REQUEST_URI'];
+$uri = substr($uri, 1) . "Controller";
 
-if ($uri == "/"){
-    
-    $control->homeController();
+if($uri ==="Controller"){
 
-} else if ($uri == "/login") {
+    Controller::homeController();
 
-    $control->loginController();
+} else if (method_exists('Controller', $uri)) {
+
+    Controller::$uri();
 
 } else {
 
-    $control->error404Controller();
+    Controller::error404Controller();
+
 }
 
 dump($uri);
-=======
-$control->homeController();
->>>>>>> e5e0b3cdaea7c4f06144631b6309f9c2a5210d6e

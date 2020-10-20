@@ -19,4 +19,9 @@ class ProjectRepository extends Repository {
 
     }
 
+    /*public findAllByCustomer(Customer $customer)
+    {
+
+    }
+    */
 }

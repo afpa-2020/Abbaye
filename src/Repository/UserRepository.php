@@ -8,4 +8,9 @@ class UserRepository extends Repository
     {
         parent::__construct("User");
     }
+
+    /*public function findByEmployee(Employee $employee)
+    {
+
+    }*/
 }
