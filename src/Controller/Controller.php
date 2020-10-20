@@ -15,14 +15,6 @@ abstract class Controller
     public static function homeController()
     {
         ob_start();
-        /*$employeeRepository = new EmployeeRepository();
-        $projectRepository = new ProjectRepository();
-        $customerRepository = new CustomerRepository();
-        $contactRepository = new ContactRepository();
-
-        $projet = $projectRepository->find(1);
-        $employee = $employeeRepository->find(214);
-        $projects = $projectRepository->findByEmployee($employee);*/
         
         include '../templates/index.php';
         ob_end_flush();

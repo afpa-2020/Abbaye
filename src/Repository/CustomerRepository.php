@@ -16,7 +16,7 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-<<<<<<< HEAD
+
     public function findAllContact(Customer $customer)
     {
         $idContact = $customer->getId();
@@ -24,14 +24,13 @@ class CustomerRepository extends Repository
         $query->execute([$idContact]);
         return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Contact');
     }
-=======
->>>>>>> ee25b6f2f3394df76e24caa1f5d9648dc6fae79b
+    
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT customer.* FROM customer JOIN project ON customer.id = project.customer_id   WHERE project.id = ? ");
         $query->execute([$idProject]);
-        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Customer');
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
         return $query->fetch();
     }
     
@@ -40,10 +39,8 @@ class CustomerRepository extends Repository
         $idContact = $contact->getId();
         $query = $this->pdo->prepare('SELECT customer.* FROM customer JOIN contact ON customer.id = contact.customer_id WHERE contact.id = ?');
         $query->execute([$idContact]);
-        $query->setFetchMode(PDO::FETCH_CLASS, 'App\Entity\Customer');
+        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
         return $query->fetch();
-<<<<<<< HEAD
-=======
     }
 
     public function findByDocument(Document $document)
@@ -52,6 +49,5 @@ class CustomerRepository extends Repository
         $contact = $contactRepository->findByDocument($document);
 
         return $this->findByContact($contact);
->>>>>>> ee25b6f2f3394df76e24caa1f5d9648dc6fae79b
     }
 }

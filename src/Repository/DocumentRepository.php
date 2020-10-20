@@ -2,6 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Contact;
+use DateTime;
+
 class DocumentRepository extends Repository {
 
     public function __construct()
@@ -9,13 +12,18 @@ class DocumentRepository extends Repository {
         parent::__construct("Document");
     }
 
-    /*findByContact (Contact $contact){
-
+    public function findByContact(Contact $contact)
+    {
+        $idContact = $contact->getId();
+        $query = $this->pdo->prepare("SELECT * FROM document JOIN contact ON document.contact_id = contact.id WHERE contact.id = ?");
+        $query->execute([$idContact]);
+        $query->fetch();
     }
 
-    findByCustomer (Customer $customer){
-        ATTENTION plsuieurs contacts --> plusieurs documents
-        ->findByContact($customer);
+    public function findByLastname(string $name)
+    {
+       $query = $this->pdo->prepare("SELECT * FROM contact WHERE contact.lastname = ?");
+       $query->execute([$name]);
+       return $query->fetchAll();
     }
-*/
 }
