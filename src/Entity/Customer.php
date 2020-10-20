@@ -7,9 +7,9 @@ class Customer
     private int $id;
     private string $company_name;
     private string $address;
-    private string $zip;
+    private int $zip;
     private string $city;
-    private string $turnover;
+    private int $turnover;
     private string $phone;
     private string $type;
     private string $nature;

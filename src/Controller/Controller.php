@@ -17,21 +17,11 @@ abstract class Controller
     {
         ob_start();
         $customerRepository = new CustomerRepository();
-<<<<<<< HEAD
-        $contactRepository = new ContactRepository();
-        
-        $customer = $customerRepository->find(1);
-
-        $project = $projectRepository->findAllByCustomer($customer);
-
-        dump($project);
-=======
         $documentRepository = new DocumentRepository();
         $doc = $documentRepository->find(1);
 
         $customer = $customerRepository->findByDocument($doc);
         dd($customer);
->>>>>>> fcafe27da895b57734bd5885045fabcb925fbad4
 
         include '../templates/index.php';
         ob_end_flush();

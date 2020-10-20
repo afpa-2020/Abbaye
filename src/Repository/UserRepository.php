@@ -18,8 +18,5 @@ class UserRepository extends Repository
         $query->execute([$idEmployee]);
         return $query->fetch();
     }
-<<<<<<< HEAD
-=======
     
->>>>>>> fcafe27da895b57734bd5885045fabcb925fbad4
 }
