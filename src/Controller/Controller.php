@@ -19,10 +19,8 @@ abstract class Controller
     {
         ob_start();
         $employeeRepository = new EmployeeRepository();
-        $userRepository = new UserRepository();
-        $user = $userRepository->find(9);
+        $employee = $employeeRepository->find(202);
 
-        $employee = $employeeRepository->findByUser($user);
         dd($employee);
 
         include '../templates/index.php';

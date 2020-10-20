@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+
 class Employee
 {
     private int $id;
@@ -12,7 +14,12 @@ class Employee
     private string $contract;
     private $hired;
     private $dismissed;
-    private $user_id;
+    private int $user_id;
+
+    public function __construct()
+    {
+        $this->hired = new \DateTime($this->hired);
+    }
     
     public function getId()
     {
