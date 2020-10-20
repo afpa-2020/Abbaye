@@ -18,11 +18,13 @@ abstract class Controller
         $projectRepository = new ProjectRepository();
         $customerRepository = new CustomerRepository();
         $contactRepository = new ContactRepository();
-
-        $projet = $projectRepository->find(1);
-        $employee = $employeeRepository->find(214);
-        $projects = $projectRepository->findByEmployee($employee);
         
+        $customer = $customerRepository->find(1);
+
+        $project = $projectRepository->findAllByCustomer($customer);
+
+        dump($project);
+
         include '../templates/index.php';
         ob_end_flush();
     }
