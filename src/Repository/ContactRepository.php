@@ -18,7 +18,7 @@ class ContactRepository extends Repository
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\Contact");
     }
 
     //FindByDocument WIP

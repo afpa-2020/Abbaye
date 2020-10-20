@@ -12,6 +12,7 @@ class Employee
     private string $contract;
     private $hired;
     private $dismissed;
+    private $user_id;
     
     public function getId()
     {
