@@ -11,8 +11,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
     <script src="assets/js/bootstrap.bundle.min.js" defer></script>
-    <script src="assets/js/bootstrap.min.js"defer ></script>
+    <script src="assets/js/bootstrap.min.js" defer ></script>
     <script src="assets/js/database.js" defer></script>
+    <script src="assets/js/abi_client_form.js" defer></script>
+    <script src="assets/js/abi_client_search.js" defer></script>
     <script src="assets/js/connexion.js" defer></script>
 
     <title>Active Bretagne Informatique</title>

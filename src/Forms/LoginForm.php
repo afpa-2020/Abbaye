@@ -7,7 +7,7 @@ class LoginForm {
     private string $identifiant;
     private string $password;
     
-    
+
     public function __construct($post)
     {
         $this->identifiant = $post['identifiant'];
@@ -17,3 +17,5 @@ class LoginForm {
     public function authentification(){
         echo 'coucou';
     }
+
+}

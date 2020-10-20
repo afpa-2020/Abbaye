@@ -1,3 +1,4 @@
-/public/
-/.history/
-/vendor/
+
+.history/
+vendor/
+vieuxtrucs/
