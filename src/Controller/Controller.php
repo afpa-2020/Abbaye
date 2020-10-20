@@ -9,9 +9,9 @@ use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
 use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
+use App\Forms\LoginForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
-use App\Forms\LoginForm;
 
 abstract class Controller
 {

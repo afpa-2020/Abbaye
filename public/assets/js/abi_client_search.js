@@ -5,6 +5,10 @@ Dernière modification le 26/08/20
 $('document').ready(function () {
     $('.editableClient').val("");
     defaultAffichage(1);
+<<<<<<< HEAD
+=======
+    alert();
+>>>>>>> cc1a22d11c59872dce5fe40735b1cc14082b7cf9
 });
 
 /**
