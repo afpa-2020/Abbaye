@@ -18,11 +18,6 @@ abstract class Controller
     public static function homeController()
     {
         ob_start();
-        $employeeRepository = new EmployeeRepository();
-        $employee = $employeeRepository->find(202);
-
-        dd($employee);
-
         include '../templates/index.php';
         ob_end_flush();
     }
