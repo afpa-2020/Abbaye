@@ -42,7 +42,7 @@ abstract class Repository {
         return $query->fetch();
     }
 
-    public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
+    public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null, int $substr = null)
     {
         $params = array_values($criteria);
         if (!empty($citeria)) {

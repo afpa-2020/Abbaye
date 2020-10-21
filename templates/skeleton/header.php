@@ -17,7 +17,7 @@ $_SESSION = "TRUC";
     <title>Active Bretagne Informatique</title>
 </head>
 <body>
-    <nav class="vipNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
+    <nav class="vipNav rounded-bottom mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
         <a href="abi_accueilvip.html">
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
@@ -76,10 +76,10 @@ $_SESSION = "TRUC";
                 <h1 class="display-4">Active Bretagne Informatique</h1>
             </div>
             <div class="col-md-3">
-                <form method="GET" class="login">
+                <form method="POST" class="login">
                     <div class="form-group-sm mt-3">
                         <label for="inputEmail" class="sr-only"></label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Adresse email" value="" required autofocus>
+                        <input type="text" class="form-control" id="inputIdentifiant" placeholder="Identifiant" value="" required autofocus>
                     </div>
                     <div class="form-group mt-3">
                         <label for="inputPassword" class="sr-only"></label>
@@ -94,7 +94,7 @@ $_SESSION = "TRUC";
         </header>
     </div>
 
-    <nav class="mainNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
+    <nav class="mainNav mx-1 rounded-bottom navbar navbar-expand-lg navbar-dark bg-primary h4">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>

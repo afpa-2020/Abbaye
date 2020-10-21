@@ -26,6 +26,13 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `contact`
 --
+DROP TABLE `contact` IF EXISTS;
+DROP TABLE `customer` IF EXISTS;
+DROP TABLE `document` IF EXISTS;
+DROP TABLE `employee` IF EXISTS;
+DROP TABLE `project` IF EXISTS;
+DROP TABLE `project_employee` IF EXISTS;
+DROP TABLE `user` IF EXISTS;
 
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
