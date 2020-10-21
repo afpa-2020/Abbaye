@@ -33,5 +33,6 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/database.js"></script>
     <script src="/assets/js/connexion.js" ></script>
+    <script src="/assets/js/registerForms.js" ></script>
 </body>
 </html>

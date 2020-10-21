@@ -24,5 +24,35 @@ $("#registerForms").submit(function (event) {
 $("#registerForms input").focusout(function () {
     let id = $(this).attr('name');
     let functionisValid = id + 'IsValid';
-    if (window[function])
+    if (window[functionisValid]($(this).val ())) {
+        $(this).removeClass('is-invalid');
+        $(this).addClass('is-valid');
+
+    }else{
+        $(this).removeClass('is-valid');
+        $(this).addClass('is-valid');
+    }
 })
+
+
+
+
+function identifiantIsValid(string) {
+    let regex = /[a-zA-Z0-9]{2,}$/;
+    return regex.test(string);
+}
+
+function emailIsValid(string) {
+    let regex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return regex.test(string);
+}
+
+function passwordIsValid(string) {
+    let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    return regex.test(string);
+}
+
+function confirmPasswordIsValid(string) {
+    let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    return regex.test(string);
+}
