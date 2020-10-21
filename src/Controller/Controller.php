@@ -51,9 +51,14 @@ abstract class Controller
         session_start();
         if (!empty($_POST)){
             $signup = new RegisterForm($_POST);
-            $signup->register();
+            if ($signup->register()){
+                header('Location:/');
+            } else {
+                header('Location:/signup');
+            }
         }
-        header('Location:/');
+        
+        
     }
 
     public static function error404Controller()
