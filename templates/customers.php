@@ -162,11 +162,22 @@
                 <th>Raison Sociale</th>
                 <th>#Dpt</th>
               </tr>
-            </thead>
-            <tbody id="clientsListe" role="button">
 
-            </tbody>
-          </table>
+
+            </thead>
+            <tbody id="clientsListe" role="button" class="text-white ">
+
+<?php foreach ($customers as $customer): ?>
+
+<tr>
+  <th><?= $customer->getId() ?></th>
+  <th><?= $customer->getCompanyName() ?></th>
+  <th><?= substr($customer->getZip(),3) ?></th>
+</tr>
+
+<?php endforeach ?>
+              </tbody>
+            </table>
         </div>
         <nav class="row justify-content-md-center" aria-label="...">
           <ul id="paginationSearch" class="pagination">
@@ -290,4 +301,4 @@
     </div>
   </div>
 
-  <?php require_once 'skeleton/footer.php'  ?>
+  <?php require_once 'skeleton/footer.php'?>

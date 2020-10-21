@@ -1,5 +1,5 @@
-    <footer class="row mx-1">
-        <div class="col-md-4 bg-dark mx-auto text-white">
+    <footer class="row rounded-top mx-1">
+        <div class="col-md-4 bg-dark rounded-top mx-auto text-white">
             <h4 class="text-center">Suivez-nous !</h4>
                 <a href="https://www.facebook.com/" target="_blank">
                     <img src="assets/image/logo_fb.png" alt="Logo FB">
@@ -20,7 +20,7 @@
                 @2020 Abi, Inc
             </ul>
         </div>
-        <div class="col-md-4 bg-dark mx-auto text-white">
+        <div class="col-md-4 bg-dark rounded-top mx-auto text-white">
             <h4 class="text-center">Nous Contacter</h4>
             Webmaster :<br/>
             <a href="mailto:abifictive@gmail.com">abifictive@gmail.com</a>

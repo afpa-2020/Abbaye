@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Employee;
 use App\Entity\Project;
+use App\Entity\Customer;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
 use App\Repository\ProjectRepository;
@@ -68,7 +69,36 @@ abstract class Controller
     public static function customersController()
     {
         ob_start();
+        $customerRepository = new CustomerRepository();
+        $customers = $customerRepository->findBy([],["id"=>"ASC"],10);
         include '../templates/customers.php';
+        ob_end_flush();
+    }
+
+    public static function projectsController()
+    {
+        ob_start();
+        $projectRepository = new ProjectRepository();
+        $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
+        include '../templates/projects.php';
+        ob_end_flush();
+    }
+
+    public static function contactsController()
+    {
+        ob_start();
+        $contactRepository = new ContactRepository();
+        $contacts = $contactRepository->findBy([],["id"=>"ASC"],10);
+        include '../templates/contacts.php';
+        ob_end_flush();
+    }
+
+    public static function employeesController()
+    {
+        ob_start();
+        $employeeRepository = new EmployeeRepository();
+        $employees = $employeeRepository->findBy([],["id"=>"ASC"],10);
+        include '../templates/employees.php';
         ob_end_flush();
     }
 
