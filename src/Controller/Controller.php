@@ -26,20 +26,16 @@ abstract class Controller
     public static function loginController()
     {
         session_start();
-        print_r($_POST);
-        print_r($_GET);
-        //var_dump($_POST);
-        foreach (getallheaders() as $name => $value) {
-            echo "$name: $value\n";
-        }
         
-        return;
-        
-      
-   /*      if (!empty($_POST)){
-            $signin = new LoginForm($_POST);
-            var_dump($signin->authentification());
-        } */
+        if (!empty($_POST)){
+            
+            //$post=json_decode(json_encode($_POST));
+            print_r($_POST["identifiant"]);
+            print_r(" ");
+            print_r($_POST['password']);
+            //$signin = new LoginForm($_POST);
+            //var_dump($signin->authentification());
+        } 
        
     }
 

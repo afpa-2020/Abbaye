@@ -15,9 +15,9 @@ function connexion() {
       console.log(xhr.responseText);
     }
   };
-  var data = { password: inputPassword, identifiant: inputidentifiant };
-  xhr.open('POST', '/login', false);
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.send(JSON.stringify(data));
+  var data = 'password=' + inputPassword + '&identifiant=' + inputidentifiant;
+  xhr.open('POST', '/login', true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send(data);
   console.log(xhr);
 }
