@@ -2,6 +2,8 @@
 
 namespace App\Forms;
 
+use App\Config\DbConfig;
+
 class RegisterForm
 {
 
@@ -14,24 +16,35 @@ class RegisterForm
   //constr ($post)
   public function __construct($post)
   {
-      $this->identifiant = $post['identifiant'];
-      $this->email = $post['email'];
-      $this->password = $post['password'];
-      $this->confirmPassword = $post['confirmPassword']; 
+      $this->identifiant = htmlentities(trim($post['identifiant']));
+      $this->email = htmlspecialchars(strtolower(trim($post['email'])));
+      $this->password = trim($post['password']);
+      $this->confirmPassword = trim($post['confirmPassword']); 
   }
 
   public function register()
   {
-    //A L'ATTENTION DE LEA, LA SEULE FILLE DU GROUPE !!!!
-    //On vérifie qu'on a toutes les infos et qu'elles sont correctes (mdp === confirmation mdp)
-    //Au passage, on applique des fonctions de sécurité (trim, htmlspecialchars, filter etc)
+    if ($this->email !== filter_var($this->email)) return false;
+    if ($this->password !== $this->confirmPassword) {
+      return false;
+    } else {
+      $this->password = password_hash($this->password, PASSWORD_BCRYPT);
+    }
+  
+    $pdo = new \PDO (DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
-    //on HASH le mod de passe !!!!!!
+    //Est-ce que cet email existe déjà ?
+    //Oui il existe ---> return false (PAS BIEN)
 
-    //Si tout est ok, on enregistre notre nouvel utilisateur dans la base de données :)
+    $query = $pdo->prepare("SELECT user.* FROM user WHERE email = ?");
+    $query->execute([$this->email]);
+    $results = $query->fetchAll(\PDO::FETCH_ASSOC);
+    if (!empty($results)) return false;      
 
-    //En cas de problème ---> on ramène l'utilisateur sur le formulaire
-    //Si tout est ok ---> on le remercie pour osn inscription (header('/merci')) puis on le ramène sur index
-    //... en créant sa session :D
+    //Non c'est bon, ce mail existe pas déjà, on peut ajouter notre utilisateur :
+    $query = $pdo->prepare("INSERT INTO user (login,password,email, role) VALUES (?,?,?,?)");
+    return $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
+   
+  
   }
 }
