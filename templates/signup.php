@@ -27,7 +27,5 @@ require_once '../templates/skeleton/header.php' ?>
 
 
 
-
-
 <?php
 require_once '../templates/skeleton/footer.php' ?>

@@ -25,34 +25,27 @@ abstract class Controller
 
     public static function loginController()
     {
-        ob_start();
-        include '../templates/login.php';
-        ob_end_flush();
+        session_start();
+        if (!empty($_POST)){
+            $signin = new LoginForm($_POST);
+            $signin->authentification();
+        }
+        header('Location:/');
     }
 
-    public static function signupController()
+    public static function signupController() //Formulaire d'enregistrement
     {
         ob_start();
         include '../templates/signup.php';
         ob_end_flush();
     }
 
-    public static function registrationController()
+    public static function registrationController() // Vérification des données
     {
         session_start();
         if (!empty($_POST)){
             $signup = new RegisterForm($_POST);
             $signup->register();
-        }
-        header('Location:/');
-    }
-
-    public static function verificationController()
-    {
-        session_start();
-        if (!empty($_POST)){
-            $signin = new LoginForm($_POST);
-            $signin->authentification();
         }
         header('Location:/');
     }
