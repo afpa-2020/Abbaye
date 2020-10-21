@@ -17,7 +17,7 @@ $_SESSION = "TRUC";
     <title>Active Bretagne Informatique</title>
 </head>
 <body>
-    <nav class="vipNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
+    <nav class="vipNav rounded-bottom mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
         <a href="abi_accueilvip.html">
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
@@ -94,7 +94,7 @@ $_SESSION = "TRUC";
         </header>
     </div>
 
-    <nav class="mainNav mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
+    <nav class="mainNav mx-1 rounded-bottom navbar navbar-expand-lg navbar-dark bg-primary h4">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>

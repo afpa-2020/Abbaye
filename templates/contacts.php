@@ -1,46 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php require_once 'skeleton/header.php' ?>
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/abi_style.css">
-    <link rel="shortcut icon" href="assets/image/favicon.ico">
-
-    <title>Active Bretagne Informatique</title>
-</head>
-<body>
-    <nav class="vipNav container navbar navbar-expand-lg navbar-dark bg-primary h4 fixed-top">
-        <a href="abi_accueilvip.html">
-            <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav ">
-                <li class="nav-item">
-                    <a class="nav-link active" href="abi_clients.html">Nos Clients</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="abi_projets.html">Nos Projets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="abi_collaborateurs.html">Nos Collaborateurs</a>
-                </li>
-            </ul>
-        </div>
-        <div class="lead text-white mr-2">
-            Bienvenue USER_NAME <br>
-            USER_ROLE
-        </div>
-        <a href="abi_accueil.html">
-            <button class="btn btn-info">Déconnexion</button>
-        </a>
-    </nav>
-    
-    <div class="container mt-4">
+<div class="container mt-4">
         <div class="row">
             <div class = "col-md-4">
                 <div class="row mt-5 bg-info justify-content-md-center">
@@ -84,7 +44,7 @@
         
                 
                 <div class="row">
-                    <table class="table table-sm table-striped affichage">
+                    <table class="table text-white table-sm table-striped affichage">
                         <thead class="thead-light">
                           <tr>
                             <th >Nom</th>
@@ -92,33 +52,19 @@
                             <th>Fonction</th>
                           </tr>
                         </thead>
+
+                        <?php foreach ($contacts as $contact): ?>
+
                         <tbody>
                           <tr>
-                            <td>Mambo</td>
-                            <td>Jacky</td>
-                            <td>C</td>
-                          </tr>
-                          <tr>
-                            <td>Freeman</td>
-                            <td>Jacob</td>
-                            <td>RC</td>
-                          </tr>
-                          <tr>
-                            <td>Dirty</td>
-                            <td>Larry</td>
-                            <td>RH</td>
-                          </tr>
-                          <tr>
-                            <td>Dufoin</td>
-                            <td>Jean-Yves</td>
-                            <td>C</td>
-                          </tr>
-                          <tr>
-                            <td>Lechat</td>
-                            <td>François</td>
-                            <td>C</td>
+                              <th><?= $contact->getLastname() ?></th>
+                              <th><?= $contact->getFirstname() ?></th>
+                              <th><?= $contact->getRole() ?></th>
                           </tr>
                         </tbody>
+
+                        <?php endforeach ?>
+
                       </table>
                 </div>
                 <nav class = "row justify-content-md-center" aria-label="...">
@@ -222,56 +168,5 @@
         </div>
     </div>
 </div>
-    <div class="container">
-    <footer class="row justify-content-md-center mt-4">
-        <div class="col-md-3 bg-dark mx-auto text-white">
-            <h4 class="text-center">Suivez-nous !</h4>
-                <a href="https://www.facebook.com/" target="_blank">
-                    <img src="assets/image/logo_fb.png" alt="Logo FB">
-                </a>
-                <a href="https://twitter.com/" target="_blank">
-                    <img src="assets/image/logo_twitter.jpg" alt="Logo Twitter">
-                </a>
-                <a href="https://www.instagram.com/" target="_blank">
-                    <img src="assets/image/logo_instagram.png" alt="Logo Instagram">
-                </a>   
-        </div>
-        <div class="col-md-3 bg-dark mx-auto text-white">
-            <h4 class="text-center">Informations Générales</h4>
-            <ul>
-                <li>Conditions</li>
-                <li>Politique de confidentialité</li>
-                <li>Cookies</li>
-                @2020 Abi, Inc
-            </ul>
-        </div>
-        <div class="col-md-3 bg-dark mx-auto text-white">
-            <h4 class="text-center">Nous Contacter</h4>
-            Webmaster :<br/>
-            <a href="mailto:abifictive@gmail.com">abifictive@gmail.com</a>
-        </div>
-    </footer>
-</div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script>
-        /*$(document).ready(function(){
-              $('.info_client').hide();
-              $('.ubi').click(function(){
-                $('.info_client').show();
-              })
-            if (user_role === 'Commercial' || user_role === 'Responsable Commercial') {
-
-            }
-            else {
-                $('.btn-danger').hide();
-            }
-            
-            })*/
-            
-    </script>
-</body>
-</html>
+<?php require_once 'skeleton/footer.php' ?>
