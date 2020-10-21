@@ -76,10 +76,10 @@ $_SESSION = "TRUC";
                 <h1 class="display-4">Active Bretagne Informatique</h1>
             </div>
             <div class="col-md-3">
-                <form method="GET" class="login">
+                <form method="POST" class="login">
                     <div class="form-group-sm mt-3">
                         <label for="inputEmail" class="sr-only"></label>
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Adresse email" value="" required autofocus>
+                        <input type="text" class="form-control" id="inputIdentifiant" placeholder="Identifiant" value="" required autofocus>
                     </div>
                     <div class="form-group mt-3">
                         <label for="inputPassword" class="sr-only"></label>

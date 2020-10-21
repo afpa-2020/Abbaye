@@ -25,11 +25,21 @@ abstract class Controller
     public static function loginController()
     {
         session_start();
-        if (!empty($_POST)){
-            $signin = new LoginForm($_POST);
-            $signin->authentification();
+        print_r($_POST);
+        print_r($_GET);
+        //var_dump($_POST);
+        foreach (getallheaders() as $name => $value) {
+            echo "$name: $value\n";
         }
-        header('Location:/');
+        
+        return;
+        
+      
+   /*      if (!empty($_POST)){
+            $signin = new LoginForm($_POST);
+            var_dump($signin->authentification());
+        } */
+       
     }
 
     public static function signupController() //Formulaire d'enregistrement

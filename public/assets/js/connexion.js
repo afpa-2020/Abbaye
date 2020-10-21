@@ -5,20 +5,19 @@
  * @param {boolean} connect
  */
 
-function connexion(){
-    let inputEmail = $('#inputEmail').val(); // inputEmail prend la valeur entrée dans #inputEmail
-    let inputPassword = $('#inputPassword').val(); // inputPassword prend la valeur entrée dans #inputPassword
-    let connect = false ;
-    for (let i=0; i<bddUsers.length; i++){
-        if (inputEmail === bddUsers[i].email){ // Si inputEmail correspond a l'un des email de la bddUsers
-            if (inputPassword === bddUsers[i].password){ // Si inputPassword correspond au password de l'inputEmail rentré
-                connect = true ;
-            } 
-        }
+function connexion() {
+  let inputidentifiant = $('#inputIdentifiant').val(); // inputEmail prend la valeur entrée dans #inputEmail
+  let inputPassword = $('#inputPassword').val(); // inputPassword prend la valeur entrée dans #inputPassword
+  let connect = false;
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      console.log(xhr.responseText);
     }
-    if (connect == true) { // Accés a la page accueilvip
-        window.open("abi_accueilvip.html", "_self" );
-    } else {
-        alert('Identifiant ou mot de passe incorrect')
-    }
+  };
+  var data = { password: inputPassword, identifiant: inputidentifiant };
+  xhr.open('POST', '/login', false);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.send(JSON.stringify(data));
+  console.log(xhr);
 }

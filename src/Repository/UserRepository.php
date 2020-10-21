@@ -18,5 +18,10 @@ class UserRepository extends Repository
         $query->execute([$idEmployee]);
         return $query->fetch();
     }
-    
+
+    public function authentificate(string $login, string $password)
+    {
+        $query = $this->pdo->prepare("SELECT * FROM user WHERE user.login = $login AND user.password = $password");
+        return $query->fetch();
+    }
 }
