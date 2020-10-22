@@ -1,8 +1,98 @@
 <?php require_once 'skeleton/header.php' ?>
 
+<div class="d-flex flex-column">
+    <div class="justify-content-center row my-1 mb-2 mx-1 ">
+
+        <div class="bg-secondary col-md-4 col-12 rounded my-1 mx-1 ">
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Nos clients
+            </h3>
+            <table class="table table-sm table-striped table-hover bg-secondary">
+            <thead class="thead-light">
+              <tr>
+                <th>Id</th>
+                <th>Raison Sociale</th>
+                <th>#Dpt</th>
+              </tr>
+            </thead>
+            <tbody id="clientsListe" role="button" class="text-white ">
+
+<?php foreach ($customers as $customer): ?>
+
+<tr>
+  <th><?= $customer->getId() ?></th>
+  <th><?= $customer->getCompanyName() ?></th>
+  <th><?= substr($customer->getZip(),3) ?></th>
+</tr>
+
+<?php endforeach ?>
+
+              </tbody>
+            </table>
+        </div>
+        
+        <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Un titre aussi
+            </h3>
+            <form action="#">
+              <table class="table text-white table-sm col-12 col-md-6">
+                <tbody>
+                  <tr class="text-white">
+                    <th scope="row">Adresse</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="adresse" id="clientAdresse" disabled> </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">CP</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="codePostal" id="clientCp" disabled> </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ville</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="ville" id="clientVille" disabled> </td>
+                  </tr>
+                  <tr>
+
+                    <th scope="row">Téléphone</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="telephone" id="clientTelephone" disabled></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Domaine</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        data-toggle="tooltip" name="domaine" id="clientDomaine" disabled></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Nature</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="nature" id="clientNature" disabled></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">CA</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="ca"
+                        id="clientCa" disabled></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Effectif</th>
+                    <td><input type="text" class="form-control-plaintext form-control editableClient" value=""
+                        name="effectif" id="clientEffectif" disabled></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </form>
+        </div>
+
+
+    </div>
+</div>
+
+
 <div class="container text-white mt-4">
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 ">
         <div class="row mt-5 bg-info justify-content-md-center">
           <h3>Nos Clients</h3>
         </div>
@@ -155,7 +245,7 @@
           </div>
         </form>
         <div class="row">
-          <table class="table table-sm table-striped table-hover">
+          <table class="table table-sm table-striped table-hover bg-secondary">
             <thead class="thead-light">
               <tr>
                 <th>Id</th>

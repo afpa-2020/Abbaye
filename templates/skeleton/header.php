@@ -1,8 +1,4 @@
-<?php  session_start();
-$_SESSION = "TRUC";
-//dump($_SESSION);
-?>
-<?php if(!$_SESSION) : ?>
+<?php if(isset($_SESSION['login'])) : ?>
 
     <!DOCTYPE html>
 <html lang="en">
@@ -38,10 +34,10 @@ $_SESSION = "TRUC";
             </ul>
         </div>
         <div class="lead text-white mr-2">
-            Bienvenue USER_NAME <br>
-            USER_ROLE
+            Bienvenue <?= $_SESSION["login"]?> <br>
+            <?= $_SESSION["role"]?>
         </div>
-        <a href="abi_accueil.html">
+        <a href="/disconnect">
             <button class="btn btn-info">Déconnexion</button>
         </a>
     </nav>

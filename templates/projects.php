@@ -3,14 +3,14 @@
 <div class="container text-white mt-4">
         <div class="row justify-content-md-center">
             <div class = "col-3 pr-1">
-                <div class="row mt-5 bg-info justify-content-md-center">
+                <div class="row mt-5 bg-info justify-content-md-center ">
                     <h3>Nos Projets</h3>
                 </div>
                 <div class="row mt-2">
                     <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     projets, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
                     <table id="table" 
-                    class="table table-sm table-striped table-hover">
+                    class="table bg-secondary table-sm table-striped table-hover">
                         <thead  class="thead-light">
                             <tr>
                                 <th>Code</th>

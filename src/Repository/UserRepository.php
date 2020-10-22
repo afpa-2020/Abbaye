@@ -11,6 +11,11 @@ class UserRepository extends Repository
         parent::__construct("User");
     }
 
+    /**
+     * function findByEmployees
+     * @param {Employee} $employee
+     * @return user.id
+     */
     public function findByEmployee(Employee $employee)
     {
         $idEmployee = $employee->getId();
@@ -19,9 +24,17 @@ class UserRepository extends Repository
         return $query->fetch();
     }
 
-    public function authentificate(string $login, string $password)
+    /**
+     * function authentificate
+     * @param  $login
+     * @param  $password
+     * @return user.id
+     */
+    public function authentificate(string $login)
     {
-        $query = $this->pdo->prepare("SELECT * FROM user WHERE user.login = $login AND user.password = $password");
+        $query = $this->pdo->prepare("SELECT * FROM user WHERE user.login = ?");
+        $query->execute([$login]);
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
         return $query->fetch();
     }
 }
