@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 21 oct. 2020 à 08:50
+-- Généré le : jeu. 22 oct. 2020 à 15:40
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.10
 
@@ -26,13 +26,6 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `contact`
 --
-DROP TABLE `contact` IF EXISTS;
-DROP TABLE `customer` IF EXISTS;
-DROP TABLE `document` IF EXISTS;
-DROP TABLE `employee` IF EXISTS;
-DROP TABLE `project` IF EXISTS;
-DROP TABLE `project_employee` IF EXISTS;
-DROP TABLE `user` IF EXISTS;
 
 CREATE TABLE `contact` (
   `id` int(11) NOT NULL,
@@ -886,11 +879,11 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 (5, 'Alain', '$2y$10$NjLnGrEyuqHxhg7WuPEwZebUR/93pG5ZFovRguWa7MZNq2FphIj6.', 'Chef de Projet', 'umonnier@voila.fr'),
 (6, 'Édouard', '$2y$10$OIFvZGpU5Q0LJQz1Dx/DMe468okIh0WP0Lwz3dXJ/s17Pw1qt8TTe', 'Visiteur', 'bhernandez@michel.org'),
 (7, 'Yves', '$2y$10$Pm6c7bNHlCgHGDdiX8dJ.ec/h.zdjIuycGiX3dTpRkDEztEudpku6', 'RH', 'richard.genevieve@rocher.net'),
-(8, 'Tristan', '$2y$10$bUIoyuHr5TgtnCOQAtng6eZEcPbLTmV8tymKtABY.tm/SA6fQKW2i', 'Employé', 'lenoir.benjamin@sfr.fr'),
+(8, 'Tristann', '$2y$10$bUIoyuHr5TgtnCOQAtng6eZEcPbLTmV8tymKtABY.tm/SA6fQKW2i', 'Employé', 'lenoir.benjamin@sfr.fr'),
 (9, 'Jules', '$2y$10$1YQompcV3CeR3F4LnkcEx.i6aahkKLH5aoxYLeeJi8Sc/ZyZvRGhO', 'Commercial', 'ggirard@wanadoo.fr'),
 (10, 'Agathe', '$2y$10$qI5u0X/lQpqJT4bYH/zCL.mMHv4Y1jlCOxsFkaw8X1yvh/poS8FfS', 'RC', 'olanglois@ifrance.com'),
 (11, 'Alix', '$2y$10$uKGs9dxg3dtNn7nc4dwgY.sbeLs9MQ6YefmIfduKVvdBYRO9QAQZC', 'Employé', 'bouvet.maryse@perrot.net'),
-(12, 'Hugues', '$2y$10$xAblNlOVkkyi49q2cLZzLOsqjARu9FHdBqz7Lc1qEp7JemXA9Z1xu', 'Chef de Projet', 'mgoncalves@daniel.com'),
+(12, 'Hugo', '$2y$10$xAblNlOVkkyi49q2cLZzLOsqjARu9FHdBqz7Lc1qEp7JemXA9Z1xu', 'Chef de Projet', 'mgoncalves@daniel.com'),
 (13, 'André', '$2y$10$aIkmFWh/3297YjeW0J6USuDn8UuZW2GBrsTTYsOGjbVgX.v0BByGW', 'RH', 'gremy@hotmail.fr'),
 (14, 'Susanne', '$2y$10$u6DsV6pSPWgXwf0ckXKnr.BZnE4DMMdZkPw1mBUeIoyvvcwvfVtyy', 'RH', 'ncolin@sfr.fr'),
 (15, 'Dorothée', '$2y$10$9Ca2.VSGsL729bNlK4/HYuVdQ28l1QsD29V9C5v1axSV4fB2pvi0.', 'Visiteur', 'kpires@perez.fr'),
@@ -903,10 +896,10 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 (22, 'Antoine', '$2y$10$9fkFcju43LK1MX.OPPIYeONjk48sNIUGEcgEOSW.wfKkhI45Cgebe', 'Visiteur', 'dorothee.weber@live.com'),
 (23, 'Laetitia', '$2y$10$RcBoTk2QDSkrbJic/yDOYe7UnpsNBEHjllO9TBpaYY7XIneKXoUuK', 'RC', 'julie23@perrot.fr'),
 (24, 'Valérie', '$2y$10$WAw3cPx.c5phPiesrxCz3ObYsXLNONPX8eEWSNp7LQ3zJ8u6hWUwi', 'RH', 'cdaniel@gmail.com'),
-(25, 'François', '$2y$10$Ud/RATWrZ3c/f/mUAx9kVuroEhGERqY00uR2CSL/9dYgEo8t1Qa1u', 'Visiteur', 'francois.alfred@bouygtel.fr'),
+(25, 'Francis', '$2y$10$Ud/RATWrZ3c/f/mUAx9kVuroEhGERqY00uR2CSL/9dYgEo8t1Qa1u', 'Visiteur', 'francois.alfred@bouygtel.fr'),
 (26, 'Anastasie', '$2y$10$hXBqtcC7Pv/GQN5H8FI8o.FW4iWij1VMl44PetWDY2ptzAAKj6NEi', 'Commercial', 'juliette97@gmail.com'),
 (27, 'Charles', '$2y$10$5W/5xNttrgrSMewyF4TjFuw5gHvfzv8S6m1CkeXKNSsU88I9UWhEC', 'Visiteur', 'xprevost@tiscali.fr'),
-(28, 'Renée', '$2y$10$l9hxLPdkp6KjawOFc.asW.zeDTVC06Mak.91XXjmCIPJ0ABBy353S', 'Visiteur', 'margot06@germain.fr'),
+(28, 'René', '$2y$10$l9hxLPdkp6KjawOFc.asW.zeDTVC06Mak.91XXjmCIPJ0ABBy353S', 'Visiteur', 'margot06@germain.fr'),
 (29, 'Nicole', '$2y$10$/H9e.QkMErdhSSL50PIR2OMiI0TW93gMHAVtSALfRWi2wnOqvugR2', 'RH', 'auguste.roux@begue.org'),
 (30, 'Joseph', '$2y$10$v0fMxYdKGIIqhS8gTVI2LexAjMnHisTmgQXite63Q5f7f73WA.SEa', 'RH', 'denis.gaillard@marchand.fr'),
 (31, 'Jean', '$2y$10$v/4wE/eZedd/kqUTpfxCiuLb2CPuZY.HJtVgb/hu73z9oGXA.juhe', 'RC', 'rey.adelaide@barthelemy.com'),
@@ -919,21 +912,21 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 (38, 'Pierre', '$2y$10$fw7V8l6f3auMdg2XDYJK7.NdGH7tEZXSXXi4YdxkDMf9QkxY1VhHS', 'Chef de Projet', 'troche@sfr.fr'),
 (39, 'Pénélope', '$2y$10$z2BDDqsJh0uN96y9lPgjR.hbjZAfVVBqA6wdGdJ/x8/i64eRZzdR2', 'Employé', 'stephanie.michel@free.fr'),
 (40, 'Gilles', '$2y$10$eIaAzcmJ3IAKEKuZoq2vh.2ez51JSlsqkTFcl0ZYQEaToaf5QwNqu', 'Visiteur', 'christine.marie@perrot.org'),
-(41, 'Anastasie', '$2y$10$ZwWAoz4m/yWcQqmk5cP3yeq2mx9YqkOcWpMTyWbyLdjVqtf26HcWK', 'Employé', 'igros@renaud.fr'),
+(41, 'Anastasia', '$2y$10$ZwWAoz4m/yWcQqmk5cP3yeq2mx9YqkOcWpMTyWbyLdjVqtf26HcWK', 'Employé', 'igros@renaud.fr'),
 (42, 'Zoé', '$2y$10$7xRHOWimQ0SGrKzsLiPgneDZVxmxAneBr1FSWw4wlFymKyXre4SMW', 'RH', 'wfrancois@gaillard.fr'),
-(43, 'Bernard', '$2y$10$yEbxZIA8nYo0KdybfmOtxu8o5P1ItitqFI99Lj.P2lR1/vM5xAcSa', 'Commercial', 'carlier.camille@evrard.com'),
+(43, 'Bernardo', '$2y$10$yEbxZIA8nYo0KdybfmOtxu8o5P1ItitqFI99Lj.P2lR1/vM5xAcSa', 'Commercial', 'carlier.camille@evrard.com'),
 (44, 'Emmanuel', '$2y$10$VPWyNYseS4IeMFGbhp0EPuGKCss91ADCM0o66agRD6gyVZwB1sCoa', 'Commercial', 'duhamel.dominique@voila.fr'),
 (45, 'Véronique', '$2y$10$8dLT3X/SzIjD9yfWUoDEIOAnDrVDABoTfvNk.gK1UWHXdqJLllxpe', 'Visiteur', 'mlefevre@meunier.com'),
 (46, 'Philippe', '$2y$10$Yd2AmJb84Ip0go/XIaDzMedrE4JJvuO7aKbQtmMUpGa1ijZyb2sre', 'Employé', 'adele.didier@wanadoo.fr'),
 (47, 'Pauline', '$2y$10$SEk0mQ3sXdNbILJwS3ZNDe6QIbUV9Mhj0ZfohEb/GXdMQaCWTk8eW', 'Chef de Projet', 'coulon.gilbert@orange.fr'),
 (48, 'Étienne', '$2y$10$9ycAowD0xg0k88n53BJ7nOV7RDRhwgvR3oEwAka7V9RYQE1zVf4Ee', 'Employé', 'sylvie70@orange.fr'),
 (49, 'Michelle', '$2y$10$qgqkN16rxZ8IOKB59n7dB.r7.6lPS/zQ5fU.OuxewTsk5ReU08chm', 'Commercial', 'dcharles@wanadoo.fr'),
-(50, 'Gilles', '$2y$10$.OQFH4JL1yYLdnUqLHhane9ysAd4cqHFKRdwLFk1/h0uRpifqhCei', 'Chef de Projet', 'dominique.collet@delattre.net'),
+(50, 'Gillesss', '$2y$10$.OQFH4JL1yYLdnUqLHhane9ysAd4cqHFKRdwLFk1/h0uRpifqhCei', 'Chef de Projet', 'dominique.collet@delattre.net'),
 (51, 'Bernard', '$2y$10$/idt86978UAUC5ykhyuVC.E7YjKl3dFRJ/9rr5/i1szHvMopJIsYq', 'Chef de Projet', 'patrick55@blin.com'),
 (52, 'Audrey', '$2y$10$ELYr7R4n0mamMP4Ig2a92.CP7dLFEyZHJ6FWuMCls/8ySbgKdkMyC', 'Visiteur', 'voisin.laurence@free.fr'),
 (53, 'Olivier', '$2y$10$6zgwY0nOh4MjUPNGZ6hX4OY.FNCKp3AbdFdlxjDopdlbKrCqZA78a', 'Visiteur', 'michelle.marty@imbert.net'),
 (54, 'Raymond', '$2y$10$6I7bkECLmE2kWnRkdQsOtu7GTA71QzdxrTM84bCv1oYKXz8.PlXTu', 'RC', 'genevieve.millet@riou.com'),
-(55, 'Dorothée', '$2y$10$2/wUcFhKFxk7HANBYl1vcONHFNhxy.Ki0n2OCpgyjfpY71XDR8I2W', 'Commercial', 'margaux.breton@carpentier.com'),
+(55, 'Dorothéea', '$2y$10$2/wUcFhKFxk7HANBYl1vcONHFNhxy.Ki0n2OCpgyjfpY71XDR8I2W', 'Commercial', 'margaux.breton@carpentier.com'),
 (56, 'Anouk', '$2y$10$O6XcOqvi8z43H8qtRpjuCOLlLQZwsgFfP7fTiPJstyHzW7y0j9DEC', 'Commercial', 'hortense.huet@dbmail.com'),
 (57, 'Hugues', '$2y$10$21RT0JbiF1l.Y.Jud6Ma6.jQbyGq.pTYfAnIfKgzXFwJEIVmvjQkq', 'RH', 'cecile09@auger.fr'),
 (58, 'Josette', '$2y$10$vtzkE/b9FwM7U4uRBfJHAOHDE8HGcM.xpkOr./.qYC99j.xpMUSMy', 'Commercial', 'jean57@club-internet.fr'),
@@ -950,33 +943,33 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 (69, 'Élodie', '$2y$10$.x9c432Rwmlh1.5aF8KarOwUCl.hgR2BgT1h7koxWriztOnJ7IC3.', 'Commercial', 'frederic.pascal@free.fr'),
 (70, 'Nicolas', '$2y$10$rWnqIEI24oB7dMKmdkFO3O2PTUdoCg61reO0.1.z37pFNIOcKpXQG', 'Employé', 'camille.moulin@leduc.fr'),
 (71, 'Laurence', '$2y$10$ixwRIh7LmeUhapCmHJgaserdjqGRNfY/CEa8JQ3HrQhH6LVymIHU6', 'RC', 'tristan81@chauvet.com'),
-(72, 'Margaux', '$2y$10$tEXuCwpJmbY95ndvcm6hhe7GJKYHXOfdCCQ6yFwb3zD3JBz71YPd2', 'Visiteur', 'marianne32@leveque.com'),
+(72, 'Margauxe', '$2y$10$tEXuCwpJmbY95ndvcm6hhe7GJKYHXOfdCCQ6yFwb3zD3JBz71YPd2', 'Visiteur', 'marianne32@leveque.com'),
 (73, 'Stéphanie', '$2y$10$ZtgiSkihqJBEkygdqw.bjOKoN9uDDTSp4swjMD.v08cEcpoiVChxm', 'Commercial', 'guyot.vincent@tele2.fr'),
 (74, 'Cécile', '$2y$10$W2g6A2T1tHM6TCICyIvvIOoYpEd8TUXLFPzoBqL4vhPPP5ystqXam', 'RC', 'alphonse38@free.fr'),
 (75, 'Chantal', '$2y$10$7vtPC7ByRaTongQfLmQexezQQasugZoykYXp2ddV6IaEJr.6YyoE6', 'Employé', 'dfrancois@parent.fr'),
 (76, 'Thérèse', '$2y$10$5hsDYLF3rk1hj6Khwmp0JOZRqB6lHwrdmtqLF/4fo9Ehw/KoemPoG', 'Employé', 'lferreira@tele2.fr'),
 (77, 'Victor', '$2y$10$EaFs1fCcGwPzPH4JdVHKsekc/9EV0CmugYr6Gv4LFPcFpbwvgF2ea', 'Chef de Projet', 'guillon.martine@orange.fr'),
 (78, 'Élisabeth', '$2y$10$MlJFqWD9Mi7whRqEWFA9HuFvK97KQt5wp3vvkhjj3KDdnya7dESfG', 'RC', 'noel.normand@dbmail.com'),
-(79, 'Étienne', '$2y$10$KfUbtcpluwV5vEPbK1hGxeTTXTf4h1YMDPew99xwMJ2o2WyxAgAIO', 'Chef de Projet', 'lucas.arthur@bouygtel.fr'),
+(79, 'Étienneala', '$2y$10$KfUbtcpluwV5vEPbK1hGxeTTXTf4h1YMDPew99xwMJ2o2WyxAgAIO', 'Chef de Projet', 'lucas.arthur@bouygtel.fr'),
 (80, 'Martin', '$2y$10$tqFBQeEjhR4HsKB8FVS9ieN3yxUNzfqMpfujjyjxnph0I0s3xu75m', 'Employé', 'nguyon@hotmail.fr'),
 (81, 'Renée', '$2y$10$QWrRwOLVamKRPfK.w2LPs.RAtKsz.9Gtapy8vfZSMOkF5uUzSFrji', 'Visiteur', 'xguichard@laposte.net'),
 (82, 'François', '$2y$10$SKafDTQXPblPgLDkX13YXOZwNXaua/bXecDh7kKqIt6IdXgm5Di/W', 'Commercial', 'helene67@fischer.net'),
 (83, 'Claudine', '$2y$10$V5m7GzxuTVvB2gxATX5hh.01TBFrFhSEp7WW23Yb9PjbwRQyaOCfq', 'RH', 'guy58@voila.fr'),
-(84, 'Rémy', '$2y$10$bh.vkyuPaKBbJzmXn/q2huszwpxu30oMklU52qK2B4Kh6H8esXnlm', 'Chef de Projet', 'gabrielle47@orange.fr'),
+(84, 'Rémie', '$2y$10$bh.vkyuPaKBbJzmXn/q2huszwpxu30oMklU52qK2B4Kh6H8esXnlm', 'Chef de Projet', 'gabrielle47@orange.fr'),
 (85, 'Olivie', '$2y$10$UKHtrDdc1aJXcHwplKmtAuUOcVvq1XCP3LMaWcRdVoHAgP4xhAH8u', 'Visiteur', 'bperez@baudry.fr'),
 (86, 'Marc', '$2y$10$yylQjK7LjDYIA/eP3kO10OtQVe6UYJMnGExw5nHv/y5r.jN6chO6m', 'Chef de Projet', 'augustin08@david.net'),
-(87, 'Stéphane', '$2y$10$OhueWep6lUW4Uumwzt8dZOi7uf3ny3s5fdOT/XAUcgRx0cxneAT2m', 'Employé', 'adrienne.bailly@ifrance.com'),
+(87, 'Stéph', '$2y$10$OhueWep6lUW4Uumwzt8dZOi7uf3ny3s5fdOT/XAUcgRx0cxneAT2m', 'Employé', 'adrienne.bailly@ifrance.com'),
 (88, 'Margaud', '$2y$10$mWK2TgCyojcZlQDfTmJneux.p3Zq3ryYi61CQLjliTlYr6Whcz9ka', 'Employé', 'manon82@hoarau.fr'),
-(89, 'Alix', '$2y$10$1SGrMSlUyJKnroD/WCGyBehsErERkFPcGaPrslRfo.byk52mqwTIi', 'Employé', 'marcelle.boucher@jacob.com'),
+(89, 'Alixy', '$2y$10$1SGrMSlUyJKnroD/WCGyBehsErERkFPcGaPrslRfo.byk52mqwTIi', 'Employé', 'marcelle.boucher@jacob.com'),
 (90, 'Guy', '$2y$10$Brtx6LgoIiz8Yn87j/gtxu2M3V9hMoebgpUYP9ZIApisJDZ3FZIPe', 'RC', 'urolland@tiscali.fr'),
 (91, 'Isabelle', '$2y$10$LcVbiFfu3MpKJO0laP9xR.rzDIyBqKLGRjqwh.AUGDXf7B1yo7Gdi', 'Employé', 'vlecomte@voila.fr'),
 (92, 'Gérard', '$2y$10$oP7putmHNqNFimE9HSTMoO9.MwDNgPcqlo/X8YMEVCZhFW5YYlUfa', 'Chef de Projet', 'olivie.couturier@dbmail.com'),
-(93, 'Suzanne', '$2y$10$UacVlt1lUC5X.cVbShjBF.hFY95IGpxxkJbRmq5zdRaGAuORxPD8K', 'Commercial', 'denise20@gilbert.com'),
+(93, 'Suzanno', '$2y$10$UacVlt1lUC5X.cVbShjBF.hFY95IGpxxkJbRmq5zdRaGAuORxPD8K', 'Commercial', 'denise20@gilbert.com'),
 (94, 'Diane', '$2y$10$oLTGkNHpvaWuhWa0hQFJvuxsBIoFCacbjcAfA1vDPCjME2RvK6YBG', 'Chef de Projet', 'oceane.vincent@guillon.com'),
-(95, 'Lucy', '$2y$10$hrOovNgl1krEvQQ4RRWlieemmMC62PhoBbeoE.HvgPigPBoLZqzVe', 'Employé', 'alexandre93@gilles.fr'),
+(95, 'Lucyy', '$2y$10$hrOovNgl1krEvQQ4RRWlieemmMC62PhoBbeoE.HvgPigPBoLZqzVe', 'Employé', 'alexandre93@gilles.fr'),
 (96, 'Dominique', '$2y$10$m639KRntyLA98tLnWwyBcedJME1ViueRai.h7EydWC/Ks7iI54cqa', 'Visiteur', 'talbert@fournier.fr'),
 (97, 'Honoré', '$2y$10$z1xV11NMNajrosJPu0WEBedH/a1Ix1NoV8we74xp6zk/cKin6BEpS', 'RH', 'daniel.techer@guillet.com'),
-(98, 'Suzanne', '$2y$10$jW7DMa5aT8T1umc8mXDlGuWEcBBCG6HvWtdpwLxin59f9X1OX/VCK', 'RH', 'valerie.clement@gomes.net'),
+(98, 'Suzanneuh', '$2y$10$jW7DMa5aT8T1umc8mXDlGuWEcBBCG6HvWtdpwLxin59f9X1OX/VCK', 'RH', 'valerie.clement@gomes.net'),
 (99, 'Robert', '$2y$10$cHhcJzSCdMVKG8Z7c4ZyeuuFqzWEVYHwsxHbHrNyLdswIgSEwbxUa', 'Chef de Projet', 'fbriand@voila.fr'),
 (100, 'Amélie', '&[\"&/U,w@.^o}}', 'Commercial', 'salmon.adele@noos.fr');
 
@@ -1029,7 +1022,9 @@ ALTER TABLE `project_employee`
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `mail_unique` (`email`),
+  ADD UNIQUE KEY `login_unique` (`login`) USING BTREE;
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
