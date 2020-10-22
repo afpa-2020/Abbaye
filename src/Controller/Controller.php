@@ -18,6 +18,7 @@ abstract class Controller
 {
     public static function homeController()
     {
+        session_start();
         ob_start();
         include '../templates/index.php';
         ob_end_flush();

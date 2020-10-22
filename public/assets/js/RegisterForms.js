@@ -4,13 +4,7 @@ $("#registerForms").submit(function (event) {
     let email = $(this).find("input[name=email]").val();
     let password = $(this).find("input[name=password]").val();
     let confirmPassword = $(this).find("input[name=confirmPassword]").val();
-    
-    
-    let msg = "Vous venez de vous inscrire : \n" + 
-    "identifiant : " + identifiant + "\n" + 
-    "email : " + email + "\n" + 
-    "password : " + password + "\n" + 
-    "confirmPassword : " + confirmPassword + "\n" ; 
+     
     
     if(identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
         $.post( "/registration" , {
@@ -20,7 +14,6 @@ $("#registerForms").submit(function (event) {
             confirmPassword: confirmPassword
         }, function(reponse) {
             if (reponse ==="true"){
-                alert(msg);
                 location.href = "/";
             } else {
                 alert ("Retente ta chance !");

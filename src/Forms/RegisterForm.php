@@ -43,7 +43,11 @@ class RegisterForm
 
     //Non c'est bon, ce mail existe pas déjà, on peut ajouter notre utilisateur :
     $query = $pdo->prepare("INSERT INTO user (login,password,email, role) VALUES (?,?,?,?)");
-    return $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
+    $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
+  
+    $_SESSION['login'] = $this->identifiant;
+    $_SESSION['role'] = "Visiteur";
+    return true;
    
   
   }
