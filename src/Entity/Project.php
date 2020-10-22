@@ -9,6 +9,7 @@ class Project
     private string $fullname;
     private string $type;
     private $started;
+    private string $customer_id;
 
 
     public function __construct()
@@ -68,6 +69,17 @@ class Project
     public function setStarted($started)
     {
         $this->started = $started;
+        return $this;
+    }
+
+    public function getCustomerId()
+    {
+        return $this->customer_id;
+    }
+
+    public function setCustomerId($customer_id)
+    {
+        $this->customer_id = $customer_id;
         return $this;
     }
 }
