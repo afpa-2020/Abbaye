@@ -17,9 +17,23 @@
             <h4 class="bg-info mt-1 rounded text-center ">
                 Un titre aussi
             </h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestiae laborum quia voluptatum non nemo vel, accusamus facere rem tempora maiores cupiditate blanditiis atque aperiam minus corporis, recusandae totam esse.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat ex dolor inventore ipsa maiores quasi eveniet dolorem facere modi! Eveniet rem labore in nostrum fuga atque adipisci voluptates cupiditate!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit cumque saepe praesentium corporis unde! Pariatur facilis iste cupiditate enim minima tempore autem iusto eius, tempora adipisci assumenda exercitationem harum debitis.</p>
+
+
+            <div class="row">
+
+                <div class="col-md-6 col-12">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat molestiae laborum quia voluptatum non nemo vel, accusamus facere rem tempora maiores cupiditate blanditiis atque aperiam minus corporis, recusandae totam esse.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat ex dolor inventore ipsa maiores quasi eveniet dolorem facere modi! Eveniet rem labore in nostrum fuga atque adipisci voluptates cupiditate!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit cumque saepe praesentium corporis unde! Pariatur facilis iste cupiditate enim minima tempore autem iusto eius, tempora adipisci assumenda exercitationem harum debitis.</p>
+                    
+                </div>
+                
+                <div class="col-md-6 col-12"> 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque accusamus corrupti recusandae libero officiis aperiam autem reiciendis cum consectetur optio eveniet saepe, rem nisi deleniti quia modi necessitatibus possimus explicabo?</p>
+                </div>
+                
+            </div>
+        
         </div>
     </div>
 </div>
