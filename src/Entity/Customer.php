@@ -136,4 +136,8 @@ class Customer
         $this->activity = $activity;
         return $this;
     }
+
+    public function toJson(){
+        return json_encode(get_object_vars($this));
+    }
 }

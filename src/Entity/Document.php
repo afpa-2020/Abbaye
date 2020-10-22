@@ -52,4 +52,8 @@ class Document
         $this->created_at = $created_at;
         return $this;
     }
+
+    public function toJson(){
+        return json_encode(get_object_vars($this));
+    }
 }

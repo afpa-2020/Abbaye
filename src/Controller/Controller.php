@@ -62,6 +62,9 @@ abstract class Controller
     public static function customersController()
     {
         session_start();
+        if(!isset($_SESSION['login'])) {
+            header('Location:/error404');
+        } 
         ob_start();
         $customerRepository = new CustomerRepository();
         $customers = $customerRepository->findBy([],["id"=>"ASC"],10);
@@ -72,6 +75,9 @@ abstract class Controller
     public static function projectsController()
     {
         session_start();
+        if(!isset($_SESSION['login'])) {
+            header('Location:/error404');
+        } 
         ob_start();
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
@@ -82,6 +88,9 @@ abstract class Controller
     public static function contactsController()
     {
         session_start();
+        if(!isset($_SESSION['login'])) {
+            header('Location:/error404');
+        } 
         ob_start();
         $contactRepository = new ContactRepository();
         $contacts = $contactRepository->findBy([],["id"=>"ASC"],10);
@@ -92,6 +101,9 @@ abstract class Controller
     public static function employeesController()
     {
         session_start();
+        if(!isset($_SESSION['login'])) {
+            header('Location:/error404');
+        } 
         ob_start();
         $employeeRepository = new EmployeeRepository();
         $employees = $employeeRepository->findBy([],["id"=>"ASC"],10);
