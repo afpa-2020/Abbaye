@@ -16,7 +16,7 @@ class RegisterForm
   //constr ($post)
   public function __construct($post)
   {
-      $this->identifiant = htmlentities(trim($post['identifiant']));
+      $this->identifiant = htmlspecialchars(trim($post['identifiant']));
       $this->email = htmlspecialchars(strtolower(trim($post['email'])));
       $this->password = trim($post['password']);
       $this->confirmPassword = trim($post['confirmPassword']); 
