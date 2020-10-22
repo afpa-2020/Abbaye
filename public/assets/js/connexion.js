@@ -12,11 +12,20 @@ function connexion() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
-      xhr.responseText;
+      if (xhr.responseText === "ok") {
+        location.href = "/";
+      };
     }
   };
   var data = 'password=' + inputPassword + '&identifiant=' + inputidentifiant;
   xhr.open('POST', '/login', true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send(data);
+}
+
+function connexionbis() {
+  let inputidentifiant = $('#inputIdentifiant').val();
+  let inputPassword = $('#inputPassword').val();
+
+
 }

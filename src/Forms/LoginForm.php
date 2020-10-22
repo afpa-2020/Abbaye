@@ -12,7 +12,7 @@ class LoginForm {
     public function __construct($post)
     {
         $this->identifiant = htmlspecialchars($post['identifiant']);
-        $this->password = htmlspecialchars($post["password"]);
+        $this->password = trim($post["password"]);
     }
 
     public function authentification(){
@@ -29,7 +29,13 @@ class LoginForm {
         if(empty($result)) {
             echo("connection invalide");
         } else {
-            password_verify($this->password,$result["password"]);
+            if(password_verify($this->password, $result["password"])){
+                $_SESSION['login'] = $result['login'];
+                $_SESSION['role'] = $result['role'];
+                echo "ok";
+            } else {
+                echo("connection invalide");
+            }
         }
     }
 }

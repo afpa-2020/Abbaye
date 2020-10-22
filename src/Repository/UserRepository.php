@@ -34,6 +34,7 @@ class UserRepository extends Repository
     {
         $query = $this->pdo->prepare("SELECT * FROM user WHERE user.login = ?");
         $query->execute([$login]);
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
         return $query->fetch();
     }
 }
