@@ -4,13 +4,15 @@ $("#registerForms").submit(function (event) {
     let email = $(this).find("input[name=email]").val();
     let password = $(this).find("input[name=password]").val();
     let confirmPassword = $(this).find("input[name=confirmPassword]").val();
-
+    
+    $.post( "RegisterForm.php" , function() {
+    
     let msg = "Vous venez de vous inscrire : \n" + 
     "identifiant : " + identifiant + "\n" + 
     "email : " + email + "\n" + 
     "password : " + password + "\n" + 
     "confirmPassword : " + confirmPassword + "\n" ; 
-
+    
     if(identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
         alert(msg);
     } else {
@@ -27,10 +29,10 @@ $("#registerForms input").focusout(function () {
     if (window[functionisValid]($(this).val ())) {
         $(this).removeClass('is-invalid');
         $(this).addClass('is-valid');
-
+        
     }else{
         $(this).removeClass('is-valid');
-        $(this).addClass('is-valid');
+        $(this).addClass('is-invalid');
     }
 })
 
@@ -38,7 +40,7 @@ $("#registerForms input").focusout(function () {
 
 
 function identifiantIsValid(string) {
-    let regex = /[a-zA-Z0-9]{2,}$/;
+    let regex = /[a-zA-ZÀ-ÿ]{2,}$/;
     return regex.test(string);
 }
 
@@ -48,11 +50,14 @@ function emailIsValid(string) {
 }
 
 function passwordIsValid(string) {
-    let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    let regex = /([a-zA-Z0-9]){8,}$/;
     return regex.test(string);
 }
 
 function confirmPasswordIsValid(string) {
-    let regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+    let regex = /([a-zA-Z0-9]){8,}$/;
     return regex.test(string);
 }
+
+
+});
