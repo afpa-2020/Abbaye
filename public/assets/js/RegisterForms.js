@@ -5,7 +5,6 @@ $("#registerForms").submit(function (event) {
     let password = $(this).find("input[name=password]").val();
     let confirmPassword = $(this).find("input[name=confirmPassword]").val();
     
-    $.post( "RegisterForm.php" , function() {
     
     let msg = "Vous venez de vous inscrire : \n" + 
     "identifiant : " + identifiant + "\n" + 
@@ -14,12 +13,25 @@ $("#registerForms").submit(function (event) {
     "confirmPassword : " + confirmPassword + "\n" ; 
     
     if(identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
-        alert(msg);
+        $.post( "/registration" , {
+            identifiant: identifiant,
+            email: email, 
+            password: password,
+            confirmPassword: confirmPassword
+        }, function(reponse) {
+            if (reponse ==="true"){
+                alert(msg);
+                location.href = "/";
+            } else {
+                alert ("Retente ta chance !");
+            }
+        });
     } else {
         $("#registerForms input").each(function () {
             $(this).focusout();
         })
     }
+
 })
 
 
@@ -59,5 +71,3 @@ function confirmPasswordIsValid(string) {
     return regex.test(string);
 }
 
-
-});
