@@ -52,9 +52,9 @@ abstract class Controller
         if (!empty($_POST)){
             $signup = new RegisterForm($_POST);
             if ($signup->register()){
-                header('Location:/');
+                echo "true";
             } else {
-                header('Location:/signup');
+                echo "false";
             }
         }
         
