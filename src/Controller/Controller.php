@@ -67,7 +67,7 @@ abstract class Controller
     {
         session_start();
         if(!isset($_SESSION['login'])) {
-            header('Location:/error404');
+            header('Location:/logplz');
         } 
         ob_start();
         $customerRepository = new CustomerRepository();
@@ -80,7 +80,7 @@ abstract class Controller
     {
         session_start();
         if(!isset($_SESSION['login'])) {
-            header('Location:/error404');
+            header('Location:/logplz');
         } 
         ob_start();
         $projectRepository = new ProjectRepository();
@@ -93,7 +93,7 @@ abstract class Controller
     {
         session_start();
         if(!isset($_SESSION['login'])) {
-            header('Location:/error404');
+            header('Location:/logplz');
         } 
         ob_start();
         $contactRepository = new ContactRepository();
@@ -106,7 +106,7 @@ abstract class Controller
     {
         session_start();
         if(!isset($_SESSION['login'])) {
-            header('Location:/error404');
+            header('Location:/logplz');
         } 
         ob_start();
         $employeeRepository = new EmployeeRepository();
@@ -121,7 +121,12 @@ abstract class Controller
         header("location:/");
     }
 
-    
+    public static function logplzController(){
+        session_start();
+        ob_start();
+        include '../templates/logplz.php';
+        ob_end_flush();
+    }
 
     public static function shapeController()
     {
