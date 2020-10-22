@@ -47,11 +47,7 @@ abstract class Controller
         session_start();
         if (!empty($_POST)){
             $signup = new RegisterForm($_POST);
-            if ($signup->register()){
-                echo "true";
-            } else {
-                echo "false";
-            }
+            echo $signup->register();
         }
     }
 

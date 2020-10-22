@@ -1,11 +1,11 @@
 <?php require_once 'skeleton/header.php' ?>
+<div class="d-flex flex-column">
+    <div class="justify-content-center row my-1 mb-2 mx-1 ">
 
-<div class="container text-white mt-4">
-        <div class="row justify-content-md-center">
-            <div class = "col-md-3 pr-1">
-                <div class="row mt-5 bg-info justify-content-md-center">
-                    <h3>Nos Collaborateurs</h3>
-                </div>
+        <div class="bg-secondary col-md-4 col-12 rounded my-1 mx-1 ">
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Nos collaborateurs
+            </h3>
                 <div class="row mt-2">
                     <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     collaborateurs, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
@@ -21,27 +21,27 @@
                             </tr>
                         </thead>
 
+                        <tbody>
                         <?php foreach ($employees as $employee): ?>
 
-                        <tbody >
                             <tr>
                                 <th><?= $employee->getId() ?></th>
                                 <th><?= $employee->getLastname() ?></th>
                             </tr>
+                            
+                            <?php endforeach ?>
                         </tbody>
-
-                        <?php endforeach ?>
 
                     </table>
                 </div>
             </div>
-            <div class="col-md-8 ml-5 ">
-                <div class="row mt-5 bg-info justify-content-md-center">
-                    <h3>Informations du collaborateur</h3>
-                </div>
+            <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Informations sur le collaborateur
+            </h3>
                 <div class="row mt-2">
                     <!--Affichage des données de chaque collaborateurs-->
-                    <table class="table table-striped">
+                    <table class="table table-striped text-white">
                             <tbody>
                                 <tr>
                                     <td scope="row"><strong>Nom</strong></td>

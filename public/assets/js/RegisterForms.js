@@ -4,19 +4,33 @@ $("#registerForms").submit(function (event) {
     let email = $(this).find("input[name=email]").val();
     let password = $(this).find("input[name=password]").val();
     let confirmPassword = $(this).find("input[name=confirmPassword]").val();
-     
-    
-    if(identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
-        $.post( "/registration" , {
+
+
+    if (identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
+        $.post("/registration", {
             identifiant: identifiant,
-            email: email, 
+            email: email,
             password: password,
             confirmPassword: confirmPassword
-        }, function(reponse) {
-            if (reponse ==="true"){
+        }, function (reponse) {
+            console.log(reponse);
+            if (reponse === "true") {
                 location.href = "/";
-            } else {
-                alert ("Retente ta chance !");
+            } else if (reponse.includes("Identifiant") !== false) {
+                $('#getError').html(reponse);
+                $("#identifiant").removeClass('is-valid');
+                $("#identifiant").addClass('is-invalid');
+            } else if (reponse.includes("Email") !== false){
+                $('#getError').html(reponse);
+                $("#email").removeClass('is-valid');
+                $("#email").addClass('is-invalid'); 
+            } else if (reponse.includes("Le mot de passe") !== false) {
+                $('#getError').html(reponse);
+                $("#password").removeClass('is-valid');
+                $("#password").addClass('is-invalid'); 
+                
+                $("#confirmPassword").removeClass('is-valid');
+                $("#confirmPassword").addClass('is-invalid'); 
             }
         });
     } else {
@@ -31,11 +45,11 @@ $("#registerForms").submit(function (event) {
 $("#registerForms input").focusout(function () {
     let id = $(this).attr('name');
     let functionisValid = id + 'IsValid';
-    if (window[functionisValid]($(this).val ())) {
+    if (window[functionisValid]($(this).val())) {
         $(this).removeClass('is-invalid');
         $(this).addClass('is-valid');
-        
-    }else{
+
+    } else {
         $(this).removeClass('is-valid');
         $(this).addClass('is-invalid');
     }
@@ -44,23 +58,27 @@ $("#registerForms input").focusout(function () {
 
 
 
-function identifiantIsValid(string) {
+function identifiantIsValid(identifiant) {
     let regex = /[a-zA-ZÀ-ÿ]{2,}$/;
-    return regex.test(string);
+    return regex.test(identifiant);
 }
 
-function emailIsValid(string) {
+function emailIsValid(email) {
     let regex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return regex.test(string);
+    return regex.test(email);
 }
 
-function passwordIsValid(string) {
+function passwordIsValid(password) {
     let regex = /([a-zA-Z0-9]){8,}$/;
-    return regex.test(string);
+    return regex.test(password);
 }
 
-function confirmPasswordIsValid(string) {
-    let regex = /([a-zA-Z0-9]){8,}$/;
-    return regex.test(string);
+function confirmPasswordIsValid(confirmPassword) {
+    let password = $('#password').val();
+    if (password === confirmPassword && confirmPassword !== "") {
+        return true
+    } else {
+        return false
+    }
 }
 

@@ -1,4 +1,8 @@
-<?php require_once 'skeleton/header.php'?>
+<?php
+
+use App\Repository\ProjectRepository;
+
+require_once 'skeleton/header.php'?>
 
 <div class="container text-white mt-4">
         <div class="row justify-content-md-center">
@@ -18,7 +22,7 @@
                             </tr>
 
                         </thead>
-                        <tbody role="button" class="text-white ">
+                        <tbody role="button" class="text-white" onclick="">
 
 <?php foreach ($projects as $project): ?>
 
@@ -41,97 +45,25 @@
                     <table class="table text-white table-striped table-sm">
                             <tbody>
                                 <tr>
-                                    <td scope="row"><strong>Nom</strong></td>
-                                    <td><input type="text" class="form-control-plaintext" id="nomProjet" value="" disabled></td>
-                                    <td><strong>Code</strong></td>
-                                    <td><input type="text" class="form-control-plaintext" id="codeProjet" value="" disabled></td>
-                                    <td><strong>Type</strong></td>
-                                    <td>Forfait</td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><strong>Client</strong></td>
+                                    <td scope="row" ><strong>Client</strong></td>
                                     <!--Modal affichage adresse du client et lien vers les contacts-->
-                                    <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
-                                            Michelin
-                                        </a>
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                              <div class="modal-content">
-                                                <div class="modal-header">
-                                                  <h5 class="modal-title" id="exampleModalCenterTitle">Michelin</h5>
-                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                  </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                  23 Place des Carmes Dechaux <br>
-                                                  63000 Clermont-Ferrand
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a href="abi_contacts.html">
-                                                        <button type="button" class="btn btn-primary">Voir les contacts</button>
-                                                    </a>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                    </td>
-                                    <td><strong>Activité</strong></td>
-                                    <td>Pneumatique</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="projectClient"></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row" ><strong>Dates prévues</strong></td>
-                                    <td>25/03/2019</td>
-                                    <td>au</td>
-                                    <td>25/05/2019</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td scope="row"><strong>Projet</strong></td>
+                                    <td id="project"></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row"><strong>Dates réelles</strong></td>
-                                    <td>28/03/2019</td>
-                                    <td>au</td>
-                                    <td>22/05/2019</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td scope="row"><strong>Contact</strong></td>
+                                    <td id="projectContact"></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row" colspan="2"><strong>Charge global estimée</strong></td>
-                                    <td>300 Heures</td>
-                                    <td><strong>Remarques</strong></td>
-                                    <td colspan="2">C'est pas bon</td>
+                                    <td scope="row"><strong>Type de contract</strong></td>
+                                    <td id="projectContract"></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row" colspan="2"><strong>Info générale du projet</strong></td>
-                                    <td colspan="2"><strong>Personnes associées</strong></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><strong>Langages</strong></td>
-                                    <td>HTML/CSS/JavaScript</td>
-                                    <td><strong>Commercial</strong></td>
-                                    <td>Mr Bernard</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><strong>Plateforme</strong></td>
-                                    <td>Windows 10</td>
-                                    <td><strong>Product Owner</strong></td>
-                                    <td>Mr Dupond</td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><strong>Outils</strong></td>
-                                    <td>Visual Studio Code</td>
-                                    <td><strong>Scrum Master</strong></td>
-                                    <td>Mr Lapin</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td scope="row"><strong>Date de début</strong></td>
+                                    <td id="projectStart"></td>
                                 </tr>
                                 <tr>
                                     <td> 
