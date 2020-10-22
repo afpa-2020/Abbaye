@@ -10,7 +10,7 @@
                     <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     collaborateurs, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
                     <table id="table" 
-                    class="table table-striped table-sm text-white" 
+                    class="table table-striped table-sm text-white bg-secondary" 
                     data-search="true" 
                     data-pagination="true"
                     data-page-list="[5, 10, 15]">

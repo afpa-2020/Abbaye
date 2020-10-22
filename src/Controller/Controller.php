@@ -29,13 +29,8 @@ abstract class Controller
         session_start();
         
         if (!empty($_POST)){
-            
-            //$post=json_decode(json_encode($_POST));
-            print_r($_POST["identifiant"]);
-            print_r(" ");
-            print_r($_POST['password']);
-            //$signin = new LoginForm($_POST);
-            //var_dump($signin->authentification());
+            $signin = new LoginForm($_POST);
+            $signin->authentification();
         } 
        
     }
@@ -58,18 +53,19 @@ abstract class Controller
                 echo "false";
             }
         }
-        
-        
     }
 
     public static function error404Controller()
     {
+        session_start();
         ob_start();
         include '../templates/404.php';
         ob_end_flush();
     }
+
     public static function customersController()
     {
+        session_start();
         ob_start();
         $customerRepository = new CustomerRepository();
         $customers = $customerRepository->findBy([],["id"=>"ASC"],10);
@@ -79,6 +75,7 @@ abstract class Controller
 
     public static function projectsController()
     {
+        session_start();
         ob_start();
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
@@ -88,6 +85,7 @@ abstract class Controller
 
     public static function contactsController()
     {
+        session_start();
         ob_start();
         $contactRepository = new ContactRepository();
         $contacts = $contactRepository->findBy([],["id"=>"ASC"],10);
@@ -97,6 +95,7 @@ abstract class Controller
 
     public static function employeesController()
     {
+        session_start();
         ob_start();
         $employeeRepository = new EmployeeRepository();
         $employees = $employeeRepository->findBy([],["id"=>"ASC"],10);
@@ -104,4 +103,18 @@ abstract class Controller
         ob_end_flush();
     }
 
+    public static function disconnectController(){
+        session_start();
+        session_destroy();
+        header("location:/");
+    }
+
+    
+
+    public static function shapeController()
+    {
+        ob_start();
+        include '../templates/shape.php';
+        ob_end_flush();
+    }
 }

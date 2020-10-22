@@ -7,12 +7,12 @@ class LoginForm {
     
     private string $identifiant;
     private string $password;
-    
+
 
     public function __construct($post)
     {
         $this->identifiant = htmlspecialchars($post['identifiant']);
-        $this->password = hash("PASSWORD_BCRYPT",$post['password']); 
+        $this->password = trim($post["password"]);
     }
 
     public function authentification(){
@@ -25,7 +25,17 @@ class LoginForm {
 
         //si oui --> welcome !
         //si non --> va te faire enculer sac à merde !!!!!
-        $result = $UserRep->authentificate($this->identifiant, $this->password);
-        return $result;
+        $result = $UserRep->authentificate($this->identifiant);
+        if(empty($result)) {
+            echo("connection invalide");
+        } else {
+            if(password_verify($this->password, $result["password"])){
+                $_SESSION['login'] = $result['login'];
+                $_SESSION['role'] = $result['role'];
+                echo "ok";
+            } else {
+                echo("connection invalide");
+            }
+        }
     }
 }
