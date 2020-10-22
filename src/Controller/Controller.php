@@ -108,4 +108,13 @@ abstract class Controller
         session_destroy();
         header("location:/");
     }
+
+    
+
+    public static function shapeController()
+    {
+        ob_start();
+        include '../templates/shape.php';
+        ob_end_flush();
+    }
 }
