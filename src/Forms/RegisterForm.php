@@ -16,7 +16,7 @@ class RegisterForm
   //constr ($post)
   public function __construct($post)
   {
-      $this->identifiant = htmlentities(trim($post['identifiant']));
+      $this->identifiant = htmlspecialchars(trim($post['identifiant']));
       $this->email = htmlspecialchars(strtolower(trim($post['email'])));
       $this->password = trim($post['password']);
       $this->confirmPassword = trim($post['confirmPassword']); 
@@ -43,7 +43,11 @@ class RegisterForm
 
     //Non c'est bon, ce mail existe pas déjà, on peut ajouter notre utilisateur :
     $query = $pdo->prepare("INSERT INTO user (login,password,email, role) VALUES (?,?,?,?)");
-    return $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
+    $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
+  
+    $_SESSION['login'] = $this->identifiant;
+    $_SESSION['role'] = "Visiteur";
+    return true;
    
   
   }
