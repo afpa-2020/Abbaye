@@ -35,8 +35,11 @@
             <h3 class="bg-info mt-1 rounded text-center ">
                 Un titre aussi
             </h3>
+
+            <div class="row">
+              <div class="col-md-6 col-12">
             <form action="#">
-              <table class="table text-white table-sm col-12 col-md-6">
+              <table class="table text-white table-sm">
                 <tbody>
                   <tr class="text-white">
                     <th scope="row">Adresse</th>
@@ -83,9 +86,45 @@
               </table>
               
             </form>
+              </div>
+              <div class="col-md-6 col-12">
+                <table class="table text-white">
+                <tbody>
+                  <tr>
+                    <th scope="row">ID Client</th>
+                    <td id="clientId"></td>
+                  </tr>
+              </table>
+              <table class="table text-white">
+                <tbody>
+                  <tr>
+                    <th scope="row">Type</th>
+                    <td id="clientType"></td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h4>Nos Contacts avec ce Client</h4>
+            <table class="table table-sm table-striped">
+              <caption class="text-info"><a href="abi_contacts.html">Voir tous les contacts</a></caption>
+              <thead class="text-white">
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody id="contactsListe">
+
+              </tbody>
+            </table>
+            <h4>Commentaires</h4>
+            <textarea type="text" class="form-control-plaintext form-control editableClient border px-2" value=""
+              name="commentaire" id="clientCommentaire" disabled></textarea>
+
+              </div>
+            </div>
         </div>
-
-
     </div>
 </div>
 
