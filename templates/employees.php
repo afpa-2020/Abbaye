@@ -21,16 +21,16 @@
                             </tr>
                         </thead>
 
+                        <tbody>
                         <?php foreach ($employees as $employee): ?>
 
-                        <tbody >
                             <tr>
                                 <th><?= $employee->getId() ?></th>
                                 <th><?= $employee->getLastname() ?></th>
                             </tr>
+                            
+                            <?php endforeach ?>
                         </tbody>
-
-                        <?php endforeach ?>
 
                     </table>
                 </div>

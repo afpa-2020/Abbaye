@@ -1,7 +1,7 @@
 <?php require_once 'skeleton/header.php' ?>
 
-<div class="container mt-4">
-        <div class="row">
+<div class="d-flex flex-column">
+        <div class="row justify-content-center my-1 mb-2 mx-1 ">
             <div class = "col-md-4">
                 <div class="row mt-5 bg-info justify-content-md-center">
                     <h3>Nos Contacts</h3>
@@ -53,17 +53,17 @@
                           </tr>
                         </thead>
 
+                        <tbody>
                         <?php foreach ($contacts as $contact): ?>
 
-                        <tbody>
                           <tr>
                               <th><?= $contact->getLastname() ?></th>
                               <th><?= $contact->getFirstname() ?></th>
                               <th><?= $contact->getRole() ?></th>
                           </tr>
+                          
+                          <?php endforeach ?>
                         </tbody>
-
-                        <?php endforeach ?>
 
                       </table>
                 </div>
