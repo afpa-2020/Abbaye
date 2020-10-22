@@ -18,7 +18,7 @@ require_once '../templates/skeleton/header.php' ?>
         </div>
         <div class="form-group ml-5 mr-5">
             <label for="confirmPassword">Confirmer le mot de passe</label>
-            <input type="password" class="form-control" id="ConfirmPassword" name="confirmPassword">
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
         </div>
         <div id="getError">
 
