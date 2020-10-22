@@ -28,13 +28,8 @@ abstract class Controller
         session_start();
         
         if (!empty($_POST)){
-            
-            //$post=json_decode(json_encode($_POST));
-            print_r($_POST["identifiant"]);
-            print_r(" ");
-            print_r($_POST['password']);
-            //$signin = new LoginForm($_POST);
-            //var_dump($signin->authentification());
+            $signin = new LoginForm($_POST);
+            $signin->authentification();
         } 
        
     }
@@ -57,8 +52,6 @@ abstract class Controller
                 header('Location:/signup');
             }
         }
-        
-        
     }
 
     public static function error404Controller()
@@ -67,6 +60,7 @@ abstract class Controller
         include '../templates/404.php';
         ob_end_flush();
     }
+
     public static function customersController()
     {
         ob_start();
