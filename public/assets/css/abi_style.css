@@ -4,7 +4,9 @@ body{
 
 footer{
     background-color: #0c0c0d;
+    color: #0b800b;
 }
+
 .login input{
     width : 80%!important ;
     margin-left : auto;
@@ -42,4 +44,8 @@ footer img{
 
 .table-hover tbody tr:hover > td{
     background-color: rgb(170, 199, 238);
+}
+
+.yellowise {
+    color: yellow;
 }

@@ -44,7 +44,7 @@
         
                 
                 <div class="row">
-                    <table class="table text-white table-sm table-striped affichage">
+                    <table class="table text-white table-sm table-striped affichage bg-secondary">
                         <thead class="thead-light">
                           <tr>
                             <th >Nom</th>
