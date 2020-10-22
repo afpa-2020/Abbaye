@@ -88,7 +88,7 @@ $_SESSION = "TRUC";
                 </form>
                 <div class="form-group form-check ml-5">
                     <button type="reset" class="btn btn-primary" id="refresh">Annuler</button>
-                    <button role="button" class="btn btn-primary" id="send" onclick="connexion()">Envoyer</button>
+                    <button role="button" class="btn btn-primary" id="send" onclick="solution()">Envoyer</button>
                 </div>
             </div>
         </header>
