@@ -69,7 +69,7 @@ require_once 'skeleton/header.php'?>
                                     <td> 
                                         <!--Bouton d'accès aux tâches réalisées du projet selectionné-->
                                         <div class="btn-group-toggle text-center" data-toggle="buttons">
-                                            <a href="abi_projets.html">
+                                            <a href="/projects">
                                                 <button type="button" class="btn btn-success mr-2" data-toggle="button" aria-pressed="false">Tâches réalisés</button>
                                             </a>
                                         </div>
@@ -77,7 +77,7 @@ require_once 'skeleton/header.php'?>
                                     <td>
                                         <!--Bouton d'accès aux users storys du projet selectionné-->
                                         <div class="btn-group-toggle text-center" data-toggle="buttons">
-                                            <a href="abi_projets.html">
+                                        <a href="/projects">
                                                 <button type="button" class="btn btn-success mr-2" data-toggle="button" aria-pressed="false"> User Story</button>
                                             </a>
                                         </div>
@@ -85,7 +85,7 @@ require_once 'skeleton/header.php'?>
                                     <td>
                                         <!--Bouton de modification des données du collaborateur selectionné-->
                                         <div class="btn-group-toggle text-nowrap text-center" data-toggle="buttons">
-                                            <a href="abi_projets.html">
+                                        <a href="/projects">
                                                 <button type="button" class="btn btn-danger mr-2 text-nowrap" data-toggle="button" aria-pressed="false">Modifier des données</button>
                                             </a>
                                         </div>
@@ -104,7 +104,7 @@ require_once 'skeleton/header.php'?>
                                         <div class="col text-center">
                                             <!--Bouton de création d'un nouveau projet-->
                                             <div class="btn-group-toggle " data-toggle="buttons">
-                                                <a href="abi_projets.html">
+                                            <a href="/projects">
                                                 <button type="button" class="btn btn-danger mr-2" data-toggle="button" aria-pressed="false">Nouveau projet</button>
                                                 </a>
                                             </div>

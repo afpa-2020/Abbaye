@@ -150,7 +150,7 @@
 
               <h4>Nos Contacts avec ce Client</h4>
             <table class="table table-sm table-striped">
-              <caption class="text-info"><a href="abi_contacts.html">Voir tous les contacts</a></caption>
+              <caption class="text-info"><a href="/contacts">Voir tous les contacts</a></caption>
               <thead class="text-white">
                 <tr>
                   <th scope="col">Nom</th>

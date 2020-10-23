@@ -22,11 +22,16 @@ $("#registerForms").submit(function (event) {
                 $("#identifiant").addClass('is-invalid');
             } else if (reponse.includes("Email") !== false){
                 $('#getError').html(reponse);
-                $("#identifiant").removeClass('is-valid');
-                $("#identifiant").addClass('is-invalid');
-
-              
-            } 
+                $("#email").removeClass('is-valid');
+                $("#email").addClass('is-invalid'); 
+            } else if (reponse.includes("Le mot de passe") !== false) {
+                $('#getError').html(reponse);
+                $("#password").removeClass('is-valid');
+                $("#password").addClass('is-invalid'); 
+                
+                $("#confirmPassword").removeClass('is-valid');
+                $("#confirmPassword").addClass('is-invalid'); 
+            }
         });
     } else {
         $("#registerForms input").each(function () {
