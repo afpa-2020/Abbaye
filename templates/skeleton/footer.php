@@ -44,9 +44,8 @@
     <script src="/assets/js/database.js"></script>
     <script src="/assets/js/connexion.js" ></script>
     <script src="/assets/js/registerForms.js" ></script>
-    <script src="/assets/js/abi_client_form.js" ></script>
-   
-
+    <script src="/assets/js/abi_client_form.js"></script>
+    <script src="/assets/js/select_customer.js"></script>
     
 </body>
 </html>
