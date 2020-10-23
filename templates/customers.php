@@ -62,7 +62,7 @@
 
 <?php foreach ($customers as $customer): ?>
 
-<tr>
+<tr onclick="select_customer(<?= $customer->getId()?>)">
   <th><?= $customer->getId() ?></th>
   <th><?= $customer->getCompanyName() ?></th>
   <th><?= substr($customer->getZip(),3) ?></th>
@@ -75,7 +75,7 @@
         </div>
         
         <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
-            <h3 class="bg-info mt-1 rounded text-center ">
+            <h3 class="bg-info mt-1 rounded text-center" id="clientName">
                 Informations sur le client
             </h3>
 

@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="vipNav rounded-bottom mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
-        <a href="abi_accueilvip.html">
+        <a href="/">
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
@@ -23,13 +23,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link" href="abi_clients.html">Nos Clients</a>
+                    <a class="nav-link" href="/customers">Nos Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="abi_projets.html">Nos Projets</a>
+                    <a class="nav-link" href="/projects">Nos Projets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="abi_collaborateurs.html">Nos Collaborateurs</a>
+                    <a class="nav-link " href="/employees">Nos Collaborateurs</a>
                 </li>
             </ul>
         </div>
@@ -82,7 +82,7 @@
                 </form>
                 <div class="form-group form-check ml-5">
                     <a href="/signup"><button role="button" class="btn btn-primary">S'enregistrer</button></a>
-                    <button role="button" class="btn btn-primary" id="send" onclick="solution()">Envoyer</button>
+                    <button role="button" class="btn btn-primary" id="send" onclick="connexion()">Envoyer</button>
                 </div>
             </div>
         </header>
