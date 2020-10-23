@@ -14,22 +14,22 @@
 </head>
 <body>
     <nav class="vipNav rounded-bottom mx-1 navbar navbar-expand-lg navbar-dark bg-primary h4">
-        <a href="abi_accueilvip.html">
+        <a href="/">
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
             <ul class="navbar-nav ">
-                <li class="nav-item">
-                    <a class="nav-link" href="abi_clients.html">Nos Clients</a>
+            <li class="nav-item active">
+                    <a class="nav-link" href="/">Accueil </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="abi_projets.html">Nos Projets</a>
+                    <a class="nav-link " href="/customers">Nos Clients</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="abi_collaborateurs.html">Nos Collaborateurs</a>
+                    <a class="nav-link" href="/projects">Nos Projets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/employees">Nos Collaborateurs</a>
                 </li>
             </ul>
         </div>

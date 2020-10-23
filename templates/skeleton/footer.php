@@ -27,10 +27,8 @@
         </div>
     </footer>
 
-<<<<<<< HEAD
     <script src="/assets/js/jquery.js"></script>
     <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
-=======
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -41,12 +39,14 @@
     <script src="/assets/js/jquery.js" ></script>
   
    
->>>>>>> db8090a175d3fb17a1b1444866ea7f14c1cdd1ef
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/database.js"></script>
     <script src="/assets/js/connexion.js" ></script>
     <script src="/assets/js/registerForms.js" ></script>
+    <script src="/assets/js/abi_client_form.js" ></script>
+   
+
     
 </body>
 </html>
