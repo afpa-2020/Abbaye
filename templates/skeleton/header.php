@@ -18,8 +18,8 @@
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
         <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
-            <ul class="navbar-nav ">
-            <li class="nav-item active">
+            <ul class="navbar-nav">
+            <li class="nav-item ">
                     <a class="nav-link" href="/">Accueil </a>
                 </li>
                 <li class="nav-item">
@@ -82,7 +82,7 @@
                 </form>
                 <div class="form-group form-check ml-5">
                     <a href="/signup"><button role="button" class="btn btn-primary">S'enregistrer</button></a>
-                    <button role="button" class="btn btn-primary" id="send" onclick="solution()">Envoyer</button>
+                    <button role="button" class="btn btn-primary" id="send" onclick="connexion()">Envoyer</button>
                 </div>
             </div>
         </header>
