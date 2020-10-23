@@ -72,7 +72,6 @@ class Project
         return $this;
     }
 
-<<<<<<< HEAD
     public function getCustomerId()
     {
         return $this->customer_id;
@@ -82,9 +81,9 @@ class Project
     {
         $this->customer_id = $customer_id;
         return $this;
-=======
+    }
+    
     public function toJson(){
         return json_encode(get_object_vars($this));
->>>>>>> cdf069d0a3fdfa07ed5cc2224378903f779c4ea9
     }
 }
