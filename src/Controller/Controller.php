@@ -27,7 +27,7 @@ abstract class Controller
     public static function loginController()
     {
         session_start();
-        
+
         if (!empty($_POST)){
             $signin = new LoginForm($_POST);
             $signin->authentification();
@@ -129,5 +129,18 @@ abstract class Controller
         ob_start();
         include '../templates/shape.php';
         ob_end_flush();
+    }
+
+    public static function selectcustomerController(){
+        $customerRepository = new CustomerRepository();
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        $customer = $customerRepository->find($data->id);
+
+        /*Version jQuery
+        $data = $_POST;
+        $customer = $customerRepository->find($data['id']);*/
+
+        echo $customer->toJson();
     }
 }
