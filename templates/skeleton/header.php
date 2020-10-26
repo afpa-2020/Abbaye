@@ -19,11 +19,11 @@
         </a>
         <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
             <ul class="navbar-nav ">
-            <li class="nav-item active">
-                    <a class="nav-link" href="/">Accueil </a>
+            <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="/customers">Nos Clients</a>
+                    <a class="nav-link" href="/customers">Nos Clients</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/projects">Nos Projets</a>

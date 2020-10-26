@@ -28,4 +28,5 @@ class ProjectRepository extends Repository {
         $query->execute([$idCustomer]);
         return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Project');
     }
+    
 }
