@@ -9,22 +9,17 @@ use App\Controller\Controller;
 
 $uri = $_SERVER["REQUEST_URI"];
 
-$uri = substr($uri, 1) . "Controller";
+if (strpos($uri, "?")){
+    $uri = substr_replace($uri, "", strpos($uri, "?"));
+}
+$uri = substr($uri, 1);
+$uri = $uri . "Controller";
+
 
 if($uri ==="Controller"){
-
     Controller::homeController();
-
-} else if ( strpos($uri, 'customers') >= 0) {
-
-    Controller::customersController();
-
 } else if (method_exists('App\Controller\Controller', $uri)) {
-
     Controller::$uri();
-
 } else {
-
     Controller::error404Controller();
-
 }
