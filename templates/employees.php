@@ -24,7 +24,7 @@
                         <tbody>
                         <?php foreach ($employees as $employee): ?>
 
-                            <tr>
+                            <tr onclick="select_employee(<?=$employee->getId()?>)">
                                 <th><?= $employee->getId() ?></th>
                                 <th><?= $employee->getLastname() ?></th>
                             </tr>
