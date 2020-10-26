@@ -57,4 +57,26 @@ abstract class Repository {
         $query->execute($params);
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
+
+    public function paginate() {
+        if(isset($_GET['page']) && !empty($_GET['page'])){
+            $currentPage = (int) strip_tags($_GET['page']);
+          }else{
+            $currentPage = 1;
+          }
+
+        $sql = "SELECT COUNT(*) AS nb_rows FROM $this->table";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        $result = $query->fetch();
+        
+        $nbRows = $result['nb_rows'];
+        $nbPerPage = 10;
+        $pages = ceil($nbRows/$nbPerPage);
+        $first = ($currentPage * $nbPerPage) - $nbPerPage;
+        if ($first<1) {
+            $first = null;
+        }
+        return [$nbPerPage, $first, $currentPage, $pages];
+}
 }

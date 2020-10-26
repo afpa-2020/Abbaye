@@ -1,5 +1,7 @@
 <?php require_once 'skeleton/header.php' ?>
 
+
+<!-- <a href="/customers?page=1&nb_resultats=10"></a> -->
 <div class="d-flex flex-column">
     <div class="justify-content-center row my-1 mb-2 mx-1 ">
 
@@ -70,8 +72,31 @@
 
 <?php endforeach ?>
 
+
+
               </tbody>
             </table>
+
+            <nav>
+                    <ul class="pagination">
+                        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                            <a href="/customers?page=<?= $currentPage - 1 ?>" class="page-link"><</a>
+                        </li>
+                        
+                        <?php for($page = 1; $page <= $pages; $page++): ?>
+                          <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                          <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                                <a href="/customers?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                            </li>
+                        <?php endfor ?>
+                          <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                          <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                            <a href="/customers?page=<?= $currentPage + 1 ?>" class="page-link">></a>
+                        </li>
+                    </ul>
+                </nav>
+
         </div>
         
         <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
@@ -184,11 +209,11 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="#" method="GET" id="formNew" name="formNew">
+                      <form action="/addCustomer" method="POST" id="formNewCustomer" name="formNewCustomer">
                         <div class="form-row form-group">
                           <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newRaisonSociale"
+                            <input type="text" class="form-control editableModal" id="newRaisonSociale" name="newRaisonSociale"
                               placeholder="Mon entreprise">
                           </div>
                         </div>
@@ -214,7 +239,7 @@
                         <div class="form-row form-group">
                           <label for="newAdresse" class="col-sm-3 col-form-label">Adresse</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newAdresse"
+                            <input type="text" class="form-control editableModal" id="newAdresse" name="newAdresse"
                               placeholder="1 rue de la Paix">
                           </div>
                         </div>
@@ -222,34 +247,28 @@
                           <div class="form-row form-group col-sm-6">
                             <label for="newCp" class="col-sm-3 col-form-label">CP</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control editableModal" id="newCp" placeholder="10100">
+                              <input type="text" class="form-control editableModal" id="newCp" name="newCp" placeholder="10100">
                             </div>
                           </div>
                           <div class="form-row form-group col-sm-6">
                             <label for="newVille" class="col-sm-3 col-form-label">Ville</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control editableModal" id="newVille" placeholder="Paris">
+                              <input type="text" class="form-control editableModal" id="newVille" name="newVille" placeholder="Paris">
                             </div>
                           </div>
                         </div>
                         <div class="form-row form-group">
                           <label for="newTelephone" class="col-sm-3 col-form-label">Téléphone</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newTelephone"
+                            <input type="text" class="form-control editableModal" id="newTelephone" name="newTelephone"
                               placeholder="0123456789">
                           </div>
                         </div>
-                        <div class="form-row form-group">
-                          <label for="newEmail" class="col-sm-3 col-form-label">Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control editableModal" id="newEmail"
-                              placeholder="nouveau@mail.com">
-                          </div>
-                        </div>
+                        
                         <div class="form-row form-group">
                           <label for="newDomaine" class="col-sm-3 col-form-label">Domaine</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newDomaine"
+                            <input type="text" class="form-control editableModal" id="newDomaine" name="newDomaine"
                               placeholder="Vente, artisanat...">
                           </div>
                         </div>
@@ -270,15 +289,15 @@
                         <div class="form-row form-group">
                           <label for="newEffectif" class="col-sm-3 col-form-label">Effectif</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newEffectif"
+                            <input type="text" class="form-control editableModal" id="newEffectif" name="newEffectif"
                               placeholder="250 (personnes)">
                           </div>
                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                       </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      <button type="button" class="btn btn-primary" onclick="addClient()">Enregistrer</button>
                     </div>
                   </div>
                 </div>
