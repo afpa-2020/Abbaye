@@ -27,7 +27,7 @@ abstract class Controller
     public static function loginController()
     {
         session_start();
-        
+
         if (!empty($_POST)){
             $signin = new LoginForm($_POST);
             $signin->authentification();
@@ -135,6 +135,59 @@ abstract class Controller
     {
         ob_start();
         include '../templates/shape.php';
+        ob_end_flush();
+    }
+
+    public static function selectcustomerController(){
+        $customerRepository = new CustomerRepository();
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        $customer = $customerRepository->find($data->id);
+
+        $contactRepository = new ContactRepository();
+        $contacts = $contactRepository->findSampleByCustomer($customer);
+        $contacts = array_map(fn($contact)=>$contact->toJsonArray(), $contacts);
+        $customer->contacts = $contacts;
+
+        echo $customer->toJson();
+    }
+    
+    public static function selectprojectController(){
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find($_POST['id']);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($project->getCustomerId());
+        $project->clientName = $customer->getCompanyName();
+        $project->clientPhone = $customer->getPhone();
+        echo $project->toJson();
+    }
+
+    public static function nouscontacterController(){
+        ob_start();
+        include '../templates/nouscontacter.php';
+        ob_end_flush();
+    }
+
+    public static function sendmailController(){
+        if (isset($_POST['message']) && !empty($_POST['message'])) {
+          
+            $objet = $_POST['objet'];
+            $message = $_POST['firstname'] . $_POST['lastname'] . "vous a envoyé un message !
+                        Le voici  !".$_POST['message']. "et voila c'est tout !
+                        Pour lui répondre, écrivez à cette adresse :" . $_POST['email'];
+    
+            mail('abi.fictive@gmail.com', $objet , $message );
+            header('Location:/mercipourvotremail');
+        } else {
+            header('Location:/');
+        }
+    }
+
+    public static function mercipourvotremailController()
+    {
+        session_start();
+        ob_start();
+        include '../templates/mercipourvotremail.php';
         ob_end_flush();
     }
 }

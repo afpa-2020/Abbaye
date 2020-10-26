@@ -140,4 +140,8 @@ class Customer
     public function toJson(){
         return json_encode(get_object_vars($this));
     }
+
+    public function toJsonArray(){
+        return get_object_vars($this);
+    }
 }

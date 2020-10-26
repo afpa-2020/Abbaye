@@ -1,3 +1,11 @@
+/**
+ * @file Ce fichier permet de faire une vérification d'un formulaire en JS et en Ajax pour que le PHP puisse fonctionner 
+ * @author Léa MERLEY <lea.merley@orange.fr>
+ */
+
+/**
+ * Cette fonction permet d'aller récuperer les éléments que l'on as besoin pour faire la vérification de notre formulaire
+ */
 $("#registerForms").submit(function (event) {
     event.preventDefault();
     let identifiant = $(this).find("input[name=identifiant]").val();
@@ -5,7 +13,9 @@ $("#registerForms").submit(function (event) {
     let password = $(this).find("input[name=password]").val();
     let confirmPassword = $(this).find("input[name=confirmPassword]").val();
 
-
+/**
+ * Cette requete AJAX nous permet de relier le PHP et le JS pour faire fonctionner les deux ensembles
+ */
     if (identifiantIsValid(identifiant) && emailIsValid(email) && passwordIsValid(password) && confirmPasswordIsValid(confirmPassword)) {
         $.post("/registration", {
             identifiant: identifiant,
@@ -41,7 +51,9 @@ $("#registerForms").submit(function (event) {
 
 })
 
-
+/**
+ * Cette fonction permet d'appliquer la vérification valide et invalide
+ */
 $("#registerForms input").focusout(function () {
     let id = $(this).attr('name');
     let functionisValid = id + 'IsValid';
@@ -56,23 +68,42 @@ $("#registerForms input").focusout(function () {
 })
 
 
-
+/**
+ * Cette fonction permet de dire si l'identifiant est valide 
+ * On demande un certain nombre de caractère
+ * @param {string} identifiant 
+ */
 
 function identifiantIsValid(identifiant) {
     let regex = /[a-zA-ZÀ-ÿ]{2,}$/;
     return regex.test(identifiant);
 }
 
+/**
+ * Cette fonction permet de verifier si l'email est valide
+ * L'email doit respecter un certain nombre de caractère
+ * @param {string} email 
+ */
 function emailIsValid(email) {
     let regex = /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     return regex.test(email);
 }
 
+/**
+ * Cette fonction permet de verifier si le mot de passe est valide 
+ * Le mot de passe doit au moins contenir 8 caractère
+ * @param {string} password 
+ */
 function passwordIsValid(password) {
     let regex = /([a-zA-Z0-9]){8,}$/;
     return regex.test(password);
 }
 
+/**
+ * Cette fonction permet de verifier si la confirmation du  mot de passe est valide
+ * La confirmation du mot de passe doit etre exactement la meme que celle du mot de passe  
+ * @param {string} confirmPassword 
+ */
 function confirmPasswordIsValid(confirmPassword) {
     let password = $('#password').val();
     if (password === confirmPassword && confirmPassword !== "") {
