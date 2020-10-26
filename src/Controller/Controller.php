@@ -151,7 +151,7 @@ abstract class Controller
         $customer->contacts = $contacts;
 
         echo $customer->toJson();
-    }
+    } 
 
     public static function addcustomerController(){
         if (isset($_POST['form'])) {

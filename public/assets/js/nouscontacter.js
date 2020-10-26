@@ -18,16 +18,22 @@ $("#contact").submit(function (event) {
     let objet = $(this).find("input[name=objet]").val();
     let message = $(this).find("textarea[name=message]").val();
 
-    let msg = "Vous venez de nous contacter : \n" +
-        "firstname : " + firstname + "\n" +
-        "lastname : " + lastname + "\n" +
-        "email : " + email + "\n" +
-        "objet : " + objet +"\n"+
-        "message : " + message + "\n";
+    
 
+    if (firstnameIsValid(firstname) && lastnameIsValid(lastname) && emailIsValid(email) && objetIsValid(objet) && messageIsValid(message)) {
+        $.post("/sendmail", {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            objet : objet,
+            message : message,
+        }, function (reponse) {
+            console.log(reponse);
+            if (reponse === "true") {
+                location.href = "/mercipourvotremail";
+            }
+        });
 
-    if (firstnameIsValid(firstname) && lastnameIsValid(lastname) && emailIsValid(email) && messageIsValid(message) && objetIsValid(objet)) {
-        alert(msg)
     } else {
         $('#contact input,textarea').each(function () {
             $(this).focusout();
