@@ -137,9 +137,10 @@ abstract class Controller
         $data = json_decode($data);
         $customer = $customerRepository->find($data->id);
 
-        /*Version jQuery
-        $data = $_POST;
-        $customer = $customerRepository->find($data['id']);*/
+        $contactRepository = new ContactRepository();
+        $contacts = $contactRepository->findSampleByCustomer($customer);
+        $contacts = array_map(fn($contact)=>$contact->toJsonArray(), $contacts);
+        $customer->contacts = $contacts;
 
         echo $customer->toJson();
     }

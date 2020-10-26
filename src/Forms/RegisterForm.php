@@ -1,9 +1,13 @@
 <?php
 
+
 namespace App\Forms;
 
 use App\Config\DbConfig;
 
+/**
+ * On utilise une classe pour pouvoir faire une vérification de formulaire en  PHP
+ */
 class RegisterForm
 {
 
@@ -13,7 +17,9 @@ class RegisterForm
   private string $confirmPassword;
 
 
-  //constr ($post)
+ /**
+  * On crée un constructeur dans lequelle on va passer la méthode POST et on va récuperer les informations que l'on na besoin 
+  */
   public function __construct($post)
   {
       $this->identifiant = htmlspecialchars(trim($post['identifiant']));
@@ -22,6 +28,12 @@ class RegisterForm
       $this->confirmPassword = trim($post['confirmPassword']); 
   }
 
+  /**
+   * On créer une fonction register qui va nous permettre de rentrer un nouveau utilisateur dans la base de données 
+   * On crée une  requête SQL qui va verifier si l'utilisateur un déja ce nom pris 
+   * On crée une requête SQL qui va vérifier si c'est email est déja dans la base de données 
+   * On crée une requête SQL qui nous permet d'ajouter un nouvel utilisateur
+   */
   public function register()
   {
     if ($this->email !== filter_var($this->email)) return "Email invalide.";
@@ -33,8 +45,7 @@ class RegisterForm
   
     $pdo = new \PDO (DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
-    //Est-ce que cet email existe déjà ?
-    //Oui il existe ---> return false (PAS BIEN)
+   
 
     $query = $pdo->prepare("SELECT user.* FROM user WHERE email = ?");
     $query->execute([$this->email]);
@@ -46,7 +57,7 @@ class RegisterForm
     $results = $query->fetchAll(\PDO::FETCH_ASSOC);
     if (!empty($results)) return "Identifiant déjà pris.";      
 
-    //Non c'est bon, ce mail existe pas déjà, on peut ajouter notre utilisateur :
+    
     $query = $pdo->prepare("INSERT INTO user (login,password,email, role) VALUES (?,?,?,?)");
     $query->execute([$this->identifiant, $this->password, $this->email, "Visiteur"]);
   

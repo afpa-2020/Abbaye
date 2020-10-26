@@ -18,17 +18,26 @@
             <img src="assets/image/logo_abi.png" alt="Logo Abi" class="logo">
         </a>
         <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
+<<<<<<< HEAD
             <ul class="navbar-nav ">
             <li class="nav-item">
                     <a class="nav-link" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/customers">Nos Clients</a>
+=======
+            <ul class="navbar-nav">
+            <li <?php if($_SERVER['REQUEST_URI']=="/") { ?>  class="active" <?php }  ?> class="nav-item ">
+                    <a class="nav-link" href="/">Accueil </a>
                 </li>
-                <li class="nav-item">
+                <li <?php if($_SERVER['REQUEST_URI']=="/customers") { ?>  class="active" <?php }  ?>class="nav-item" >
+                    <a class="nav-link " href="/customers">Nos Clients</a>
+>>>>>>> c7c063606571fb6198410b14c496ac823e1cfcf0
+                </li>
+                <li <?php if($_SERVER['REQUEST_URI']=="/projects") { ?>  class="active" <?php }  ?>class="nav-item">
                     <a class="nav-link" href="/projects">Nos Projets</a>
                 </li>
-                <li class="nav-item">
+                <li <?php if($_SERVER['REQUEST_URI']=="/employees") { ?>  class="active" <?php }  ?>class="nav-item">
                     <a class="nav-link " href="/employees">Nos Collaborateurs</a>
                 </li>
             </ul>
