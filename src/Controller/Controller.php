@@ -98,7 +98,7 @@ abstract class Controller
         ob_end_flush();
     }
 
-    public static function employeesController()
+    public static function selectemployeesController()
     {
         session_start();
         if(!isset($_SESSION['login'])) {
@@ -153,6 +153,12 @@ abstract class Controller
         $project->clientName = $customer->getCompanyName();
         $project->clientPhone = $customer->getPhone();
         echo $project->toJson();
+    }
+
+    public function selectemployeeController(){
+        $employeeRepository = new EmployeeRepository();
+        $employee = $employeeRepository->find($_POST['id']);
+        echo $employee->toJson();
     }
 
     public static function nouscontacterController(){

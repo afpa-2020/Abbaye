@@ -47,7 +47,7 @@
                                     <td scope="row"><strong>Nom</strong></td>
                                     <td>Durand</td>
                                     <td><strong>Matricule</strong></td>
-                                    <td>100032</td>
+                                    <td id = "employeeId">100032</td>
                                     <td colspan="2">
                                         <!--Affichage en modal de la photo du collaborateur-->
                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
@@ -69,14 +69,14 @@
                                 </tr>
                                 <tr>
                                     <td scope="row"><strong>Contrat</strong></td>
-                                    <td>CDI</td>
+                                    <td id = "employeeContract">CDI</td>
                                     <td><strong>Avenant</strong></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td scope="row" ><strong>École</strong></td>
+                                    <td scope="row"><strong>École</strong></td>
                                     <td></td>
                                     <td><strong>Agence d'intérim</strong></th>
                                     <td></td>
@@ -85,14 +85,14 @@
                                 </tr>
                                 <tr>
                                     <th scope="row" colspan="2">Date d'embauche</th>
-                                    <td>28/03/2005</td>
+                                    <td id ="employeeHire">28/03/2005</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td scope="row" colspan="2"><strong>Date de fin de contract</strong></td>
-                                    <td></td>
+                                    <td id = "employeeDismissed"></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -101,12 +101,12 @@
                                     <td scope="row" colspan="2"><strong>Qualification principal courante</strong></td>
                                     <td>Chef de service</td>
                                     <td><strong>Fonction</strong></td>
-                                    <td>Commercial</td>
+                                    <td id = "employeeRole">Commercial</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td scope="row" colspan="2"><strong>Salaire mensuel</strong></td>
-                                    <td>2350 €</td>
+                                    <td id="employeeSalary">2350 €</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
