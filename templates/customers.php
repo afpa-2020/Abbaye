@@ -184,11 +184,11 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form action="#" method="GET" id="formNew" name="formNew">
+                      <form action="/addCustomer" method="POST" id="formNewCustomer" name="formNewCustomer">
                         <div class="form-row form-group">
                           <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newRaisonSociale"
+                            <input type="text" class="form-control editableModal" id="newRaisonSociale" name="newRaisonSociale"
                               placeholder="Mon entreprise">
                           </div>
                         </div>
@@ -214,7 +214,7 @@
                         <div class="form-row form-group">
                           <label for="newAdresse" class="col-sm-3 col-form-label">Adresse</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newAdresse"
+                            <input type="text" class="form-control editableModal" id="newAdresse" name="newAdresse"
                               placeholder="1 rue de la Paix">
                           </div>
                         </div>
@@ -222,34 +222,28 @@
                           <div class="form-row form-group col-sm-6">
                             <label for="newCp" class="col-sm-3 col-form-label">CP</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control editableModal" id="newCp" placeholder="10100">
+                              <input type="text" class="form-control editableModal" id="newCp" name="newCp" placeholder="10100">
                             </div>
                           </div>
                           <div class="form-row form-group col-sm-6">
                             <label for="newVille" class="col-sm-3 col-form-label">Ville</label>
                             <div class="col-sm-9">
-                              <input type="text" class="form-control editableModal" id="newVille" placeholder="Paris">
+                              <input type="text" class="form-control editableModal" id="newVille" name="newVille" placeholder="Paris">
                             </div>
                           </div>
                         </div>
                         <div class="form-row form-group">
                           <label for="newTelephone" class="col-sm-3 col-form-label">Téléphone</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newTelephone"
+                            <input type="text" class="form-control editableModal" id="newTelephone" name="newTelephone"
                               placeholder="0123456789">
                           </div>
                         </div>
-                        <div class="form-row form-group">
-                          <label for="newEmail" class="col-sm-3 col-form-label">Email</label>
-                          <div class="col-sm-9">
-                            <input type="email" class="form-control editableModal" id="newEmail"
-                              placeholder="nouveau@mail.com">
-                          </div>
-                        </div>
+                        
                         <div class="form-row form-group">
                           <label for="newDomaine" class="col-sm-3 col-form-label">Domaine</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newDomaine"
+                            <input type="text" class="form-control editableModal" id="newDomaine" name="newDomaine"
                               placeholder="Vente, artisanat...">
                           </div>
                         </div>
@@ -270,15 +264,15 @@
                         <div class="form-row form-group">
                           <label for="newEffectif" class="col-sm-3 col-form-label">Effectif</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control editableModal" id="newEffectif"
+                            <input type="text" class="form-control editableModal" id="newEffectif" name="newEffectif"
                               placeholder="250 (personnes)">
                           </div>
                         </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
                       </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                      <button type="button" class="btn btn-primary" onclick="addClient()">Enregistrer</button>
                     </div>
                   </div>
                 </div>

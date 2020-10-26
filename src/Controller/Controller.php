@@ -11,6 +11,7 @@ use App\Repository\ProjectRepository;
 use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
 use App\Forms\LoginForm;
+use App\Forms\AddCustomerForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
 
@@ -143,5 +144,14 @@ abstract class Controller
         $customer->contacts = $contacts;
 
         echo $customer->toJson();
+    }
+
+    public static function addcustomerController(){
+        if (isset($_POST['form'])) {
+            $newCustomerForm = new AddCustomerForm($_POST);
+            echo $newCustomerForm->addToDatabase();
+        } else {
+            header('Location:/');
+        }
     }
 }

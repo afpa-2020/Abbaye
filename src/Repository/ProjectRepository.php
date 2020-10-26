@@ -17,7 +17,7 @@ class ProjectRepository extends Repository {
         $idEmployee = $employee->getId();
         $query = $this->pdo->prepare("SELECT project .* FROM project JOIN project_employee AS pe ON  pe.project_id = project.id WHERE pe.employee_id = ?");
         $query->execute([$idEmployee]);
-        return $query->fetchAll(\PDO::FETCH_CLASS , "App\Entity\Project");
+        return $query->fetchAll(\PDO::FETCH_CLASS , Project::class);
 
     }
 
@@ -26,6 +26,6 @@ class ProjectRepository extends Repository {
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN customer ON customer.id = project.customer_id WHERE customer.id = ?");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Project');
+        return $query->fetchAll(\PDO::FETCH_CLASS, Project::class);
     }
 }

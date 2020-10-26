@@ -18,7 +18,7 @@ class EmployeeRepository extends Repository {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT employee .* FROM employee JOIN project_employee AS pe ON pe.employee_id = employee.id WHERE pe .project_id = ?");
         $query->execute([$idProject]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Employee");
+        return $query->fetchAll(\PDO::FETCH_CLASS, Employee::class);
     }
 
     public function findByUser(User $user)
@@ -26,6 +26,6 @@ class EmployeeRepository extends Repository {
         $idUser = $user->getId();
         $query = $this->pdo->prepare("SELECT employee .* FROM employee JOIN user ON user.id = employee.user_id WHERE user.id = ?");
         $query->execute([$idUser]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Employee");
+        return $query->fetchAll(\PDO::FETCH_CLASS, Employee::class);
     }
 }

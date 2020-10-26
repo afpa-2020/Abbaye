@@ -41,6 +41,39 @@ function annulation() {
     $('.editableClient').toggleClass("form-control-plaintext");
 };
 
+$("#formNewCustomer").submit(function (event) {
+    event.preventDefault();
+    if ($('.editableModal.is-valid').length == $('.editableModal').length){
+        let newCustomer = {
+            companyName : $('#newRaisonSociale').val(),
+            type : $('input[name=newType]:checked').val(),
+            address : $('#newAdresse').val(),
+            zip : $('#newCp').val(),
+            city : $('#newVille').val(),
+            phone : $('#newTelephone').val(),
+            activity : $('#newDomaine').val(),
+            nature : $('#newNature option:selected').val(),
+            turnover : $('#newCa').val(),
+            workforce : $('#newEffectif').val(),
+            form : "ok"
+        }
+
+        $.post('/addcustomer', newCustomer, function(reponse) {
+            if (reponse === "1") {
+                alert('Nouveau client ajouté avec succès');
+                $('.editableModal').val("").removeClass('is-valid');
+                $('#editModal').modal('hide');
+            } else {
+                alert(reponse);
+            }
+        });
+        
+    }
+    else {
+        alert('Client non-conforme.');
+    }
+});
+
 /**
  * Checks every single .editableModal inputs.
  * If all are valid, enables the user to save the new client as a new entry.
