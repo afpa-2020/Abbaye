@@ -144,6 +144,16 @@ abstract class Controller
 
         echo $customer->toJson();
     }
+    
+    public static function selectprojectController(){
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find($_POST['id']);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($project->getCustomerId());
+        $project->clientName = $customer->getCompanyName();
+        $project->clientPhone = $customer->getPhone();
+        echo $project->toJson();
+    }
 
     public static function nouscontacterController(){
         ob_start();
