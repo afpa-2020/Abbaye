@@ -63,13 +63,20 @@ abstract class Controller
     public static function customersController()
     {
         session_start();
+
         if(!isset($_SESSION['login'])) {
             header('Location:/logplz');
-        } 
+        }
         ob_start();
+            
+
         $customerRepository = new CustomerRepository();
-        $customers = $customerRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $customerRepository->paginate();
+        $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
         include '../templates/customers.php';
+        
         ob_end_flush();
     }
 
@@ -150,8 +157,45 @@ abstract class Controller
         if (isset($_POST['form'])) {
             $newCustomerForm = new AddCustomerForm($_POST);
             echo $newCustomerForm->addToDatabase();
+        }
+    }
+    
+    public static function selectprojectController(){
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find($_POST['id']);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($project->getCustomerId());
+        $project->clientName = $customer->getCompanyName();
+        $project->clientPhone = $customer->getPhone();
+        echo $project->toJson();
+    }
+
+    public static function nouscontacterController(){
+        ob_start();
+        include '../templates/nouscontacter.php';
+        ob_end_flush();
+    }
+
+    public static function sendmailController(){
+        if (isset($_POST['message']) && !empty($_POST['message'])) {
+          
+            $objet = $_POST['objet'];
+            $message = $_POST['firstname'] . $_POST['lastname'] . "vous a envoyé un message !
+                        Le voici  !".$_POST['message']. "et voila c'est tout !
+                        Pour lui répondre, écrivez à cette adresse :" . $_POST['email'];
+    
+            mail('abi.fictive@gmail.com', $objet , $message );
+            header('Location:/mercipourvotremail');
         } else {
             header('Location:/');
         }
+    }
+
+    public static function mercipourvotremailController()
+    {
+        session_start();
+        ob_start();
+        include '../templates/mercipourvotremail.php';
+        ob_end_flush();
     }
 }
