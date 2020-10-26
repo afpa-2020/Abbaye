@@ -17,20 +17,12 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-    public function findAllContact(Customer $customer)
-    {
-        $idContact = $customer->getId();
-        $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
-        $query->execute([$idContact]);
-        return $query->fetchAll(\PDO::FETCH_CLASS,'App\Entity\Contact');
-    }
-
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT customer.* FROM customer JOIN project ON customer.id = project.customer_id   WHERE project.id = ? ");
         $query->execute([$idProject]);
-        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
+        $query->setFetchMode(PDO::FETCH_CLASS, Customer::class);
         return $query->fetch();
     }
     
@@ -39,7 +31,7 @@ class CustomerRepository extends Repository
         $idContact = $contact->getId();
         $query = $this->pdo->prepare('SELECT customer.* FROM customer JOIN contact ON customer.id = contact.customer_id WHERE contact.id = ?');
         $query->execute([$idContact]);
-        $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\Customer");
+        $query->setFetchMode(PDO::FETCH_CLASS, Customer::class);
         return $query->fetch();
     }
 

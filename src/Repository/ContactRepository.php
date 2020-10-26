@@ -19,7 +19,7 @@ class ContactRepository extends Repository
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Contact");
+        return $query->fetchAll(\PDO::FETCH_CLASS, Contact::class);
     }
 
     public function findByDocument(Document $document)
@@ -27,7 +27,7 @@ class ContactRepository extends Repository
         $idDocument = $document->getId();
         $query = $this->pdo->prepare("SELECT contact .* FROM contact JOIN document ON contact.id = document.contact_id WHERE document.id = ?");
         $query->execute([$idDocument]);
-        $query->setFetchMode(\PDO::FETCH_CLASS,"App\Entity\Contact");
+        $query->setFetchMode(\PDO::FETCH_CLASS,Contact::class);
         return $query->fetch();
     
     }
@@ -37,7 +37,7 @@ class ContactRepository extends Repository
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ? LIMIT 3");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, "App\Entity\Contact");
+        return $query->fetchAll(\PDO::FETCH_CLASS, Contact::class);
     }
 
 }
