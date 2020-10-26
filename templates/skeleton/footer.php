@@ -27,16 +27,15 @@
         </div>
     </footer>
 
-    
-    <!--<script src="assets/js/jquery-3.5.1.slim.min.js"></script>-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+ 
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>-->
+        crossorigin="anonymous"></script>
     
 
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/pooper.min.js"></script>
+   
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/database.js"></script>
@@ -46,5 +45,8 @@
     <script src="/assets/js/select_customer.js"></script>
     <script src="/assets/js/select_projects.js"></script>
     <script src="/assets/js/moment.js"></script>
+    <script src="/assets/js/nouscontacter.js"></script>
+
+
 </body>
 </html>
