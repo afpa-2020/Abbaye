@@ -82,7 +82,7 @@
                 </form>
                 <div class="form-group form-check ml-5">
                     <a href="/signup"><button role="button" class="btn btn-primary">S'enregistrer</button></a>
-                    <button role="button" class="btn btn-primary" id="send" onclick="solution()">Envoyer</button>
+                    <button role="button" class="btn btn-primary" id="send" onclick="connexion()">Envoyer</button>
                 </div>
             </div>
         </header>

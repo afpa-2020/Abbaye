@@ -62,13 +62,20 @@ abstract class Controller
     public static function customersController()
     {
         session_start();
+
         if(!isset($_SESSION['login'])) {
             header('Location:/logplz');
-        } 
+        }
         ob_start();
+            
+
         $customerRepository = new CustomerRepository();
-        $customers = $customerRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $customerRepository->paginate();
+        $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
         include '../templates/customers.php';
+        
         ob_end_flush();
     }
 

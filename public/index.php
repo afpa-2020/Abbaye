@@ -15,6 +15,10 @@ if($uri ==="Controller"){
 
     Controller::homeController();
 
+} else if ( strpos($uri, 'customers') >= 0) {
+
+    Controller::customersController();
+
 } else if (method_exists('App\Controller\Controller', $uri)) {
 
     Controller::$uri();
