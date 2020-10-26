@@ -144,4 +144,33 @@ abstract class Controller
 
         echo $customer->toJson();
     }
+
+    public static function nouscontacterController(){
+        ob_start();
+        include '../templates/nouscontacter.php';
+        ob_end_flush();
+    }
+
+    public static function sendmailController(){
+        if (isset($_POST['message']) && !empty($_POST['message'])) {
+          
+            $objet = $_POST['objet'];
+            $message = $_POST['firstname'] . $_POST['lastname'] . "vous a envoyé un message !
+                        Le voici  !".$_POST['message']. "et voila c'est tout !
+                        Pour lui répondre, écrivez à cette adresse :" . $_POST['email'];
+    
+            mail('abi.fictive@gmail.com', $objet , $message );
+            header('Location:/mercipourvotremail');
+        } else {
+            header('Location:/');
+        }
+    }
+
+    public static function mercipourvotremailController()
+    {
+        session_start();
+        ob_start();
+        include '../templates/mercipourvotremail.php';
+        ob_end_flush();
+    }
 }

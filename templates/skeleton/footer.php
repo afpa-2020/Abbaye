@@ -23,7 +23,7 @@
         <div class="col-md-4  rounded-top mx-auto ">
             <h4 class="text-center">Nous Contacter</h4>
             Webmaster :<br/>
-            <a href="mailto:abifictive@gmail.com">abifictive@gmail.com</a>
+            <a href="/nouscontacter">abifictive@gmail.com</a>
         </div>
     </footer>
 
