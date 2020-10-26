@@ -26,11 +26,10 @@ require_once 'skeleton/header.php'?>
 
 <?php foreach ($projects as $project): ?>
 
-                            <tr>
+                            <tr onclick="select_project(<?=$project->getId() ?>)">
                                 <th>  <?=$project->getId() ?> </th>
                                 <th>  <?=str_replace("é","É",$project->getShortname()) ?>  </th>
                             </tr>
-
 <?php endforeach ?>
                         </tbody>
                     </table>
@@ -38,20 +37,16 @@ require_once 'skeleton/header.php'?>
             </div>
             <div class="col-8 ml-5 ">
                 <div class="row mt-5 bg-info justify-content-md-center">
-                    <h3>Informations du projet</h3>
+                    <h3 id = "projectName">Informations du projet</h3>
                 </div>
-                <div class="row mt-2">
+                <div class="row mt-8">
                     <!--Affichage des données de chaque projets-->
-                    <table class="table text-white table-striped table-sm">
+                    <table class="table text-white table-striped table">
                             <tbody>
                                 <tr>
                                     <td scope="row" ><strong>Client</strong></td>
                                     <!--Modal affichage adresse du client et lien vers les contacts-->
                                     <td id="projectClient"></td>
-                                </tr>
-                                <tr>
-                                    <td scope="row"><strong>Projet</strong></td>
-                                    <td id="project"></td>
                                 </tr>
                                 <tr>
                                     <td scope="row"><strong>Contact</strong></td>
