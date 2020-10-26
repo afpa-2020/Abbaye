@@ -19,16 +19,16 @@
         </a>
         <div class="collapse navbar-collapse mr-auto" id="navbarCollapse">
             <ul class="navbar-nav">
-            <li class="nav-item ">
+            <li <?php if($_SERVER['REQUEST_URI']=="/") { ?>  class="active" <?php }  ?> class="nav-item ">
                     <a class="nav-link" href="/">Accueil </a>
                 </li>
-                <li class="nav-item">
+                <li <?php if($_SERVER['REQUEST_URI']=="/customers") { ?>  class="active" <?php }  ?>class="nav-item" >
                     <a class="nav-link " href="/customers">Nos Clients</a>
                 </li>
-                <li class="nav-item">
+                <li <?php if($_SERVER['REQUEST_URI']=="/projects") { ?>  class="active" <?php }  ?>class="nav-item">
                     <a class="nav-link" href="/projects">Nos Projets</a>
                 </li>
-                <li class="nav-item">
+                <li <?php if($_SERVER['REQUEST_URI']=="/employees") { ?>  class="active" <?php }  ?>class="nav-item">
                     <a class="nav-link " href="/employees">Nos Collaborateurs</a>
                 </li>
             </ul>
