@@ -6,6 +6,7 @@
             <h3 class="bg-info mt-1 rounded text-center ">
                 Nos collaborateurs
             </h3>
+<<<<<<< HEAD
         
               
                     <form action="#" method="GET" id="search_employees">
@@ -17,6 +18,16 @@
                             </div>
                     </form>
                     <table id="table" class="table table-striped table-sm text-white bg-secondary" data-search="true" data-pagination="true" data-page-list="[5, 10, 15]">
+=======
+                <div class=" mt-2">
+                    <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
+                    collaborateurs, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
+                    <table id="table" 
+                    class="table table-striped table-sm text-white bg-secondary" 
+                    data-search="true" 
+                    data-pagination="true"
+                    data-page-list="[5, 10, 15]">
+>>>>>>> a86c1608222d8fa6886b56d5c88ddfbf83b1361b
                         <thead>
                             <tr>
                                 <th data-field="matricule" data-sortable="true">Matricule</th>
@@ -58,10 +69,17 @@
             </div>
 
             <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+<<<<<<< HEAD
                 <h3 class="bg-info mt-1 rounded text-center ">
                     Informations sur le collaborateur
                 </h3>
                 <div class="row mt-2">
+=======
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Informations sur le collaborateur
+            </h3>
+                <div class=" mt-2">
+>>>>>>> a86c1608222d8fa6886b56d5c88ddfbf83b1361b
                     <!--Affichage des données de chaque collaborateurs-->
                     <table class="table table-striped text-white">
                         <tbody>

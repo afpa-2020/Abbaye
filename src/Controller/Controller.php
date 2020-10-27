@@ -78,6 +78,7 @@ abstract class Controller
         }
         else {
             $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
         }
         
         $currentPage = $arraysult[2];
