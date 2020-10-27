@@ -14,6 +14,8 @@ function connexion() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       if (xhr.responseText === "ok") {
         location.href = "/";
+      } else {
+        $("#message").html("Identifiant ou mot de passe invalide")
       };
     }
   };
