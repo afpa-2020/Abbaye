@@ -3,9 +3,9 @@
 
 <!-- <a href="/customers?page=1&nb_resultats=10"></a> -->
 <div class="d-flex flex-column">
-  <div class="justify-content-center row my-1 mb-2 mx-1 ">
+  <div class="justify-content-center row m-1 mb-2 ">
 
-    <div class="bg-secondary col-md-4 col-12 rounded my-1 mx-1 ">
+    <div class="bg-secondary col-md-4 col-12 rounded m-1 ">
       <h3 class="bg-info mt-1 rounded text-center ">
         Nos clients
       </h3>
@@ -95,7 +95,7 @@
 
   </div>
 
-  <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+  <div class="bg-secondary col-md-7 col-12 rounded m-1">
     <h3 class="bg-info mt-1 rounded text-center" id="clientName">
       Informations sur le client
     </h3>
