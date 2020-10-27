@@ -45,7 +45,7 @@ abstract class Repository {
     public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null, int $substr = null)
     {
         $params = array_values($criteria);
-        if (!empty($citeria)) {
+        if (!empty($criteria)) {
             $criteria = " WHERE " . join(" AND ", array_map(fn($key) => "$key = ?", array_keys($criteria)));
         } else {
             $criteria = null;
