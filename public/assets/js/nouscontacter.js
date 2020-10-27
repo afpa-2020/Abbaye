@@ -18,16 +18,10 @@ $("#contact").submit(function (event) {
     let objet = $(this).find("input[name=objet]").val();
     let message = $(this).find("textarea[name=message]").val();
 
-    let msg = "Vous venez de nous contacter : \n" +
-        "firstname : " + firstname + "\n" +
-        "lastname : " + lastname + "\n" +
-        "email : " + email + "\n" +
-        "objet : " + objet +"\n"+
-        "message : " + message + "\n";
+    
 
+    if (firstnameIsValid(firstname) && lastnameIsValid(lastname) && emailIsValid(email) && objetIsValid(objet) && messageIsValid(message)) {
 
-    if (firstnameIsValid(firstname) && lastnameIsValid(lastname) && emailIsValid(email) && messageIsValid(message) && objetIsValid(objet)) {
-        alert(msg)
     } else {
         $('#contact input,textarea').each(function () {
             $(this).focusout();
@@ -103,5 +97,4 @@ function messageIsValid(string) {
     return regex.test(string);
 
 }
-
 

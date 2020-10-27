@@ -1,3 +1,6 @@
+
+
+
 function select_customer(id) {
   const xhr = new XMLHttpRequest();
 

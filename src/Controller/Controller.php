@@ -151,7 +151,7 @@ abstract class Controller
         $customer->contacts = $contacts;
 
         echo $customer->toJson();
-    }
+    } 
 
     public static function addcustomerController(){
         if (isset($_POST['form'])) {
@@ -170,6 +170,14 @@ abstract class Controller
         echo $project->toJson();
     }
 
+    public function selectemployeeController(){
+        $employeeRepository = new EmployeeRepository();
+        $employee = $employeeRepository->find($_POST['id']);
+        echo $employee->toJson();
+    }
+    
+
+  
     public static function nouscontacterController(){
         ob_start();
         include '../templates/nouscontacter.php';
