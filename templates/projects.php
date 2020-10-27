@@ -11,21 +11,15 @@ require_once 'skeleton/header.php' ?>
             <h3 class="bg-info mt-1 rounded text-center ">
                 Nos Projets
             </h3>
-<<<<<<< HEAD
-       
-                <form action="#" method="GET" id="search_projects">
-                    <div class="row mt-2 mb-2">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <input class="form-control" type="text" placeholder="Rechercher un Projet" name="search" autofocus>
-                            </div>
-                        </div>
-                </form>
-=======
-            <div class="mt-2">
-                <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
-                    projets, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
->>>>>>> a86c1608222d8fa6886b56d5c88ddfbf83b1361b
+    
+        <form action="#" method="GET" id="search_projects">
+          <div class="row mt-2 mb-2">
+            <div class="col-md-6">
+              <div class="row">
+                <input class="form-control" type="text" placeholder="Rechercher un Client" name ="search" autofocus>
+              </div>
+            </div>
+        </form>
                 <table id="table" class="table bg-secondary table-sm table-striped table-hover">
                     <thead class="thead-light">
                         <tr>

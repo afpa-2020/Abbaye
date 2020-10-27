@@ -99,7 +99,3 @@ public function searching(string $search, array $orderBy = null, int $limit = nu
     }
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a86c1608222d8fa6886b56d5c88ddfbf83b1361b
