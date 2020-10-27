@@ -74,12 +74,13 @@ abstract class Controller
 
         $customerRepository = new CustomerRepository();
 
-        $arraysult = $customerRepository->paginate();
+        $arraysult = $customerRepository->paginate('company_name');
         if(isset($_GET['search'])) {
-            $customers = $customerRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $customers = $customerRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1], 'company_name');
         }
         else {
             $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
         }
         
         $currentPage = $arraysult[2];
@@ -99,7 +100,18 @@ abstract class Controller
         ob_start();
 
         $projectRepository = new ProjectRepository();
-        $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $projectRepository->paginate("shortname");
+        if(isset($_GET['search'])) {
+            $projects = $projectRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],"shortname");
+        }
+        else {
+            $projects = $projectRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
+
+        }
+        
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
         include '../templates/projects.php';
 
         
@@ -127,7 +139,20 @@ abstract class Controller
         } 
         ob_start();
         $employeeRepository = new EmployeeRepository();
-        $employees = $employeeRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $employeeRepository->paginate("lastname");
+        if(isset($_GET['search'])) {
+            $employees = $employeeRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],"lastname");
+        }
+        else {
+            $employees = $employeeRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
+
+        }
+        
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
+       
+        
         include '../templates/employees.php';
         ob_end_flush();
     }

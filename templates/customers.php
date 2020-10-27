@@ -3,9 +3,9 @@
 
 <!-- <a href="/customers?page=1&nb_resultats=10"></a> -->
 <div class="d-flex flex-column">
-  <div class="justify-content-center row my-1 mb-2 mx-1 ">
+  <div class="justify-content-center row m-1 mb-2 ">
 
-    <div class="bg-secondary col-md-4 col-12 rounded my-1 mx-1 ">
+    <div class="bg-secondary col-md-4 col-12 rounded m-1 ">
       <h3 class="bg-info mt-1 rounded text-center ">
         Nos clients
       </h3>
@@ -80,22 +80,22 @@
       <ul class="pagination">
         <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-          <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link">
-            <</a> </li> <?php for ($page = 1; $page <= $pages; $page++) : ?> <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+          <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link"> < </a> </li> <?php for ($page = 1; $page <= $pages; $page++) : ?>
+             <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
         <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
           <a href="/customers?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
         </li>
       <?php endfor ?>
       <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
       <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-        <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link">></a>
+        <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
       </li>
       </ul>
     </nav>
 
   </div>
 
-  <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+  <div class="bg-secondary col-md-7 col-12 rounded m-1">
     <h3 class="bg-info mt-1 rounded text-center" id="clientName">
       Informations sur le client
     </h3>
