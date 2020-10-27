@@ -4,12 +4,13 @@ use App\Repository\ProjectRepository;
 
 require_once 'skeleton/header.php'?>
 
-<div class="container text-white mt-4">
-        <div class="row justify-content-md-center">
-            <div class = "col-3 pr-1">
-                <div class="row mt-5 bg-info justify-content-md-center ">
-                    <h3>Nos Projets</h3>
-                </div>
+<div class="d-flex flex-column">
+    <div class="justify-content-center row my-1 mb-2 mx-1 ">
+
+        <div class="bg-secondary col-md-4 col-12 rounded my-1 mx-1 ">
+            <h3 class="bg-info mt-1 rounded text-center ">
+                Nos Projets
+            </h3>
                 <div class="row mt-2">
                     <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     projets, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
@@ -35,10 +36,10 @@ require_once 'skeleton/header.php'?>
                     </table>
                 </div>
             </div>
-            <div class="col-8 ml-5 ">
-                <div class="row mt-5 bg-info justify-content-md-center">
-                    <h3 id = "projectName">Informations du projet</h3>
-                </div>
+            <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
+            <h3 class="bg-info mt-1 rounded text-center " id="projectName">
+               Informations du projet
+            </h3>
                 <div class="row mt-8">
                     <!--Affichage des données de chaque projets-->
                     <table class="table text-white table-striped table">
