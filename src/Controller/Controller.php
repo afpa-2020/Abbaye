@@ -71,9 +71,9 @@ abstract class Controller
 
         $customerRepository = new CustomerRepository();
 
-        $arraysult = $customerRepository->paginate();
+        $arraysult = $customerRepository->paginate('company_name');
         if(isset($_GET['search'])) {
-            $customers = $customerRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $customers = $customerRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1], 'company_name');
         }
         else {
             $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
