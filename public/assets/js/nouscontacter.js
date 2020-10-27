@@ -21,18 +21,6 @@ $("#contact").submit(function (event) {
     
 
     if (firstnameIsValid(firstname) && lastnameIsValid(lastname) && emailIsValid(email) && objetIsValid(objet) && messageIsValid(message)) {
-        $.post("/sendmail", {
-            firstname: firstname,
-            lastname: lastname,
-            email: email,
-            objet : objet,
-            message : message,
-        }, function (reponse) {
-            console.log(reponse);
-            if (reponse === "true") {
-                location.href = "/mercipourvotremail";
-            }
-        });
 
     } else {
         $('#contact input,textarea').each(function () {
@@ -109,5 +97,4 @@ function messageIsValid(string) {
     return regex.test(string);
 
 }
-
 
