@@ -57,7 +57,7 @@
     </div>
 
     <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
-        <div class="row mt-2">
+       
             <h3 class="bg-info mt-1 rounded text-center ">
                 Informations sur le collaborateur
             </h3>
