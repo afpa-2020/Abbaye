@@ -42,10 +42,10 @@ abstract class Repository {
         return $query->fetch();
     }
 
-    public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null, int $substr = null)
+    public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
     {
         $params = array_values($criteria);
-        if (!empty($citeria)) {
+        if (!empty($criteria)) {
             $criteria = " WHERE " . join(" AND ", array_map(fn($key) => "$key = ?", array_keys($criteria)));
         } else {
             $criteria = null;
@@ -53,8 +53,10 @@ abstract class Repository {
         if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
         if ($limit) $limit = " LIMIT $limit";
         if ($offset) $offset = " OFFSET $offset";
-        $query = $this->pdo->prepare("SELECT * FROM $this->table $criteria $orderBy $limit $offset");
+        $sql = "SELECT * FROM $this->table $criteria $orderBy $limit $offset";
+        $query = $this->pdo->prepare($sql);
         $query->execute($params);
+        //dd($sql);
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 
@@ -65,7 +67,13 @@ abstract class Repository {
             $currentPage = 1;
           }
 
-        $sql = "SELECT COUNT(*) AS nb_rows FROM $this->table";
+          if(isset($_GET['search']) && !empty($_GET['search'])){
+            $search = "WHERE company_name LIKE '{$_GET['search']}%'";
+          }else{
+            $search = null;
+          }
+
+        $sql = "SELECT COUNT(*) AS nb_rows FROM $this->table $search";
         $query = $this->pdo->prepare($sql);
         $query->execute();
         $result = $query->fetch();
@@ -78,5 +86,15 @@ abstract class Repository {
             $first = null;
         }
         return [$nbPerPage, $first, $currentPage, $pages];
-}
+    }
+public function searching(string $search, array $orderBy = null, int $limit = null, int $offset = null)
+    {
+        if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
+        if ($limit) $limit = " LIMIT $limit";
+        if ($offset) $offset = " OFFSET $offset";
+        $sql = "SELECT * FROM $this->table WHERE company_name LIKE '{$search}%' $orderBy $limit $offset";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
+    }
 }
