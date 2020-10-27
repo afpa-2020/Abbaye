@@ -1,7 +1,10 @@
+
 <?php
 
 namespace App\Forms;
+ 
 use App\Repository\UserRepository;
+
 
 class LoginForm {
     
@@ -16,15 +19,8 @@ class LoginForm {
     }
 
     public function authentification(){
-        //A L'ATTENTION D'ANTOINE LA MASCOTTE DE NOTRE FORMATION
-        //On vérifie que les données soient conformes (pas d'injection !!!)
-        //On les sécurisent avec des filtres/fonctions php
+       
         $UserRep = new UserRepository();
-    
-        //on regarde si ce duo pseudo/password existe dans notre Database
-
-        //si oui --> welcome !
-        //si non --> va te faire enculer sac à merde !!!!!
         $result = $UserRep->authentificate($this->identifiant);
         if(empty($result)) {
             echo("connection invalide");
