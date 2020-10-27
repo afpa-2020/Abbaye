@@ -7,7 +7,7 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="firstname">Prénom</label>
-                <input type="text" class="form-control" name="firstname" >
+                <input type="text" class="form-control" name="firstname">
             </div>
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>

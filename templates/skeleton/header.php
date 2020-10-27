@@ -96,16 +96,16 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
             <ul class="navbar-nav ">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Accueil</a>
+                    <a class="nav-link active" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Actualités</a>
+                    <a class="nav-link disabled" href="/">Actualités</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">F.A.Q</a>
+                    <a class="nav-link disabled" href="/">F.A.Q</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Recrutement</a>
+                    <a class="nav-link active" href="/nouscontacter">Recrutement</a>
                 </li>
             </ul>
         </div>

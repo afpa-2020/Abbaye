@@ -60,7 +60,7 @@ abstract class Repository {
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 
-    public function paginate() {
+    public function paginate($column) {
         if(isset($_GET['page']) && !empty($_GET['page'])){
             $currentPage = (int) strip_tags($_GET['page']);
           }else{
@@ -68,7 +68,7 @@ abstract class Repository {
           }
 
           if(isset($_GET['search']) && !empty($_GET['search'])){
-            $search = "WHERE company_name LIKE '{$_GET['search']}%'";
+            $search = "WHERE $column LIKE '{$_GET['search']}%'";
           }else{
             $search = null;
           }
@@ -87,12 +87,12 @@ abstract class Repository {
         }
         return [$nbPerPage, $first, $currentPage, $pages];
     }
-public function searching(string $search, array $orderBy = null, int $limit = null, int $offset = null)
+public function searching(string $search, array $orderBy = null, int $limit = null, int $offset = null, string $column)
     {
         if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
         if ($limit) $limit = " LIMIT $limit";
         if ($offset) $offset = " OFFSET $offset";
-        $sql = "SELECT * FROM $this->table WHERE company_name LIKE '{$search}%' $orderBy $limit $offset";
+        $sql = "SELECT * FROM $this->table WHERE $column LIKE '{$search}%' $orderBy $limit $offset";
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");

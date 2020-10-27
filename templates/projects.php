@@ -11,9 +11,15 @@ require_once 'skeleton/header.php' ?>
             <h3 class="bg-info mt-1 rounded text-center ">
                 Nos Projets
             </h3>
-            <div class="mt-2">
-                <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
-                    projets, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
+    
+        <form action="#" method="GET" id="search_projects">
+          <div class="row mt-2 mb-2">
+            <div class="col-md-6">
+              <div class="row">
+                <input class="form-control" type="text" placeholder="Rechercher un Client" name ="search" autofocus>
+              </div>
+            </div>
+        </form>
                 <table id="table" class="table bg-secondary table-sm table-striped table-hover">
                     <thead class="thead-light">
                         <tr>
@@ -33,6 +39,22 @@ require_once 'skeleton/header.php' ?>
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                <nav>
+                    <ul class="pagination">
+                        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                            <a href="/projects?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link">
+                                <</a> </li> <?php for ($page = 1; $page <= $pages; $page++) : ?> <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+                        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                            <a href="/projects?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
+                        </li>
+                    <?php endfor ?>
+                    <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+                    <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                        <a href="/projects?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link">></a>
+                    </li>
+                    </ul>
+                </nav>
             </div>
         </div>
         <div class="bg-secondary col-md-7 col-12 rounded my-1 mx-1">
