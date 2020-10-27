@@ -38,6 +38,7 @@
    
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script src ="/assets/js/select_employee.js"></script>
     <script src="/assets/js/database.js"></script>
     <script src="/assets/js/connexion.js" ></script>
     <script src="/assets/js/registerForms.js" ></script>
