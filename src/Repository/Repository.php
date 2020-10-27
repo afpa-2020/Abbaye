@@ -68,7 +68,7 @@ abstract class Repository {
           }
 
           if(isset($_GET['search']) && !empty($_GET['search'])){
-            $search = "WHERE company_name LIKE '{$_GET['search']}%'";
+            $search = "WHERE lastname LIKE '{$_GET['search']}%'";
           }else{
             $search = null;
           }
@@ -92,11 +92,11 @@ public function searching(string $search, array $orderBy = null, int $limit = nu
         if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
         if ($limit) $limit = " LIMIT $limit";
         if ($offset) $offset = " OFFSET $offset";
-        $sql = "SELECT * FROM $this->table WHERE company_name LIKE '{$search}%' $orderBy $limit $offset";
+        $sql = "SELECT * FROM $this->table WHERE lastname LIKE '{$search}%' $orderBy $limit $offset";
         $query = $this->pdo->prepare($sql);
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 }
-}
-}
+
+

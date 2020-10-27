@@ -11,6 +11,7 @@ use App\Repository\ProjectRepository;
 use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
 use App\Forms\LoginForm;
+use App\Forms\AddCustomerForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
 
@@ -96,7 +97,16 @@ abstract class Controller
         ob_start();
 
         $projectRepository = new ProjectRepository();
-        $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $projectRepository->paginate();
+        if(isset($_GET['search'])) {
+            $projects = $projectRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        }
+        else {
+            $projects = $projectRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        }
+        
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
         include '../templates/projects.php';
 
         
@@ -124,7 +134,17 @@ abstract class Controller
         } 
         ob_start();
         $employeeRepository = new EmployeeRepository();
-        $employees = $employeeRepository->findBy([],["id"=>"ASC"],10);
+        $arraysult = $employeeRepository->paginate();
+        if(isset($_GET['search'])) {
+            $employees = $employeeRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        }
+        else {
+            $employees = $employeeRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        }
+        
+        $currentPage = $arraysult[2];
+        $pages = $arraysult[3];
+       
         include '../templates/employees.php';
         ob_end_flush();
     }

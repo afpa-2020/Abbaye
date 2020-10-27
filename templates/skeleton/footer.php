@@ -46,7 +46,7 @@
     <script src="/assets/js/select_customer.js"></script>
     <script src="/assets/js/select_projects.js"></script>
     <script src="/assets/js/moment.js"></script>
-    <script src="/assets/js/nouscontacter.js"></script>
+ 
 
 
 </body>
