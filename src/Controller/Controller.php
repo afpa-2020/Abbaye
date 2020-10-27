@@ -11,9 +11,9 @@ use App\Repository\ProjectRepository;
 use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
 use App\Forms\LoginForm;
-use App\Forms\AddCustomerForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
+use App\Controller\AddCustomerForm;
 
 abstract class Controller
 {
@@ -71,8 +71,16 @@ abstract class Controller
             
 
         $customerRepository = new CustomerRepository();
+
         $arraysult = $customerRepository->paginate();
-        $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        if(isset($_GET['search'])) {
+            $customers = $customerRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+        }
+        else {
+            $customers = $customerRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
+        }
+        
         $currentPage = $arraysult[2];
         $pages = $arraysult[3];
         include '../templates/customers.php';
@@ -85,11 +93,15 @@ abstract class Controller
         session_start();
         if(!isset($_SESSION['login'])) {
             header('Location:/logplz');
-        } 
+        }
+
         ob_start();
+
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->findBy([],["id"=>"ASC"],10);
         include '../templates/projects.php';
+
+        
         ob_end_flush();
     }
 

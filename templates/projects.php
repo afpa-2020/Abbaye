@@ -11,7 +11,7 @@ require_once 'skeleton/header.php' ?>
             <h3 class="bg-info mt-1 rounded text-center ">
                 Nos Projets
             </h3>
-            <div class="row mt-2">
+            <div class="mt-2">
                 <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     projets, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
                 <table id="table" class="table bg-secondary table-sm table-striped table-hover">
@@ -39,7 +39,7 @@ require_once 'skeleton/header.php' ?>
             <h3 class="bg-info mt-1 rounded text-center " id="projectName">
                 Informations du projet
             </h3>
-            <div class="row mt-8">
+            <div class="mt-8">
                 <!--Affichage des données de chaque projets-->
                 <table class="table text-white table-striped table">
                     <tbody>

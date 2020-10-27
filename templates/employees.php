@@ -6,7 +6,7 @@
             <h3 class="bg-info mt-1 rounded text-center ">
                 Nos collaborateurs
             </h3>
-                <div class="row mt-2">
+                <div class=" mt-2">
                     <!--Table BootstrapTable avec barre de recherche, tableau rempli automatiquement avec la base de donnée
                     collaborateurs, pagination, choix du nombre d'affichage, tri par ordre alphabétique-->
                     <table id="table" 
@@ -39,7 +39,7 @@
             <h3 class="bg-info mt-1 rounded text-center ">
                 Informations sur le collaborateur
             </h3>
-                <div class="row mt-2">
+                <div class=" mt-2">
                     <!--Affichage des données de chaque collaborateurs-->
                     <table class="table table-striped text-white">
                             <tbody>
