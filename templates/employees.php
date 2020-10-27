@@ -45,7 +45,7 @@
                             <tbody>
                                 <tr>
                                     <td scope="row"><strong>Nom</strong></td>
-                                    <td>Durand</td>
+                                    <td id='employeeName'>Durand</td>
                                     <td><strong>Matricule</strong></td>
                                     <td id = "employeeId">100032</td>
                                     <td colspan="2">

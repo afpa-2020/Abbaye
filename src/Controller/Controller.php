@@ -106,7 +106,7 @@ abstract class Controller
         ob_end_flush();
     }
 
-    public static function selectemployeesController()
+    public static function employeesController()
     {
         session_start();
         if(!isset($_SESSION['login'])) {
@@ -175,7 +175,9 @@ abstract class Controller
         $employee = $employeeRepository->find($_POST['id']);
         echo $employee->toJson();
     }
+    
 
+  
     public static function nouscontacterController(){
         ob_start();
         include '../templates/nouscontacter.php';
