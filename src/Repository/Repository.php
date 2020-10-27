@@ -78,5 +78,5 @@ abstract class Repository {
             $first = null;
         }
         return [$nbPerPage, $first, $currentPage, $pages];
-}
+    }
 }
