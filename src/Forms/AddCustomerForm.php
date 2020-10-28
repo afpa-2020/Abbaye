@@ -21,7 +21,7 @@ class AddCustomerForm
     private string $nature;
     private string $comment;
     private string $activity;
-    
+
 
 
     /**
@@ -50,13 +50,13 @@ class AddCustomerForm
             !preg_match('/^[0-9]{5}$/', $this->zip) ||
             $this->city === "" ||
             $this->turnover === "" ||
-            !preg_match('/^(([0-9]{2} ){4}[0-9]{2})$|^[0-9]{10}$/', $this->phone)||
+            !preg_match('/^(([0-9]{2} ){4}[0-9]{2})$|^[0-9]{10}$/', $this->phone) ||
             !preg_match('/(Publique|Privée)/', $this->type) ||
-            !preg_match('/^(Principale|Secondaire|Ancienne)$/', $this->nature) ||
+            !preg_match('/(Principale|Secondaire|Ancienne)/', $this->nature) ||
             $this->activity === ""
         ) {
             return "Client non-conforme.";
-
+            
         } else {
             $pdo = new \PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
@@ -65,10 +65,9 @@ class AddCustomerForm
             $stmt->execute([$this->company_name]);
             $result = $stmt->fetch();
 
-            if ($result['Nb_results'] > 0){
+            if ($result['Nb_results'] > 0) {
 
                 return "Ce client existe déjà.";
-
             } else {
                 $sql = "INSERT INTO customer 
                 (company_name, address, zip, city, income, workforce, phone, type, nature, comment, activity) 

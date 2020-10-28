@@ -195,6 +195,8 @@ abstract class Controller
         if (isset($_POST['form'])) {
             $newCustomerForm = new AddCustomerForm($_POST);
             echo $newCustomerForm->addToDatabase();
+        } else {
+            header('Location:/');
         }
     }
     
