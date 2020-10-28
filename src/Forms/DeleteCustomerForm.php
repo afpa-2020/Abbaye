@@ -20,6 +20,9 @@ class DeleteCustomerForm
         $this->id = (int)$post['id'];
     }
 
+    /**
+     * On créer une fonction qui va nous permettre de supprimer des clients
+     */
     public function deleteCustomer()
     {
         $pdo = new \PDO (DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
