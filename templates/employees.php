@@ -36,22 +36,32 @@
 
             </table>
 
-            <nav>
-                <ul class="pagination">
-                    <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-                    <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                        <a href="/employees?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link">
-                            <</a> </li> <?php for ($page = 1; $page <= $pages; $page++) : ?> <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                    <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                        <a href="/employees?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
-                    </li>
-                <?php endfor ?>
-                <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-                <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                    <a href="/employees?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link">></a>
-                </li>
-                </ul>
-            </nav>
+            <nav class=>
+      <ul class="pagination justify-content-center">
+ <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+            <a href="/employees?page=<?= 1 . "&search" . $_GET['search'] ?>" class="page-link"> |< </a>
+          </li> 
+        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+          <a href="/employees?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link"> < </a> 
+         </li>  
+         
+      
+        <?php for ($page = ($currentPage-2);$page < $currentPage+3; $page++) : ?>
+          <?php if ($page>0 && $page <= $pages) : ?>
+
+        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+          <a href="/employees?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
+        </li>
+        <?php endif ?>
+      <?php endfor ?>
+      
+      <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+        <a href="/employees?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
+        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+          <a href="/employees?page=<?= $pages . "&search" . $_GET['search'] ?>" class="page-link"> >| </a>
+      </li>
+      </ul>
+    </nav>
 
         </div>
     </div>
