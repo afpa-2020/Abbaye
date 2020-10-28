@@ -1,7 +1,5 @@
 <?php require_once 'skeleton/header.php' ?>
 
-
-<!-- <a href="/customers?page=1&nb_resultats=10"></a> -->
 <div class="d-flex flex-column">
   <div class="justify-content-center row m-1 mb-2 ">
 
@@ -11,194 +9,182 @@
       </h3>
 
       <div class="col-12">
-        <form action="#" method="GET" id="search_clients">
-          <div class="row mt-2 mb-2">
-            <div class=<?=($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
-              <div class="row">
-                <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
-              </div>
-            </div>
-        </form>
-        <!-- <div class="form-check mt-3">
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triId" checked><label
-                    for="triId"></label> Trier par Id
-                </div>
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triRs"><label for="triRs"></label>
-                  Trier par Raison Sociale
-                </div>
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triDpt"><label for="triDpt"></label>
-                  Trier par Département
-                </div>
-              </div> -->
+        <div class="row">
+          <div class="col-md-6">
+          <form action="#" method="GET" id="search_clients">
 
-        <div class="col-md-6">
-          <!-- <div class="form-row">
-                <select name="nb_resultats" id="nb_resultats_selec">
-                  <option selected value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                </select>
-              </div> -->
-          <div class="form-row my-1">
-            <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
-              <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
-                Client</button>
-            <?php endif; ?>
+            <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
+            </form>
+          </div>
+
+          <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un Client</button>
+        </div>
+
+
+
+
+
+
+        <!--
+          <div class="col-12">
+            <form action="#" method="GET" id="search_clients">
+              <div class="row mt-2 mb-2">
+                <div class="col-md-6">
+                  <div class="row">
+                    <input class="form-control" type="text" placeholder="Rechercher un Client" name ="search" autofocus>
+                  </div>
+                </div>
+              </form>
+              
+              
+              <div class="col-md-6">
+                
+                <div class="form-row my-1">
+                  <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
+                    Client</button>
           </div>
         </div>
       </div>
     </div>
-
-
-    <table class="table table-sm table-striped table-hover bg-secondary">
-      <thead class="thead-light">
-        <tr>
-          <th>Id</th>
-          <th>Raison Sociale</th>
-          <th>#Dpt</th>
-        </tr>
-      </thead>
-      <tbody id="clientsListe" role="button" class="text-white ">
-
-        <?php foreach ($customers as $customer) : ?>
-
-          <tr onclick="select_customer(<?= $customer->getId() ?>)">
-            <th><?= $customer->getId() ?></th>
-            <th><?= $customer->getCompanyName() ?></th>
-            <th><?= substr($customer->getZip(), 3) ?></th>
-          </tr>
-
-        <?php endforeach ?>
+  -->
 
 
 
-      </tbody>
-    </table>
+        <table class="table table-sm table-striped table-hover bg-secondary">
+          <thead class="thead-light">
+            <tr>
+              <th>Id</th>
+              <th>Raison Sociale</th>
+              <th>#Dpt</th>
+            </tr>
+          </thead>
+          <tbody id="clientsListe" role="button" class="text-white ">
 
-    <nav class=>
-      <ul class="pagination justify-content-center">
- <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-            <a href="/customers?page=<?= 1 . "&search" . $_GET['search'] ?>" class="page-link"> |< </a>
-          </li> 
-        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-          <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link"> < </a> 
-         </li>  
-         
-      
-        <?php for ($page = ($currentPage-2);$page < $currentPage+3; $page++) : ?>
-          <?php if ($page>0 && $page <= $pages) : ?>
+            <?php foreach ($customers as $customer) : ?>
 
-        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-          <a href="/customers?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
-        </li>
-        <?php endif ?>
-      <?php endfor ?>
-      
-      <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-        <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
+              <tr onclick="select_customer(<?= $customer->getId() ?>)">
+                <th><?= $customer->getId() ?></th>
+                <th><?= $customer->getCompanyName() ?></th>
+                <th><?= substr($customer->getZip(), 3) ?></th>
+              </tr>
+
+            <?php endforeach ?>
+
+
+
+          </tbody>
+        </table>
+
+
+        <nav class=>
+          <ul class="pagination justify-content-center">
+            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+              <a href="/customers?page=<?= 1 . "&search" . $_GET['search'] ?>" class="page-link"> |< </a> </li> <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                  <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link">
+                    < </a> </li> <?php for ($page = ($currentPage - 2); $page < $currentPage + 3; $page++) : ?> <?php if ($page > 0 && $page <= $pages) : ?> <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                      <a href="/customers?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
+            </li>
+          <?php endif ?>
+        <?php endfor ?>
+
+        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+          <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
         <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
           <a href="/customers?page=<?= $pages . "&search" . $_GET['search'] ?>" class="page-link"> >| </a>
-      </li>
-      </ul>
-    </nav>
+        </li>
+          </ul>
+        </nav>
+      </div>
 
-  </div>
+    </div>
+    <!-- ************************************ -->
+    <div class="bg-secondary col-md-7 col-12 rounded m-1">
+      <h3 class="bg-info mt-1 rounded text-center" id="clientName">
+        Informations sur le client
+      </h3>
 
-  <div class="bg-secondary col-md-7 col-12 rounded m-1">
-    <h3 class="bg-info mt-1 rounded text-center" id="clientName">
-      Informations sur le client
-    </h3>
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <form action="#">
+            <table class="table text-white table-sm">
+              <tbody>
+                <tr class="text-white">
+                  <th scope="row">Adresse</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="adresse" id="clientAdresse" disabled> </td>
+                </tr>
+                <tr>
+                  <th scope="row">CP</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="codePostal" id="clientCp" disabled> </td>
+                </tr>
+                <tr>
+                  <th scope="row">Ville</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="ville" id="clientVille" disabled> </td>
+                </tr>
+                <tr>
 
-    <div class="row">
-      <div class="col-md-6 col-12">
-        <form action="#">
-          <table class="table text-white table-sm">
+                  <th scope="row">Téléphone</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="telephone" id="clientTelephone" disabled></td>
+                </tr>
+                <tr>
+                  <th scope="row">Domaine</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" data-toggle="tooltip" name="domaine" id="clientDomaine" disabled></td>
+                </tr>
+                <tr>
+                  <th scope="row">Nature</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="nature" id="clientNature" disabled></td>
+                </tr>
+                <tr>
+                  <th scope="row">CA</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="ca" id="clientCa" disabled></td>
+                </tr>
+                <tr>
+                  <th scope="row">Effectif</th>
+                  <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="effectif" id="clientEffectif" disabled></td>
+                </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-danger" id="modif" onclick=" editClient()" type="button">Modifier
+              Client</button>
+          </form>
+        </div>
+        <div class="col-md-6 col-12">
+          <table class="table text-white">
             <tbody>
-              <tr class="text-white">
-                <th scope="row">Adresse</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="adresse" id="clientAdresse" disabled> </td>
-              </tr>
               <tr>
-                <th scope="row">CP</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="codePostal" id="clientCp" disabled> </td>
+                <th scope="row">ID Client</th>
+                <td id="clientId"></td>
               </tr>
+          </table>
+          <table class="table text-white">
+            <tbody>
               <tr>
-                <th scope="row">Ville</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="ville" id="clientVille" disabled> </td>
-              </tr>
-              <tr>
-
-                <th scope="row">Téléphone</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="telephone" id="clientTelephone" disabled></td>
-              </tr>
-              <tr>
-                <th scope="row">Domaine</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" data-toggle="tooltip" name="domaine" id="clientDomaine" disabled></td>
-              </tr>
-              <tr>
-                <th scope="row">Nature</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="nature" id="clientNature" disabled></td>
-              </tr>
-              <tr>
-                <th scope="row">CA</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="ca" id="clientCa" disabled></td>
-              </tr>
-              <tr>
-                <th scope="row">Effectif</th>
-                <td><input type="text" class="form-control-plaintext form-control editableClient" value="" name="effectif" id="clientEffectif" disabled></td>
+                <th scope="row">Type</th>
+                <td id="clientType"></td>
               </tr>
             </tbody>
           </table>
-          <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
-            <button class="btn btn-danger" id="modif" onclick="editClient()" type="button">Modifier
-              Client</button>
-            <button class="btn btn-info mt-3" id="annuler" style="display:none" onclick="annulation()" type="button">Annuler</button>
-            <button class="btn btn-success mt-3" id="valider" style="display:none" onclick="validClient()" type="button">Enregistrer</button>
-            <button class="btn btn-warning mt-3" id="delete" style="display:none" onclick="deleteClient()" type="button">Supprimer</button>
-          <?php endif; ?>
-        </form>
-      </div>
-      <div class="col-md-6 col-12">
-        <table class="table text-white">
-          <tbody>
-            <tr>
-              <th scope="row">ID Client</th>
-              <td id="clientId"></td>
-            </tr>
-        </table>
-        <table class="table text-white">
-          <tbody>
-            <tr>
-              <th scope="row">Type</th>
-              <td id="clientType"></td>
-            </tr>
-          </tbody>
-        </table>
 
-        <h4>Nos Contacts avec ce Client</h4>
-        <table class="table table-sm table-striped">
-          <caption class="text-info"><a href="/contacts">Voir tous les contacts</a></caption>
-          <thead class="text-white">
-            <tr>
-              <th scope="col">Nom</th>
-              <th scope="col">Prénom</th>
-              <th scope="col">Email</th>
-            </tr>
-          </thead>
-          <tbody id="contactsListe">
+          <h4>Nos Contacts avec ce Client</h4>
+          <table class="table table-sm table-striped">
+            <caption class="text-info"><a href="/contacts">Voir tous les contacts</a></caption>
+            <thead class="text-white">
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody id="contactsListe">
 
-          </tbody>
-        </table>
-        <h4>Commentaires</h4>
-        <textarea type="text" class="form-control-plaintext form-control editableClient border px-2" value="" name="commentaire" id="clientCommentaire" disabled></textarea>
+            </tbody>
+          </table>
+          <h4>Commentaires</h4>
+          <textarea type="text" class="form-control-plaintext form-control editableClient border px-2" value="" name="commentaire" id="clientCommentaire" disabled></textarea>
 
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
