@@ -13,7 +13,10 @@ class ContactRepository extends Repository
     {
         parent::__construct("Contact");
     }
-
+/**
+ * Cette fonction permet de trouver un client
+ * @return array Contact
+ */
     public function findAllByCustomer(Customer $customer)
     {
         $idCustomer = $customer->getId();
@@ -21,7 +24,10 @@ class ContactRepository extends Repository
         $query->execute([$idCustomer]);
         return $query->fetchAll(\PDO::FETCH_CLASS, Contact::class);
     }
-
+/**
+ * Cette fonction permet de trouver un document
+ * @return Contact
+ */
     public function findByDocument(Document $document)
     {
         $idDocument = $document->getId();
