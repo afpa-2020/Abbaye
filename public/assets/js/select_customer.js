@@ -33,7 +33,7 @@ function select_customer(id) {
                 let row = '<tr>\
                             <th scope="col">'+ contact.lastname + '</th>\
                             <th scope="col">'+ contact.firstname + '</th>\
-                            <th scope="col">'+ contact.email + '</th>\
+                            <th scope="col"><a href="mailto:'+ contact.email +'">'+ contact.email + '</a></th>\
                         </tr>';
 
                 document.getElementById('contactsListe').innerHTML += row;
