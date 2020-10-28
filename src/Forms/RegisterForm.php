@@ -36,6 +36,7 @@ class RegisterForm
    */
   public function register()
   {
+    if ($this->identifiant === "") return "Identifiant invalide.";
     if ($this->email !== filter_var($this->email)) return "Email invalide.";
     if ($this->password !== $this->confirmPassword) {
       return "Le mot de passe et sa confirmation sont différents !";

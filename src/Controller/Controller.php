@@ -31,7 +31,7 @@ abstract class Controller
     {
         session_start();
 
-        if (!empty($_POST)){
+        if (!empty($_POST) && isset($_POST['identifiant'])){
             $signin = new LoginForm($_POST);
             $signin->authentification();
         } 
@@ -100,9 +100,9 @@ abstract class Controller
         ob_start();
 
         $projectRepository = new ProjectRepository();
-        $arraysult = $projectRepository->paginate("shortname");
+        $arraysult = $projectRepository->paginate('shortname');
         if(isset($_GET['search'])) {
-            $projects = $projectRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],"shortname");
+            $projects = $projectRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],'shortname');
         }
         else {
             $projects = $projectRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
@@ -139,9 +139,9 @@ abstract class Controller
         } 
         ob_start();
         $employeeRepository = new EmployeeRepository();
-        $arraysult = $employeeRepository->paginate("lastname");
+        $arraysult = $employeeRepository->paginate('lastname');
         if(isset($_GET['search'])) {
-            $employees = $employeeRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],"lastname");
+            $employees = $employeeRepository->searching($_GET['search'],["id"=>"ASC"],$arraysult[0], $arraysult[1],'lastname');
         }
         else {
             $employees = $employeeRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
