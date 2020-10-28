@@ -15,7 +15,7 @@
           <div class="row mt-2 mb-2">
             <div class="col-md-6">
               <div class="row">
-                <input class="form-control" type="text" placeholder="Rechercher un Client" name ="search" autofocus>
+                <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
               </div>
             </div>
         </form>
@@ -142,6 +142,9 @@
           </table>
           <button class="btn btn-danger" id="modif" onclick=" editClient()" type="button">Modifier
             Client</button>
+          <button class="btn btn-info mt-3" id="annuler" style="display:none" onclick="annulation()" type="button">Annuler</button>
+          <button class="btn btn-success mt-3" id="valider" style="display:none" onclick="validClient()" type="button">Enregistrer</button>
+          <button class="btn btn-success mt-3" id="delete" style="display:none" onclick="deleteClient()" type="button">Supprimer</button>
         </form>
       </div>
       <div class="col-md-6 col-12">

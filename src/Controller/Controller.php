@@ -12,6 +12,8 @@ use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
 use App\Forms\LoginForm;
 use App\Forms\AddCustomerForm;
+use App\Forms\UpdateCustomerForm;
+use App\Forms\DeleteCustomerForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
 
@@ -241,5 +243,23 @@ abstract class Controller
         ob_start();
         include '../templates/mercipourvotremail.php';
         ob_end_flush();
+    }
+
+    public static function updatecustomerController() {
+        if ($_POST['id']) {
+            $updateCustomer = new UpdateCustomerForm($_POST);
+            echo $updateCustomer->updateCustomer();
+        } else {
+            header('Location:/');
+        }
+    }
+
+    public static function deletecustomerController() {
+        if ($_POST['id']) {
+            $deleteCustomer = new DeleteCustomerForm($_POST);
+            echo $deleteCustomer->deleteCustomer();
+        } else {
+            header('Location:/');
+        }
     }
 }

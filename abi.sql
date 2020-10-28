@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 27 oct. 2020 à 10:34
+-- Généré le : mar. 27 oct. 2020 à 17:28
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.10
 
@@ -35,7 +35,7 @@ CREATE TABLE `contact` (
   `phone` varchar(15) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -83,7 +83,7 @@ INSERT INTO `contact` (`id`, `role`, `lastname`, `firstname`, `phone`, `email`, 
 (38, 'Porion', 'Pichon', 'Patrick', '+33 9 81 64 33 ', 'torres.gilbert@tele2.fr', 'contact-38.jpeg', 42),
 (39, 'Monteur audiovisuel', 'Joubert', 'Bernard', '0954356110', 'labbe.antoine@maillet.org', 'contact-39.jpeg', 8),
 (40, 'Opérateur de plateau', 'Loiseau', 'Alexandria', '0408508778', 'penelope.rodrigues@guerin.com', 'contact-40.jpeg', 63),
-(41, 'Téléconseiller', 'Deschamps', 'Marie', '+33 (0)6 04 51 ', 'couturier.zoe@tele2.fr', 'contact-41.jpeg', 4),
+(41, 'Téléconseiller', 'Deschamps', 'Marie', '+33 (0)6 04 51 ', 'couturier.zoe@tele2.fr', 'contact-41.jpeg', NULL),
 (42, 'Plaquiste enduiseur', 'Chauveau', 'Paul', '+33 3 47 72 84 ', 'gaillard.aurelie@alves.fr', 'contact-42.jpeg', 18),
 (43, 'Kiwiculteur', 'Leblanc', 'Dorothée', '03 51 32 26 80', 'emace@renaud.org', 'contact-43.jpeg', 85),
 (44, 'Armurier d\'art', 'Jacques', 'Michelle', '+33 6 24 25 26 ', 'constance.lamy@live.com', 'contact-44.jpeg', 64),
@@ -173,13 +173,11 @@ INSERT INTO `customer` (`id`, `company_name`, `address`, `zip`, `city`, `income`
 (1, 'Herve SAS', '58, rue Julie Robin', '49151', 'Auger-sur-Guillou', 619, 1586, '+33 (0)9 34 96 ', 'Publique', 'Ancienne', 'Unde mollitia in rerum laborum aut minus in harum adipisci consequatur facilis perferendis corrupti est dolorem non laborum ab omnis consequatur eos deserunt sit qui maxime impedit dolorum possimus odit eum hic et deleniti rerum eos modi repudiandae suscipit aut ab.', 'IT'),
 (2, 'Hernandez Bruneau SAS', '75, rue Herve', '93 94', 'Adamboeuf', 910, 1349, '0945383409', 'Publique', 'Principale', 'Nemo soluta nihil labore minus molestiae deleniti suscipit voluptatem fuga blanditiis modi odit veritatis deserunt praesentium culpa qui recusandae totam perferendis alias dignissimos sunt nihil repellendus tempora mollitia.', 'Service'),
 (3, 'Leveque et Fils', '41, impasse Philippine Breton', '63264', 'Fouquetdan', 595, 1184, '0100329291', 'Publique', 'Secondaire', 'Consectetur alias et distinctio officiis quia officia qui dolorum natus quos accusamus laboriosam blanditiis et iste accusantium ipsum quo voluptatibus ipsam omnis excepturi ratione corporis.', 'Conseil'),
-(4, 'Benoit', 'avenue de Boyer', '10615', 'Briand-sur-Brunel', 431, 1411, '+33 (0)6 39 63 ', 'Privée', 'Ancienne', 'Est vel cumque facilis ea veritatis sequi dolore quo beatae provident omnis aut aliquam velit sed aut et nesciunt nobis excepturi dolorum qui optio voluptatem aliquid molestiae modi quos molestiae.', 'Vente'),
 (5, 'Pons Dupuy SA', 'impasse de Legendre', '61789', 'Petitjean', 34, 2836, '+33 (0)7 71 63 ', 'Publique', 'Secondaire', 'Amet cupiditate suscipit nihil saepe eum rerum et quam odit id qui et aut eius a saepe occaecati cum minima sit est ut ipsum deleniti quos natus.', 'Conseil'),
 (6, 'Petit', '13, avenue Stéphane Garnier', '98 49', 'Verdier', 735, 1844, '0157635161', 'Publique', 'Ancienne', 'Necessitatibus ut cupiditate ut provident aliquam et delectus qui itaque labore rerum perferendis incidunt veniam et quae fugiat pariatur esse et excepturi harum blanditiis officiis eos beatae ipsa perspiciatis totam officiis dolor similique optio rerum minima.', 'Industrie'),
 (7, 'Ledoux', '48, place Claude Ruiz', '06103', 'Pires', 922, 2661, '05 34 75 42 08', 'Privée', 'Secondaire', 'Quaerat et deleniti sit ullam quod in animi nihil saepe corrupti omnis beatae ea hic ratione ut sed error voluptatibus aut quam ea nostrum at assumenda molestiae dolorum et qui quas qui voluptatem dignissimos maxime nihil iste est.', 'IT'),
 (8, 'Hardy', '78, avenue de Morvan', '64380', 'Renard', 648, 667, '+33 4 29 33 74 ', 'Privée', 'Ancienne', 'Voluptatem est reprehenderit eveniet aut autem consequatur cumque et qui ex aliquid distinctio maxime quae eligendi nisi aut voluptatum.', 'Vente'),
 (9, 'Normand S.A.', 'impasse Marion', '13082', 'Guilbert-les-Bains', 186, 815, '0253222394', 'Privée', 'Principale', 'Perspiciatis dignissimos recusandae non esse deserunt et dolores laborum hic corrupti voluptatem et optio quis tempora quia id temporibus doloremque adipisci iure distinctio voluptatem vitae ex facilis ut aut consequatur veniam eaque quam minus.', 'IT'),
-(10, 'Dupont', '72, chemin de Dias', '69 88', 'Dumas-sur-Ollivier', 402, 1730, '+33 1 68 98 44 ', 'Privée', 'Ancienne', 'Nihil et quasi rerum sit nobis consequatur eum itaque qui voluptas architecto cupiditate est quo culpa est quaerat ex et nobis quaerat nostrum incidunt voluptas quia libero dolorem et porro velit non excepturi eos voluptas.', 'IT'),
 (11, 'Monnier', '33, rue Arnaude Pires', '96282', 'Gimenez', 61, 469, '+33 6 92 84 25 ', 'Publique', 'Principale', 'Aut et quaerat et libero ullam totam quia velit consequuntur ex odio voluptas unde temporibus necessitatibus earum sint consequatur nobis voluptates repellendus soluta.', 'Conseil'),
 (12, 'Payet S.A.S.', '98, rue Riou', '73 03', 'Olivier', 344, 161, '+33 (0)1 37 95 ', 'Publique', 'Principale', 'Ut libero tempora enim consequuntur voluptates exercitationem repellat incidunt labore tempora et fugit accusamus ab voluptatibus et consequuntur quam molestias qui porro.', 'Industrie'),
 (13, 'Lambert Girard S.A.R.L.', '53, rue de Laporte', '86 13', 'Legros', 334, 732, '01 12 81 32 26', 'Publique', 'Principale', 'Commodi voluptas libero nesciunt totam dicta mollitia magnam et voluptas modi et consectetur ullam beatae quisquam nobis pariatur aliquid aut officia nihil temporibus officia incidunt sit reprehenderit non eum cupiditate in laborum nulla illum nam laudantium veritatis.', 'Service'),
@@ -203,7 +201,7 @@ INSERT INTO `customer` (`id`, `company_name`, `address`, `zip`, `city`, `income`
 (31, 'Pascal Hernandez et Fils', '8, boulevard de Rodrigues', '85272', 'Goncalvesnec', 178, 639, '03 63 57 42 53', 'Privée', 'Secondaire', 'Id molestiae porro voluptas quisquam quasi non aut assumenda voluptates architecto quidem ut incidunt molestias qui quo consequatur non dolores eum nulla facere totam est dolores sit doloribus blanditiis.', 'IT'),
 (32, 'Boulanger', '53, rue Neveu', '52 78', 'Boutinnec', 65, 1409, '+33 (0)7 92 55 ', 'Privée', 'Secondaire', 'Id atque quae nulla occaecati incidunt iusto et et ipsum ut tenetur omnis enim est perspiciatis error voluptas incidunt tempora rerum velit.', 'IT'),
 (33, 'Jacob', 'place Roger', '99 79', 'Lopezdan', 20, 1558, '0496985672', 'Publique', 'Ancienne', 'Rerum harum exercitationem quia unde rerum pariatur sed laudantium aut eaque aut odio at aut ut et necessitatibus nesciunt labore sed rem nam accusamus quaerat aut non tempore et eum enim ratione et laudantium quas id numquam tempora.', 'Conseil'),
-(34, 'Diaz Grenier S.A.S.', '72, chemin de Couturier', '70188', 'Leclercnec', 164, 1194, '0291719581', 'Publique', 'Secondaire', 'Dolorem dolor pariatur minima aut vero veniam eos aliquid tempore magnam ipsum consequatur velit non suscipit voluptatum debitis ea consectetur enim hic non ipsum.', 'Service'),
+(34, 'Diaz Grenier S.A.S.', '72, chemin de Couturier', '70188', 'ez', 164, 1194, '0291719581', 'Publique', 'Secondaire', 'Dolorem dolor pariatur minima aut vero veniam eos aliquid tempore magnam ipsum consequatur velit non suscipit voluptatum debitis ea consectetur enim hic non ipsum.', 'Service'),
 (35, 'Bertrand', 'boulevard de Garcia', '32 53', 'Paris-la-Forêt', 885, 550, '0514913335', 'Privée', 'Ancienne', 'Esse nobis officiis sapiente eveniet deserunt ratione molestias quos consequuntur ut vel dolor voluptatem sed tempora laboriosam numquam qui veniam.', 'Industrie'),
 (36, 'Courtois', '82, avenue Pénélope Chauvin', '92035', 'VasseurVille', 342, 764, '+33 (0)6 15 69 ', 'Publique', 'Principale', 'Enim ut accusamus ea ipsam saepe ut est distinctio animi error doloremque voluptates nulla omnis maiores repudiandae dolore consequuntur optio nostrum aperiam est at incidunt accusantium.', 'IT'),
 (37, 'Loiseau', '705, place Astrid Guyon', '47 42', 'Etienne', 136, 1888, '+33 (0)7 82 89 ', 'Privée', 'Ancienne', 'Molestias sint expedita nam dolorem provident delectus magni dignissimos ipsa alias eum quis aut et sed nobis est ab placeat vitae velit velit odio dolorum in quo accusamus ea mollitia.', 'Industrie'),
@@ -270,7 +268,8 @@ INSERT INTO `customer` (`id`, `company_name`, `address`, `zip`, `city`, `income`
 (98, 'Nguyen', '62, rue Luce Fernandes', '59 35', 'Leblanc', 854, 1534, '05 24 92 11 56', 'Privée', 'Secondaire', 'Vel sunt ex magnam provident aliquid sit est maxime qui exercitationem est veniam deleniti quam numquam maiores sint nam qui magnam unde perspiciatis ipsa sit autem accusamus voluptatem adipisci rem.', 'Industrie'),
 (99, 'Huet SAS', '73, rue de Leleu', '48810', 'Pichon', 715, 2232, '+33 (0)2 37 93 ', 'Privée', 'Principale', 'Nobis ipsa et eos consequatur et aut earum in odio non numquam exercitationem sed iusto et autem dolores sed.', 'Industrie'),
 (100, 'Herve', 'chemin Patricia Delahaye', '85 43', 'Maillet', 21, 1296, '0580193861', 'Privée', 'Ancienne', 'Quia nulla consequuntur rerum sint qui eum explicabo ex aliquid quidem laborum nihil nisi nemo iste consequatur facilis earum est ipsum.', 'Conseil'),
-(101, 'tjqrtgj', 'ghjnryfj', '46976', 'htgjryg', 200, 300, '0666666666', 'Privée', 'Principale', '', 'Patisserie');
+(101, 'tjqrtgj', 'ghjnryfj', '46976', 'htgjryg', 200, 300, '0666666666', 'Privée', 'Principale', '', 'Patisserie'),
+(102, 'test', 'dede', '11111', 'pa', 11, 11, '03 09 09 09 83', 'Publique', 'Secondaire', '', 'dede');
 
 -- --------------------------------------------------------
 
@@ -627,7 +626,7 @@ CREATE TABLE `project` (
   `fullname` varchar(70) NOT NULL,
   `type` varchar(45) DEFAULT NULL,
   `started` datetime NOT NULL,
-  `customer_id` int(11) NOT NULL
+  `customer_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -718,7 +717,7 @@ INSERT INTO `project` (`id`, `shortname`, `fullname`, `type`, `started`, `custom
 (81, 'XAVIERG', 'Xavier Gomes', 'Développement', '2002-05-09 00:00:00', 86),
 (82, 'GUYCARL', 'Guy Carlier', 'Sous-traitance', '2001-03-27 00:00:00', 53),
 (83, 'ZACHARIE', 'Zacharie Bonnin', 'Développement', '1974-10-31 00:00:00', 13),
-(84, 'DOMINIQU', 'Dominique De Oliveira-Blanchet', 'Sous-traitance', '2012-05-10 00:00:00', 10),
+(84, 'DOMINIQU', 'Dominique De Oliveira-Blanchet', 'Sous-traitance', '2012-05-10 00:00:00', NULL),
 (85, 'GRéGOIR', 'Grégoire Richard-Sanchez', 'Développement', '1987-03-02 00:00:00', 45),
 (86, 'ADRIEND', 'Adrien du Mary', 'Conseil', '2012-12-22 00:00:00', 9),
 (87, 'LUCASLA', 'Lucas Laporte', 'Conseil', '2016-10-17 00:00:00', 23),
@@ -974,7 +973,8 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 (100, 'Amélie', '&[\"&/U,w@.^o}}', 'Commercial', 'salmon.adele@noos.fr'),
 (101, 'Lea', '$2y$10$ro/GuTWtEAQkv3TNnD72ju/z1XkRWEV/cuJ76bnFIaggu2AOKEHvW', 'Visiteur', 'lea.lele@wanadoo.fr'),
 (102, 'Jenna', '$2y$10$DFjh.3oi3r2V8uAVESOgdO1cTzoE.MDQwB4gTCQxwMghbqpzCgKvC', 'Visiteur', 'dupont.marie@online.fr'),
-(103, '', '$2y$10$WE5wbYU.a5qS8njlAAHlYOjBdMy6W9b.EAOLUAyh4u5WSutCUUFJC', 'Visiteur', 'molo@lolo.fr');
+(103, '', '$2y$10$WE5wbYU.a5qS8njlAAHlYOjBdMy6W9b.EAOLUAyh4u5WSutCUUFJC', 'Visiteur', 'molo@lolo.fr'),
+(104, 'Maks', '$2y$10$4UE1caWtSJfl1TylcZd7NuwOe1s0jjxObtqe1iwd58ZvCeZkW269K', 'Visiteur', 'dedede.ee@mmm.ru');
 
 --
 -- Index pour les tables déchargées
@@ -985,7 +985,7 @@ INSERT INTO `user` (`id`, `login`, `password`, `role`, `email`) VALUES
 --
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_contact_customer_idx` (`customer_id`) USING BTREE;
+  ADD KEY `fk_customer` (`customer_id`);
 
 --
 -- Index pour la table `customer`
@@ -1012,7 +1012,7 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `project`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_project_client1_idx` (`customer_id`);
+  ADD KEY `fk_project_client1` (`customer_id`);
 
 --
 -- Index pour la table `project_employee`
@@ -1043,7 +1043,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT pour la table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT pour la table `document`
@@ -1067,7 +1067,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- Contraintes pour les tables déchargées
@@ -1077,7 +1077,7 @@ ALTER TABLE `user`
 -- Contraintes pour la table `contact`
 --
 ALTER TABLE `contact`
-  ADD CONSTRAINT `fk_contact_client` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE SET NULL;
 
 --
 -- Contraintes pour la table `document`
@@ -1095,7 +1095,8 @@ ALTER TABLE `employee`
 -- Contraintes pour la table `project`
 --
 ALTER TABLE `project`
-  ADD CONSTRAINT `fk_project_client1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_custom` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_project_client1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`) ON DELETE SET NULL ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `project_employee`

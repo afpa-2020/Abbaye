@@ -1,17 +1,16 @@
 {
-    "name": "maxime/abbaye",
-    "authors": [
-        {
-            "name": "MaksRus",
-            "email": "animdessin@hotmail.com"
-        }
-    ],
-    "autoload":{
-        "psr-4": {
-            "App\\" : "src/"
-        }
-    },
-    "require": {"require-dev": {
-        "symfony/var-dumper": "^5.1"
-    }}
+  "name": "maxime/abbaye",
+  "authors": [{
+    "name": "MaksRus",
+    "email": "animdessin@hotmail.com"
+  }],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.1",
+    "phpunit/phpunit": "9"
+  }
 }
