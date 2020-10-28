@@ -12,6 +12,8 @@ use App\Repository\DocumentRepository;
 use App\Forms\RegisterForm;
 use App\Forms\LoginForm;
 use App\Forms\AddCustomerForm;
+use App\Forms\UpdateCustomerForm;
+use App\Forms\DeleteCustomerForm;
 use App\Repository\ContactRepository;
 use App\Repository\UserRepository;
 
@@ -104,6 +106,8 @@ abstract class Controller
         }
         else {
             $projects = $projectRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
+
         }
         
         $currentPage = $arraysult[2];
@@ -141,11 +145,14 @@ abstract class Controller
         }
         else {
             $employees = $employeeRepository->findBy([],["id"=>"ASC"],$arraysult[0], $arraysult[1]);
+            $_GET['search'] = null;
+
         }
         
         $currentPage = $arraysult[2];
         $pages = $arraysult[3];
        
+        
         include '../templates/employees.php';
         ob_end_flush();
     }
@@ -188,6 +195,8 @@ abstract class Controller
         if (isset($_POST['form'])) {
             $newCustomerForm = new AddCustomerForm($_POST);
             echo $newCustomerForm->addToDatabase();
+        } else {
+            header('Location:/');
         }
     }
     
@@ -236,5 +245,23 @@ abstract class Controller
         ob_start();
         include '../templates/mercipourvotremail.php';
         ob_end_flush();
+    }
+
+    public static function updatecustomerController() {
+        if ($_POST['id']) {
+            $updateCustomer = new UpdateCustomerForm($_POST);
+            echo $updateCustomer->updateCustomer();
+        } else {
+            header('Location:/');
+        }
+    }
+
+    public static function deletecustomerController() {
+        if ($_POST['id']) {
+            $deleteCustomer = new DeleteCustomerForm($_POST);
+            echo $deleteCustomer->deleteCustomer();
+        } else {
+            header('Location:/');
+        }
     }
 }

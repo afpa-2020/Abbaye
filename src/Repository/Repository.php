@@ -98,4 +98,3 @@ public function searching(string $search, array $orderBy = null, int $limit = nu
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
 }
-

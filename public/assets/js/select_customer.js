@@ -2,6 +2,11 @@
 
 
 function select_customer(id) {
+    let inputs = document.getElementById('clientAdresse');
+    if (!inputs.disabled){
+        annulation();
+    }
+
   const xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {

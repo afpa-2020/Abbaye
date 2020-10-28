@@ -13,9 +13,9 @@
       <div class="col-12">
         <form action="#" method="GET" id="search_clients">
           <div class="row mt-2 mb-2">
-            <div class="col-md-6">
+            <div class=<?=($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
               <div class="row">
-                <input class="form-control" type="text" placeholder="Rechercher un Client" name ="search" autofocus>
+                <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
               </div>
             </div>
         </form>
@@ -43,8 +43,10 @@
                 </select>
               </div> -->
           <div class="form-row my-1">
-            <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
-              Client</button>
+            <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
+              <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
+                Client</button>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -150,8 +152,13 @@
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-danger" id="modif" onclick=" editClient()" type="button">Modifier
-            Client</button>
+          <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
+            <button class="btn btn-danger" id="modif" onclick="editClient()" type="button">Modifier
+              Client</button>
+            <button class="btn btn-info mt-3" id="annuler" style="display:none" onclick="annulation()" type="button">Annuler</button>
+            <button class="btn btn-success mt-3" id="valider" style="display:none" onclick="validClient()" type="button">Enregistrer</button>
+            <button class="btn btn-warning mt-3" id="delete" style="display:none" onclick="deleteClient()" type="button">Supprimer</button>
+          <?php endif; ?>
         </form>
       </div>
       <div class="col-md-6 col-12">

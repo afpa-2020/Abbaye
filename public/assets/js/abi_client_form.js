@@ -8,9 +8,13 @@ Dernière modification le 26/08/20
  * Triggers when clicking on the "Modifier" button (#modif).
  */
 function editClient() {
-    $('#modif, #valider, #annuler').toggle();
-    $('.editableClient').prop("disabled", false);
-    $('.editableClient').toggleClass("form-control-plaintext");
+    if ($('#clientId').html() !== ""){
+        $('#modif, #valider, #annuler, #delete').toggle();
+        $('.editableClient').prop("disabled", false);
+        $('.editableClient').toggleClass("form-control-plaintext");
+    } else {
+        alert('Aucun client sélectionné.')
+    }
 };
 /**
  * Checks every single .editableClient inputs.
@@ -18,24 +22,47 @@ function editClient() {
  * Triggers when clicking on the "Enregistrer" button (#valider).
  */
 function validClient() {
-    if ($('.editableClient.is-valid').length == $('.editableClient').length){
-        alert('Client mis à jour avec succès !');
-        $('#modif, #valider, #annuler').toggle();
-        $('.editableClient').prop("disabled", true);
-        $('.editableClient').removeClass("is-valid is-invalid");
-        $('.editableClient').toggleClass("form-control-plaintext");
+    if ($('.editableClient.is-valid').length > 0 &&
+        $('.editableClient.is-invalid').length === 0) {
 
+        let update = {
+            id: $('#clientId').html(),
+            companyName: $('#clientName').html(),
+            type: $('#clientType').html(),
+            address: $('#clientAdresse').val(),
+            zip: $('#clientCp').val(),
+            city: $('#clientVille').val(),
+            phone: $('#clientTelephone').val(),
+            activity: $('#clientDomaine').val(),
+            nature: $('#clientNature').val(),
+            turnover: $('#clientCa').val(),
+            workforce: $('#clientEffectif').val(),
+            comment : $('#clientCommentaire').val(),
+        }
+
+        $.post('/updatecustomer', update, function(reponse) {
+            if (reponse === "1") {
+                alert('Client mis à jour avec succès !');
+                annulation();
+                $('.editableModal').val("").removeClass('is-valid');
+                $('#editModal').modal('hide');
+                location.replace('/customers');
+            } else {
+                alert(reponse);
+            }
+        })
     }
     else {
         alert('Client non-conforme.');
     }
+
 };
 /**
  * Allows the user to exit "edit mode".
  * All .editableClient inputs return to a "disabled" state.
  */
 function annulation() {
-    $('#modif, #valider, #annuler').toggle();
+    $('#modif, #valider, #annuler, #delete').toggle();
     $('.editableClient').removeClass("is-valid is-invalid");
     $('.editableClient').prop("disabled", true);
     $('.editableClient').toggleClass("form-control-plaintext");
@@ -43,51 +70,52 @@ function annulation() {
 
 $("#formNewCustomer").submit(function (event) {
     event.preventDefault();
-    if ($('.editableModal.is-valid').length == $('.editableModal').length){
+    if ($('.editableModal.is-valid').length == $('.editableModal').length) {
         let newCustomer = {
-            companyName : $('#newRaisonSociale').val(),
-            type : $('input[name=newType]:checked').val(),
-            address : $('#newAdresse').val(),
-            zip : $('#newCp').val(),
-            city : $('#newVille').val(),
-            phone : $('#newTelephone').val(),
-            activity : $('#newDomaine').val(),
-            nature : $('#newNature option:selected').val(),
-            turnover : $('#newCa').val(),
-            workforce : $('#newEffectif').val(),
-            form : "ok"
+            companyName: $('#newRaisonSociale').val(),
+            type: $('input[name=newType]:checked').val(),
+            address: $('#newAdresse').val(),
+            zip: $('#newCp').val(),
+            city: $('#newVille').val(),
+            phone: $('#newTelephone').val(),
+            activity: $('#newDomaine').val(),
+            nature: $('#newNature option:selected').val(),
+            turnover: $('#newCa').val(),
+            workforce: $('#newEffectif').val(),
+            form: "ok"
         }
 
-        $.post('/addcustomer', newCustomer, function(reponse) {
+        $.post('/addcustomer', newCustomer, function (reponse) {
             if (reponse === "1") {
                 alert('Nouveau client ajouté avec succès');
                 $('.editableModal').val("").removeClass('is-valid');
                 $('#editModal').modal('hide');
+                location.replace('/customers');
             } else {
                 alert(reponse);
             }
         });
-        
+
     }
     else {
         alert('Client non-conforme.');
     }
 });
 
-/**
- * Checks every single .editableModal inputs.
- * If all are valid, enables the user to save the new client as a new entry.
- * Triggers when clicking on the "Enregistrer" button (in the modal).
- */
-function addClient() {
-    if ($('.editableModal.is-valid').length == $('.editableModal').length){
-        alert('Nouveau client ajouté avec succès');
-        $('.editableModal').val("").removeClass('is-valid');
-        $('#editModal').modal('hide');
+function deleteClient() {
+
+    let confirmation = confirm('Ce client sera définitivement supprimé. Continuer ?')
+    if (confirmation){
+        let toDelete = {
+            id: $('#clientId').html()
+        }
+    
+        $.post('/deletecustomer', toDelete, function(reponse) {
+            alert('Client supprimé !');
+        })
+        annulation();
     }
-    else {
-        alert('Client non-conforme.');
-    }
+
 };
 /**
  * User Input Control Function
@@ -150,4 +178,6 @@ $('.editableClient, .editableModal').focusout(function () {
         regexAuto = verifNature;
     }
     verifNewInput('#' + idInput, regexAuto);
+
+    
 });
