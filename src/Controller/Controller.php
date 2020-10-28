@@ -31,7 +31,7 @@ abstract class Controller
     {
         session_start();
 
-        if (!empty($_POST)){
+        if (!empty($_POST) && isset($_POST['identifiant'])){
             $signin = new LoginForm($_POST);
             $signin->authentification();
         } 
