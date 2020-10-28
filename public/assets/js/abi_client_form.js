@@ -8,9 +8,13 @@ Dernière modification le 26/08/20
  * Triggers when clicking on the "Modifier" button (#modif).
  */
 function editClient() {
-    $('#modif, #valider, #annuler, #delete').toggle();
-    $('.editableClient').prop("disabled", false);
-    $('.editableClient').toggleClass("form-control-plaintext");
+    if ($('#clientId').html() !== ""){
+        $('#modif, #valider, #annuler, #delete').toggle();
+        $('.editableClient').prop("disabled", false);
+        $('.editableClient').toggleClass("form-control-plaintext");
+    } else {
+        alert('Aucun client sélectionné.')
+    }
 };
 /**
  * Checks every single .editableClient inputs.
@@ -37,9 +41,15 @@ function validClient() {
         }
 
         $.post('/updatecustomer', update, function(reponse) {
-            console.log(reponse);
-            alert('Client mis à jour avec succès !');
-            annulation();
+            if (reponse === "1") {
+                alert('Client mis à jour avec succès !');
+                annulation();
+                $('.editableModal').val("").removeClass('is-valid');
+                $('#editModal').modal('hide');
+                location.replace('/customers');
+            } else {
+                alert(reponse);
+            }
         })
     }
     else {
@@ -63,7 +73,7 @@ $("#formNewCustomer").submit(function (event) {
     if ($('.editableModal.is-valid').length == $('.editableModal').length) {
         let newCustomer = {
             companyName: $('#newRaisonSociale').val(),
-            type: $('#newType').val(),
+            type: $('input[name=newType]:checked').val(),
             address: $('#newAdresse').val(),
             zip: $('#newCp').val(),
             city: $('#newVille').val(),
@@ -80,6 +90,7 @@ $("#formNewCustomer").submit(function (event) {
                 alert('Nouveau client ajouté avec succès');
                 $('.editableModal').val("").removeClass('is-valid');
                 $('#editModal').modal('hide');
+                location.replace('/customers');
             } else {
                 alert(reponse);
             }
@@ -101,9 +112,8 @@ function deleteClient() {
     
         $.post('/deletecustomer', toDelete, function(reponse) {
             alert('Client supprimé !');
-            annulation();
-            Location.reload;
         })
+        annulation();
     }
 
 };
@@ -168,4 +178,6 @@ $('.editableClient, .editableModal').focusout(function () {
         regexAuto = verifNature;
     }
     verifNewInput('#' + idInput, regexAuto);
+
+    
 });

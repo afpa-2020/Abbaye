@@ -37,8 +37,8 @@ class UpdateCustomerForm
         $this->income = (int) $post['turnover'];
         $this->workforce = (int) $post['workforce'];
         $this->phone = (string) htmlspecialchars(trim($post['phone']));
-        $this->type = htmlspecialchars(trim($post['type']));
-        $this->nature = htmlspecialchars(trim($post['nature']));
+        $this->type = htmlspecialchars(trim(ucfirst($post['type'])));
+        $this->nature = htmlspecialchars(trim(ucfirst($post['nature'])));
         $this->comment = $post['comment'];
         $this->activity = htmlspecialchars($post['activity']);
         $this->id = (int)$post['id'];
