@@ -11,7 +11,10 @@ class DocumentRepository extends Repository {
     {
         parent::__construct("Document");
     }
-
+/**
+ * Cette fonction permet de trouver un contact
+ * @return Document
+ */
     public function findByContact(Contact $contact)
     {
         $idContact = $contact->getId();
@@ -19,7 +22,10 @@ class DocumentRepository extends Repository {
         $query->execute([$idContact]);
         $query->fetch();
     }
-
+/**
+ * Cette fonction permet de trouver le nom de famille de la personne 
+ * @return array Document
+ */
     public function findByLastname(string $name)
     {
        $query = $this->pdo->prepare("SELECT * FROM contact WHERE contact.lastname = ?");

@@ -21,7 +21,7 @@ class DeleteCustomerForm
     }
 
     /**
-     * On créer 
+     * On créer une fonction qui va nous permettre de supprimer des clients
      */
     public function deleteCustomer()
     {

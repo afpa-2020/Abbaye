@@ -16,7 +16,10 @@ class CustomerRepository extends Repository
     {
         parent::__construct("Customer");
     }
-
+/**
+ * Cette fonction permet de trouver un projet
+ * @return Customers
+ */
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
@@ -25,7 +28,10 @@ class CustomerRepository extends Repository
         $query->setFetchMode(PDO::FETCH_CLASS, Customer::class);
         return $query->fetch();
     }
-    
+    /**
+     * Cette fonction permet de trouver un contact
+     * @return Customers
+     */
     public function findByContact(Contact $contact)
     {
         $idContact = $contact->getId();
@@ -34,7 +40,10 @@ class CustomerRepository extends Repository
         $query->setFetchMode(PDO::FETCH_CLASS, Customer::class);
         return $query->fetch();
     }
-
+/**
+ * Cette fonction permet de trouver un document
+ * @return Contact
+ */
     public function findByDocument(Document $document)
     {
         $contactRepository = new ContactRepository();

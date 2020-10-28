@@ -12,7 +12,10 @@ class EmployeeRepository extends Repository {
     {
         parent::__construct("Employee");
     }
-
+/**
+ * Cette fonction permet de trouver un projet
+ * @return array employees
+ */
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
@@ -20,7 +23,10 @@ class EmployeeRepository extends Repository {
         $query->execute([$idProject]);
         return $query->fetchAll(\PDO::FETCH_CLASS, Employee::class);
     }
-
+/**
+ * Cette fonction permet de trouver un utilisateur 
+ * @return array employees
+ */
     public function findByUser(User $user)
     {
         $idUser = $user->getId();
