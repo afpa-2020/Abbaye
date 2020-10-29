@@ -2,7 +2,7 @@
 
 
 <div class="container border border-dark">
-    <h1 class="text-center m-5 "> Nous Contacter</h1>
+    <h1 class="text-center m-5 ">Nous Contacter</h1>
     <form action="/sendmail" id="contact" method="post">
         <div class="form-row">
             <div class="form-group col-md-6">

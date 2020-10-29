@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Repository;
-
+use App\Entity\Project;
 use App\Entity\Employee;
 use App\Entity\Customer;
+use App\Repository\Repository;
 use \PDO;
 
 class ProjectRepository extends Repository {
