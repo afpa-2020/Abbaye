@@ -105,7 +105,7 @@
                     <a class="nav-link disabled" href="/">F.A.Q</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/nouscontacter">Recrutement</a>
+                    <a class="nav-link disabled" href="/">Recrutement</a>
                 </li>
             </ul>
         </div>

@@ -3,9 +3,12 @@
 namespace App\Entity;
 
 use DateTime;
+use App\Traits\JsonTrait;
 
 class Employee
 {
+    use JsonTrait;
+
     private int $id;
     private string $lastname;
     private string $firstname;
@@ -107,9 +110,5 @@ class Employee
     {
         $this->dismissed = $dismissed;
         return $this;
-    }
-
-    public function toJson(){
-        return json_encode(get_object_vars($this));
     }
 }

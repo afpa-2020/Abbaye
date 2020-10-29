@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Employee;
+use App\Entity\User;
 
 class UserRepository extends Repository
 {
@@ -11,10 +12,11 @@ class UserRepository extends Repository
         parent::__construct("User");
     }
 
+        
     /**
-     * function findByEmployees
-     * @param {Employee} $employee
-     * @return user.id
+     *
+     * @param Employee $employee
+     * @return User
      */
     public function findByEmployee(Employee $employee)
     {
@@ -24,12 +26,7 @@ class UserRepository extends Repository
         return $query->fetch();
     }
 
-    /**
-     * function authentificate
-     * @param  $login
-     * @param  $password
-     * @return user.id
-     */
+    
     public function authentificate(string $login)
     {
         $query = $this->pdo->prepare("SELECT * FROM user WHERE user.login = ?");

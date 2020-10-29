@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use App\Traits\JsonTrait;
+
 class User
 {
+    use JsonTrait;
+
     private int $id;
     private string $login;
     private string $password;
@@ -51,9 +55,5 @@ class User
     {
         $this->role = $role;
         return $this;
-    }
-
-    public function toJson(){
-        return json_encode(get_object_vars($this));
     }
 }

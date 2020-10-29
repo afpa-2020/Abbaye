@@ -4,6 +4,7 @@
 namespace App\Forms;
 
 use App\Config\DbConfig;
+use \PDO;
 
 /**
  * On utilise une classe pour pouvoir faire une vérification de formulaire en  PHP
@@ -28,11 +29,12 @@ class RegisterForm
       $this->confirmPassword = trim($post['confirmPassword']); 
   }
 
+   
   /**
-   * On créer une fonction register qui va nous permettre de rentrer un nouveau utilisateur dans la base de données 
-   * On crée une  requête SQL qui va verifier si l'utilisateur un déja ce nom pris 
-   * On crée une requête SQL qui va vérifier si c'est email est déja dans la base de données 
-   * On crée une requête SQL qui nous permet d'ajouter un nouvel utilisateur
+   *Contrôle la saisie utilisateur issue du formulaire d'inscription.
+   *Retour un message d'erreur approprié en cas de problème.
+   *Procède à l'enregistrement du nouvel utilisateur en cas de reussite.
+   * @return bool|string
    */
   public function register()
   {
@@ -44,18 +46,18 @@ class RegisterForm
       $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
   
-    $pdo = new \PDO (DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+    $pdo = new PDO (DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
    
 
     $query = $pdo->prepare("SELECT user.* FROM user WHERE email = ?");
     $query->execute([$this->email]);
-    $results = $query->fetchAll(\PDO::FETCH_ASSOC);
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
     if (!empty($results)) return "Email déjà utilisée.";      
 
     $query = $pdo->prepare("SELECT user.* FROM user WHERE login = ?");
     $query->execute([$this->identifiant]);
-    $results = $query->fetchAll(\PDO::FETCH_ASSOC);
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
     if (!empty($results)) return "Identifiant déjà pris.";      
 
     
