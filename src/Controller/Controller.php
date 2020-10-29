@@ -62,6 +62,14 @@ abstract class Controller
         ob_end_flush();
     }
 
+        
+    /**
+     * customersController: Controller de la page customer.php,
+     * Permet d'authentifier le visiteur,
+     * afficher une table avec sa pagination et la possibilité de faire une recherche dans celle-ci
+     *
+     * @return void
+     */
     public static function customersController()
     {
         session_start();
