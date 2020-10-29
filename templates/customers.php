@@ -9,10 +9,10 @@
       </h3>
 
       <div class="col-12">
-        <form action="#" method="GET" id="search_clients">
-          <div class="row mt-2 mb-2">
-            <div class=<?= ($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
-              <div class="row">
+        <div class="row mt-2 mb-2">
+          <div class=<?=($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
+            <div class="row">
+              <form action="#" method="GET" id="search_clients">
                 <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
               </form>
               </div>
@@ -61,20 +61,28 @@
 
     <nav class=>
       <ul class="pagination justify-content-center">
+ <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+            <a href="/customers?page=<?= 1 . "&search" . $_GET['search'] ?>" class="page-link"> |< </a>
+          </li> 
         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-          <a href="/customers?page=<?= 1 . "&search" . $_GET['search'] ?>" class="page-link"> |< </a> </li> <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-              <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link">
-                < </a> </li> <?php for ($page = ($currentPage - 2); $page < $currentPage + 3; $page++) : ?> <?php if ($page > 0 && $page <= $pages) : ?> <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                  <a href="/customers?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
-        </li>
-      <?php endif ?>
-    <?php endfor ?>
+          <a href="/customers?page=<?= ($currentPage - 1) . "&search=" . $_GET['search'] ?>" class="page-link"> < </a> 
+         </li>  
+         
+      
+        <?php for ($page = ($currentPage-2);$page < $currentPage+3; $page++) : ?>
+          <?php if ($page>0 && $page <= $pages) : ?>
 
-    <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-      <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
-    <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-      <a href="/customers?page=<?= $pages . "&search" . $_GET['search'] ?>" class="page-link"> >| </a>
-    </li>
+        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+          <a href="/customers?page=<?= $page . "&search=" . $_GET['search'] ?>" class="page-link"><?= $page ?></a>
+        </li>
+        <?php endif ?>
+      <?php endfor ?>
+      
+      <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+        <a href="/customers?page=<?= ($currentPage + 1) . "&search=" . $_GET['search'] ?>" class="page-link"> > </a>
+        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+          <a href="/customers?page=<?= $pages . "&search" . $_GET['search'] ?>" class="page-link"> >| </a>
+      </li>
       </ul>
     </nav>
 
@@ -125,7 +133,15 @@
               </tr>
             </tbody>
           </table>
-          
+          <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
+            <button class="btn btn-danger" id="modif" onclick="editClient()" type="button">Modifier
+              Client</button>
+            <button class="btn btn-info mt-3" id="annuler" style="display:none" onclick="annulation()" type="button">Annuler</button>
+            <button class="btn btn-success mt-3" id="valider" style="display:none" onclick="validClient()" type="button">Enregistrer</button>
+            <button class="btn btn-warning mt-3" id="delete" style="display:none" onclick="deleteClient()" type="button">Supprimer</button>
+          <?php endif; ?>
+        </form>
+      </div>
       <div class="col-md-6 col-12">
         <table class="table text-white">
           <tbody>
