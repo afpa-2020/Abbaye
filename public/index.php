@@ -12,13 +12,11 @@ $uri = $_SERVER["REQUEST_URI"];
 if (strpos($uri, "?")){
     $uri = substr_replace($uri, "", strpos($uri, "?"));
 }
-$uri = substr($uri, 1);
-$uri = $uri . "Controller";
-
+$uri = substr($uri, 1) . "Controller";
 
 if($uri ==="Controller"){
     Controller::homeController();
-} else if (method_exists('App\Controller\Controller', $uri)) {
+} else if (method_exists(Controller::class, $uri)) {
     Controller::$uri();
 } else {
     Controller::error404Controller();

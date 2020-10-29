@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Contact;
 use DateTime;
+use App\Entity\Document;
 
 class DocumentRepository extends Repository {
 
@@ -11,22 +12,26 @@ class DocumentRepository extends Repository {
     {
         parent::__construct("Document");
     }
-/**
- * Cette fonction permet de trouver un contact
- * @return Document
- */
-    public function findByContact(Contact $contact)
+    
+    /**
+     *Retourne un Document écrit par un Contact passé en argument.
+     * @param Contact $contact
+     * @return Document
+     */
+    public function findByContact(Contact $contact) : Document
     {
         $idContact = $contact->getId();
         $query = $this->pdo->prepare("SELECT * FROM document JOIN contact ON document.contact_id = contact.id WHERE contact.id = ?");
         $query->execute([$idContact]);
-        $query->fetch();
+        return $query->fetch();
     }
-/**
- * Cette fonction permet de trouver le nom de famille de la personne 
- * @return array Document
- */
-    public function findByLastname(string $name)
+    
+    /**
+     *Retourne un tableau de Document selon un nom de famille de Contact (auteur) passé en argument.
+     * @param string $name
+     * @return Document[]
+     */
+    public function findByContactLastname(string $name) : array
     {
        $query = $this->pdo->prepare("SELECT * FROM contact WHERE contact.lastname = ?");
        $query->execute([$name]);

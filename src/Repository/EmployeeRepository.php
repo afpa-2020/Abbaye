@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Project;
 use App\Entity\User;
+use \PDO;
 
 
 class EmployeeRepository extends Repository {
@@ -12,26 +13,26 @@ class EmployeeRepository extends Repository {
     {
         parent::__construct("Employee");
     }
-/**
- * Cette fonction permet de trouver un projet
- * @return array employees
- */
+
+        
+    /**
+     *Retourne un tableau des Employees assignés à un Project
+     * @param Project $project
+     * @return Employee[]
+     */
     public function findByProject(Project $project)
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT employee .* FROM employee JOIN project_employee AS pe ON pe.employee_id = employee.id WHERE pe .project_id = ?");
         $query->execute([$idProject]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, Employee::class);
+        return $query->fetchAll(PDO::FETCH_CLASS, Employee::class);
     }
-/**
- * Cette fonction permet de trouver un utilisateur 
- * @return array employees
- */
+
     public function findByUser(User $user)
     {
         $idUser = $user->getId();
         $query = $this->pdo->prepare("SELECT employee .* FROM employee JOIN user ON user.id = employee.user_id WHERE user.id = ?");
         $query->execute([$idUser]);
-        return $query->fetchAll(\PDO::FETCH_CLASS, Employee::class);
+        return $query->fetchAll(PDO::FETCH_CLASS, Employee::class);
     }
 }

@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use App\Traits\JsonTrait;
+
 class Contact
 {
+    use JsonTrait;
+    
     private int $id;
     private string $role;
     private string $lastname;
@@ -76,13 +80,5 @@ class Contact
     {
         $this->email = $email;
         return $this;
-    }
-
-    public function toJson(){
-        return json_encode(get_object_vars($this));
-    }
-
-    public function toJsonArray(){
-        return get_object_vars($this);
     }
 }

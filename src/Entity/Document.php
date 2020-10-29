@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use App\Traits\JsonTrait;
+
 class Document
 {
+    use JsonTrait;
+
     private int $id;
     private string $title;
     private string $summary;
@@ -51,9 +55,5 @@ class Document
     {
         $this->created_at = $created_at;
         return $this;
-    }
-
-    public function toJson(){
-        return json_encode(get_object_vars($this));
     }
 }

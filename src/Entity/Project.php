@@ -2,8 +2,12 @@
 
 namespace App\Entity;
 
+use App\Traits\JsonTrait;
+
 class Project
 {
+    use JsonTrait;
+
     private int $id;
     private string $shortname;
     private string $fullname;
@@ -81,9 +85,5 @@ class Project
     {
         $this->customer_id = $customer_id;
         return $this;
-    }
-    
-    public function toJson(){
-        return json_encode(get_object_vars($this));
     }
 }
