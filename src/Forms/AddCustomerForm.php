@@ -5,9 +5,6 @@ namespace App\Forms;
 
 use App\Config\DbConfig;
 
-/**
- * On utilise une classe pour pouvoir faire une vérification de formulaire en  PHP
- */
 class AddCustomerForm
 {
     private string $company_name;
@@ -23,10 +20,6 @@ class AddCustomerForm
     private string $activity;
 
 
-
-    /**
-     * On crée un constructeur dans lequelle on va passer la méthode POST et on va récuperer les informations que l'on na besoin 
-     */
     public function __construct($post)
     {
         $this->company_name = htmlspecialchars($post['companyName']);
@@ -41,7 +34,12 @@ class AddCustomerForm
         $this->comment = "";
         $this->activity = htmlspecialchars($post['activity']);
     }
-
+    
+    /**
+     *Ajoute un nouveau Customer à la base de données si les données saisies répondent à nos attentes.
+     *En cas d'erreur, retourne un message approprié à destination de l'utilisateur.
+     * @return bool|string
+     */
     public function addToDatabase()
     {
         if (

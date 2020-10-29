@@ -5,23 +5,20 @@ namespace App\Forms;
 
 use App\Config\DbConfig;
 
-/**
- * On utilise une classe pour pouvoir faire une vérification de formulaire en  PHP
- */
 class DeleteCustomerForm
 {
     private int $id;
     
-    /**
-     * On crée un constructeur dans lequelle on va passer la méthode POST et on va récuperer les informations que l'on na besoin 
-     */
     public function __construct($post)
     {
         $this->id = (int)$post['id'];
     }
 
+        
     /**
-     * On créer une fonction qui va nous permettre de supprimer des clients
+     * Supprime le Customer selectionné.
+     * Fonctionnalité d'édition réservée aux Users ayant les rôles "Commercial" et "RC".
+     * @return void
      */
     public function deleteCustomer()
     {

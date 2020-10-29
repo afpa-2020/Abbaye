@@ -12,7 +12,7 @@ class LoginForm {
 
 /**
  * On créer un constructeur dans lequelle on passe la méthode POST 
- * Récuperer les informations que l'on na besoins 
+ * Récuperer les informations dont l'on na besoins 
  */
     public function __construct($post)
     {
@@ -20,9 +20,11 @@ class LoginForm {
         $this->password = trim($post["password"]);
     }
 
+        
     /**
-     * On créer une fonction s'authentifier qui va nous permettre de nous connecter 
-     * Envoyer un message si la connexion est invalide
+     *Assure la connexion d'un utilisateur en vérifiant sa présence dans la base de données
+     *et la concordance avec le mot de passe saisi.
+     * @return void
      */
     public function authentification(){
        

@@ -13,22 +13,26 @@ class ContactRepository extends Repository
     {
         parent::__construct("Contact");
     }
-/**
- * Cette fonction permet de trouver un client
- * @return array Contact
- */
-    public function findAllByCustomer(Customer $customer)
+    
+    /**
+     * Permet de retrouver tous les Contacts traivaillant pour un Client
+     * @param Customer $customer
+     * @return Contact[]
+     */
+    public function findAllByCustomer(Customer $customer) : array
     {
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ?");
         $query->execute([$idCustomer]);
         return $query->fetchAll(\PDO::FETCH_CLASS, Contact::class);
     }
-/**
- * Cette fonction permet de trouver un document
- * @return Contact
- */
-    public function findByDocument(Document $document)
+    
+    /**
+     *Permet de trouver le Contact auteur d'un Document passé en argument.
+     * @param  Document $document
+     * @return Contact
+     */
+    public function findByDocument(Document $document) : Contact
     {
         $idDocument = $document->getId();
         $query = $this->pdo->prepare("SELECT contact .* FROM contact JOIN document ON contact.id = document.contact_id WHERE document.id = ?");
@@ -37,8 +41,13 @@ class ContactRepository extends Repository
         return $query->fetch();
     
     }
-
-    public function findSampleByCustomer(Customer $customer)
+    
+    /**
+     *Permet de récupérer un tableau "échantillon" de 3 Contacts (maximum) travaillant pour un Client
+     * @param Customer $customer
+     * @return Contact[]
+     */
+    public function findSampleByCustomer(Customer $customer) : array
     {
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT contact.* FROM contact JOIN customer ON customer.id = contact.customer_id WHERE customer.id = ? LIMIT 3");

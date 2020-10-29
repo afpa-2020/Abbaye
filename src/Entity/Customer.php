@@ -1,9 +1,14 @@
 <?php
 
+
 namespace App\Entity;
+
+use App\Traits\JsonTrait;
 
 class Customer
 {
+    use JsonTrait; 
+
     private int $id;
     private string $company_name;
     private string $address;
@@ -135,13 +140,5 @@ class Customer
     {
         $this->activity = $activity;
         return $this;
-    }
-
-    public function toJson(){
-        return json_encode(get_object_vars($this));
-    }
-
-    public function toJsonArray(){
-        return get_object_vars($this);
     }
 }

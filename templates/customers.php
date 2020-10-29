@@ -1,11 +1,9 @@
 <?php require_once 'skeleton/header.php' ?>
 
-
-<!-- <a href="/customers?page=1&nb_resultats=10"></a> -->
 <div class="d-flex flex-column">
   <div class="justify-content-center row m-1 mb-2 ">
-
     <div class="bg-secondary col-md-4 col-12 rounded m-1 ">
+
       <h3 class="bg-info mt-1 rounded text-center ">
         Nos clients
       </h3>
@@ -16,32 +14,13 @@
             <div class=<?= ($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
               <div class="row">
                 <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
+              </form>
               </div>
             </div>
-        </form>
-        <!-- <div class="form-check mt-3">
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triId" checked><label
-                    for="triId"></label> Trier par Id
-                </div>
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triRs"><label for="triRs"></label>
-                  Trier par Raison Sociale
-                </div>
-                <div class="row">
-                  <input class="form-check-input" type="radio" name="tri" value="triDpt"><label for="triDpt"></label>
-                  Trier par Département
-                </div>
-              </div> -->
+
 
         <div class="col-md-6">
-          <!-- <div class="form-row">
-                <select name="nb_resultats" id="nb_resultats_selec">
-                  <option selected value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                </select>
-              </div> -->
+
           <div class="form-row my-1">
             <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
               <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
@@ -49,7 +28,9 @@
             <?php endif; ?>
           </div>
         </div>
+
       </div>
+
     </div>
 
 
@@ -98,7 +79,7 @@
     </nav>
 
   </div>
-
+<!-- ///////////////////////////////////////////////////////// -->
   <div class="bg-secondary col-md-7 col-12 rounded m-1">
     <h3 class="bg-info mt-1 rounded text-center" id="clientName">
       Informations sur le client

@@ -44,6 +44,11 @@ class UpdateCustomerForm
         $this->id = (int)$post['id'];
     }
 
+        
+    /**
+     *Contrôle les données envoyées via formulaire avant de mettre à jour le Customer ciblé.
+     * @return bool|string
+     */
     public function updateCustomer()
     {
         if (

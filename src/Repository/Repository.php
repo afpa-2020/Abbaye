@@ -59,7 +59,14 @@ abstract class Repository {
         //dd($sql);
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\$this->classname");
     }
-
+    
+    /**
+     * paginate: permet l'affichage avec pagination d'un tableau contenant toutes les entrées d'une table
+     * l'argument d'entrée est le nom de la colonne qui sera triée par ordre alphabétique
+     * @param  mixed $column
+     * @return [$nbPerPage, $first, $currentPage, $pages] les variables de ce tableau pourront être utilisées dans le Controller afin de permettre
+     * un affichage correct de la pagination
+     */
     public function paginate($column) {
         if(isset($_GET['page']) && !empty($_GET['page'])){
             $currentPage = (int) strip_tags($_GET['page']);
@@ -87,6 +94,17 @@ abstract class Repository {
         }
         return [$nbPerPage, $first, $currentPage, $pages];
     }
+/**
+ * searching: permet d'effectuer des recherches à l'intérieur d'une table affichée
+ * 
+ *
+ * @param  mixed $search
+ * @param  mixed $orderBy
+ * @param  mixed $limit
+ * @param  mixed $offset
+ * @param  mixed $column
+ * @return void
+ */
 public function searching(string $search, array $orderBy = null, int $limit = null, int $offset = null, string $column)
     {
         if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
