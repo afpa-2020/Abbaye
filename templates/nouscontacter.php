@@ -11,7 +11,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="lastname">Nom</label>
-                <input type="text" class="form-control" name="lastname"> 
+                <input type="text" class="form-control" name="lastname">
             </div>
         </div>
         <div class="form-group">
@@ -19,11 +19,11 @@
             <input type="email" class="form-control" name="email">
 
             <div class="form-group">
-            <label for="objet">Objet</label>
-            <input type="objet" class="form-control" name="objet">
+                <label for="objet">Objet</label>
+                <input type="objet" class="form-control" name="objet">
 
                 <div class="form-group">
-                    <label for="message">Message</label>
+                     <label for="message">Message</label>
                     <textarea class="form-control" name="message" rows="5"></textarea>
                 </div>
 
@@ -32,7 +32,7 @@
         </div>
     </form>
 
-   
-  
+
+
 
     <?php require_once 'skeleton/footer.php' ?>
