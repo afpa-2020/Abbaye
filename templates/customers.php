@@ -9,10 +9,10 @@
       </h3>
 
       <div class="col-12">
+        <form action="#" method="GET" id="search_clients">
         <div class="row mt-2 mb-2">
           <div class=<?=($_SESSION['role'] === 'Commercial' || $_SESSION['role'] === 'RC') ? "col-md-6" : "col-12" ?>>
             <div class="row">
-              <form action="#" method="GET" id="search_clients">
                 <input class="form-control" type="text" placeholder="Rechercher un Client" name="search" autofocus>
               </form>
               </div>
@@ -21,12 +21,10 @@
 
         <div class="col-md-6">
 
-          <div class="form-row my-1">
             <?php if ($_SESSION['role'] === "Commercial" || $_SESSION['role'] === "RC") : ?>
               <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#editModal">Ajouter un
                 Client</button>
             <?php endif; ?>
-          </div>
         </div>
 
       </div>

@@ -1,16 +1,20 @@
 
 
-
+/**
+ * Assure l'affichage du détail des informations du client selectionné.
+ * @param {int} id 
+ */
 function select_customer(id) {
     let inputs = document.getElementById('clientAdresse');
     if (!inputs.disabled){
-        annulation();
+        annulation(); // Si le mode d'édition est actif, on le quitte.
     }
 
   const xhr = new XMLHttpRequest();
 
   xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+        //La réponse est un objet json que l'on parse pour l'exploiter et assurer l'affichage.
         let customer = JSON.parse(this.response);
         document.getElementById('clientName').innerHTML = customer.company_name;
         document.getElementById('clientAdresse').value = customer.address;
@@ -25,8 +29,7 @@ function select_customer(id) {
         document.getElementById('clientType').innerHTML = customer.type;
         document.getElementById('clientId').innerHTML = customer.id;
 
-        customer = JSON.parse(this.response);
-
+        //On récupére également un tableau d'échantillon de Contacts correspondant au Client (max. 3)
         document.getElementById('contactsListe').innerHTML = "";
         if (customer.contacts.length > 0) {
             customer.contacts.forEach(contact => {

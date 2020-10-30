@@ -109,13 +109,11 @@ function deleteClient() {
         let toDelete = {
             id: $('#clientId').html()
         }
-    
         $.post('/deletecustomer', toDelete, function(reponse) {
             alert('Client supprimé !');
         })
         annulation();
     }
-
 };
 /**
  * User Input Control Function
